@@ -660,7 +660,6 @@ namespace LeetCodeWeb.Services
         public int FindCircleNum(int[][] isConnected)
         {
             int n = isConnected.GetLength(0);
-            int sameDicNum = 0;
             List<Dictionary<int, int>> circleList = new List<Dictionary<int, int>>();
 
             for (int i = 0; i < n; i++)
@@ -672,7 +671,6 @@ namespace LeetCodeWeb.Services
                         continue;
                     bool isInCircle = false;
                     int dicNum = 0;
-                    int m = circleList.Count;
                     for (int k = 0; k < circleList.Count; k++)
                     {
                         if (circleList[k].ContainsKey(i) || circleList[k].ContainsKey(j))
@@ -691,33 +689,13 @@ namespace LeetCodeWeb.Services
                                 foreach (var kvp in circleList[k])
                                 {
                                     if (!circleList[dicNum].ContainsKey(kvp.Key))                                    
-                                        circleList[dicNum].Add(kvp.Key, 1);                                   
+                                        circleList[dicNum].Add(kvp.Key, 1);                                    
                                 }
+                                circleList.RemoveAt(k);
                             }
                         }
                     }
-                    foreach (var dic in circleList)
-                    {
-                        if (dic.ContainsKey(i) || dic.ContainsKey(j))
-                        {
-                            if (!dic.ContainsKey(i))
-                                dic.Add(i, 1);
-                            if (!dic.ContainsKey(j))
-                                dic.Add(j, 1);
-                            if (isInCircle == false)
-                            {
-                                tmpDic = dic;
-                                isInCircle = true;
-                            }                                
-                            else
-                            {
-                                foreach (var kvp in dic)
-                                {
 
-                                }
-                            }
-                        }    
-                    }
                     if (isInCircle == false)
                     {
                         Dictionary<int, int> newDic = new Dictionary<int, int>();
@@ -732,7 +710,7 @@ namespace LeetCodeWeb.Services
                     }
                 }
             }
-            return circleList.Count - sameDicNum;
+            return circleList.Count;
         }
     }
 
