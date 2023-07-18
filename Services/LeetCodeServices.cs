@@ -659,7 +659,80 @@ namespace LeetCodeWeb.Services
 
         public int FindCircleNum(int[][] isConnected)
         {
-            return 0;
+            int n = isConnected.GetLength(0);
+            int sameDicNum = 0;
+            List<Dictionary<int, int>> circleList = new List<Dictionary<int, int>>();
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    int tmpNum = isConnected[i][j];
+                    if (tmpNum == 0)
+                        continue;
+                    bool isInCircle = false;
+                    int dicNum = 0;
+                    int m = circleList.Count;
+                    for (int k = 0; k < circleList.Count; k++)
+                    {
+                        if (circleList[k].ContainsKey(i) || circleList[k].ContainsKey(j))
+                        {
+                            if (!circleList[k].ContainsKey(i))
+                                circleList[k].Add(i, 1);
+                            if (!circleList[k].ContainsKey(j))
+                                circleList[k].Add(j, 1);
+                            if (isInCircle == false)
+                            {
+                                dicNum = k;
+                                isInCircle = true;
+                            }
+                            else
+                            {
+                                foreach (var kvp in circleList[k])
+                                {
+                                    if (!circleList[dicNum].ContainsKey(kvp.Key))                                    
+                                        circleList[dicNum].Add(kvp.Key, 1);                                   
+                                }
+                            }
+                        }
+                    }
+                    foreach (var dic in circleList)
+                    {
+                        if (dic.ContainsKey(i) || dic.ContainsKey(j))
+                        {
+                            if (!dic.ContainsKey(i))
+                                dic.Add(i, 1);
+                            if (!dic.ContainsKey(j))
+                                dic.Add(j, 1);
+                            if (isInCircle == false)
+                            {
+                                tmpDic = dic;
+                                isInCircle = true;
+                            }                                
+                            else
+                            {
+                                foreach (var kvp in dic)
+                                {
+
+                                }
+                            }
+                        }    
+                    }
+                    if (isInCircle == false)
+                    {
+                        Dictionary<int, int> newDic = new Dictionary<int, int>();
+                        if (i != j)
+                        {
+                            newDic.Add(i, 1);
+                            newDic.Add(j, 1);
+                        }
+                        else
+                            newDic.Add(i, 1);                        
+                        circleList.Add(newDic);
+                    }
+                }
+            }
+            return circleList.Count - sameDicNum;
         }
     }
 
