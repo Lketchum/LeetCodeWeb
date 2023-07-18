@@ -27,5 +27,6 @@ namespace LeetCodeWeb.IServices
         TreeNode SearchBST(TreeNode root, int val);
         TreeNode DeleteNode(TreeNode root, int key);
         bool CanVisitAllRooms(IList<IList<int>> rooms);
+        int FindCircleNum(int[][] isConnected);
     }
 }

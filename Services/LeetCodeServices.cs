@@ -656,6 +656,11 @@ namespace LeetCodeWeb.Services
             }
             return keyDic.Count == rooms.Count;
         }
+
+        public int FindCircleNum(int[][] isConnected)
+        {
+            return 0;
+        }
     }
 
     /// <summary>

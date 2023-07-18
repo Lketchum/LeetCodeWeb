@@ -160,6 +160,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CanVisitAllRooms(rooms);
             return result;
         }
+
+        [HttpPost("FindCircleNum")]
+        public int FindCircleNum(int[][] isConnetcted)
+        {
+            var result = _leetCodeServices.FindCircleNum(isConnetcted);
+            return result;
+        }
     }
 }
 
