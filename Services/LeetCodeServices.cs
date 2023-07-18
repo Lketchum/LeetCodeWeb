@@ -712,6 +712,11 @@ namespace LeetCodeWeb.Services
             }
             return circleList.Count;
         }
+
+        public int MinReorder(int n, int[][] connections)
+        {
+            return 0;
+        }
     }
 
     /// <summary>

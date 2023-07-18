@@ -167,6 +167,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindCircleNum(isConnetcted);
             return result;
         }
+
+        [HttpPost("MinReorder")]
+        public int MinReorder(int n, int[][] connections)
+        {
+            var result = _leetCodeServices.MinReorder(n, connections);
+            return result;
+        }
     }
 }
 
