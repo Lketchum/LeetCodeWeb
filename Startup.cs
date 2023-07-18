@@ -40,7 +40,7 @@ namespace LeetCodeWeb
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "接口文档",
+                    Title = "API File",
                     Description = "RESTful API"
                 });
                 // 为 Swagger 设置xml文档注释路径
