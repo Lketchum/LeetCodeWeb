@@ -14,6 +14,7 @@ namespace LeetCodeWeb.Services
         public LeetCodeServices(ILogger<LeetCodeServices> logger)
         {
             _logger = logger;
+            //test
         }
 
         public int EasyAdd(int num1, int num2)
