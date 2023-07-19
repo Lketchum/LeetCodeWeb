@@ -816,7 +816,13 @@ namespace LeetCodeWeb.Services
 
         public double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
         {
+            int n = values.Length;
+            List<char> inVariable = new List<char>();
+            List<char> outVarible = new List<char>();
+            for (int i = 0; i < n; i++)
+            {
 
+            }
             return null;
         }
     }
