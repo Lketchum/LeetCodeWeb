@@ -751,8 +751,7 @@ namespace LeetCodeWeb.Services
             //    var parentNode = find_FindCircleNum(m);
             //    if (!dicParent.ContainsKey(find_FindCircleNum(m)))
             //        dicParent.Add(parentNode, 1);
-            //}
-            
+            //}            
             //return dicParent.Count;
             #endregion
         }
@@ -778,39 +777,41 @@ namespace LeetCodeWeb.Services
                 rank[y]++;
         }
 
-        int[] parent_MinReorder;
-        int[] rank_MinReorder;
         public int MinReorder(int n, int[][] connections)
         {
+            List<List<int>> nearNodes = new List<List<int>>();
             for (int i = 0; i < n; i++)
+                nearNodes.Add(new List<int>());
+            foreach (var pair in connections)
             {
-                parent_MinReorder[i] = i;
-                rank_MinReorder[i] = 1;
+                nearNodes[pair[0]].Add(pair[1]);
+                nearNodes[pair[1]].Add(pair[0]);
             }
-            foreach (var pair in connections)            
-                merge_MinReorder(pair[0], pair[1]);
-            for (int j = 0; j < n; j++)
-            { 
-
-            }
-
-            return 0;
-        }
-        public int find_MinReorder(int x)
-        {
-            if (parent_MinReorder[x] == x)
-                return x;
-            else
+            int[] levels = new int[n];
+            Array.Fill(levels, -1);
+            levels[0] = 0;
+            Queue<int> orderQueue = new Queue<int>();
+            orderQueue.Enqueue(0);
+            while (orderQueue.Count > 0)
             {
-                parent_MinReorder[x] = find_MinReorder(parent_MinReorder[x]);
-                return parent_MinReorder[x];
+                int city = orderQueue.Dequeue();
+                List<int> cityAround = nearNodes[city];
+                foreach (var node in cityAround)
+                {
+                    if (levels[node] < 0)
+                    {
+                        levels[node] = levels[city] + 1;
+                        orderQueue.Enqueue(node);
+                    }
+                }    
             }
-        }
-        public void merge_MinReorder(int i, int j)
-        {
-            int x = find_MinReorder(i);
-            int y = find_MinReorder(j);
-            parent_MinReorder[x] = y;
+            int reorderNum = 0;
+            foreach (var pair in connections)
+            {
+                if (levels[pair[0]] < levels[pair[1]])
+                    reorderNum++;
+            }
+            return reorderNum;
         }
     }
 
