@@ -657,65 +657,160 @@ namespace LeetCodeWeb.Services
             return keyDic.Count == rooms.Count;
         }
 
+
+        //全局变量
+        int[] parent;
+        int[] rank;
         public int FindCircleNum(int[][] isConnected)
         {
+            #region 原AC代码
+            //int n = isConnected.GetLength(0);
+            //List<Dictionary<int, int>> circleList = new List<Dictionary<int, int>>();
+
+            //for (int i = 0; i < n; i++)
+            //{
+            //    for (int j = 0; j <= i; j++)
+            //    {
+            //        int tmpNum = isConnected[i][j];
+            //        if (tmpNum == 0)
+            //            continue;
+            //        bool isInCircle = false;
+            //        int dicNum = 0;
+            //        for (int k = 0; k < circleList.Count; k++)
+            //        {
+            //            if (circleList[k].ContainsKey(i) || circleList[k].ContainsKey(j))
+            //            {
+            //                if (!circleList[k].ContainsKey(i))
+            //                    circleList[k].Add(i, 1);
+            //                if (!circleList[k].ContainsKey(j))
+            //                    circleList[k].Add(j, 1);
+            //                if (isInCircle == false)
+            //                {
+            //                    dicNum = k;
+            //                    isInCircle = true;
+            //                }
+            //                else
+            //                {
+            //                    foreach (var kvp in circleList[k])
+            //                    {
+            //                        if (!circleList[dicNum].ContainsKey(kvp.Key))                                    
+            //                            circleList[dicNum].Add(kvp.Key, 1);                                    
+            //                    }
+            //                    circleList.RemoveAt(k);
+            //                }
+            //            }
+            //        }
+
+            //        if (isInCircle == false)
+            //        {
+            //            Dictionary<int, int> newDic = new Dictionary<int, int>();
+            //            if (i != j)
+            //            {
+            //                newDic.Add(i, 1);
+            //                newDic.Add(j, 1);
+            //            }
+            //            else
+            //                newDic.Add(i, 1);                        
+            //            circleList.Add(newDic);
+            //        }
+            //    }
+            //}
+            //return circleList.Count;
+            #endregion
+
+            #region 并查集算法优化
             int n = isConnected.GetLength(0);
-            List<Dictionary<int, int>> circleList = new List<Dictionary<int, int>>();
+            int countProvince = 0;
+            parent = new int[n];
+            rank = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                parent[i] = i;
+                rank[i] = 1;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if (i == j || isConnected[i][j] == 0)
+                        continue;
+                    merge_FindCircleNum(i, j);
+                }
+            }
 
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j <= i; j++)
-                {
-                    int tmpNum = isConnected[i][j];
-                    if (tmpNum == 0)
-                        continue;
-                    bool isInCircle = false;
-                    int dicNum = 0;
-                    for (int k = 0; k < circleList.Count; k++)
-                    {
-                        if (circleList[k].ContainsKey(i) || circleList[k].ContainsKey(j))
-                        {
-                            if (!circleList[k].ContainsKey(i))
-                                circleList[k].Add(i, 1);
-                            if (!circleList[k].ContainsKey(j))
-                                circleList[k].Add(j, 1);
-                            if (isInCircle == false)
-                            {
-                                dicNum = k;
-                                isInCircle = true;
-                            }
-                            else
-                            {
-                                foreach (var kvp in circleList[k])
-                                {
-                                    if (!circleList[dicNum].ContainsKey(kvp.Key))                                    
-                                        circleList[dicNum].Add(kvp.Key, 1);                                    
-                                }
-                                circleList.RemoveAt(k);
-                            }
-                        }
-                    }
-
-                    if (isInCircle == false)
-                    {
-                        Dictionary<int, int> newDic = new Dictionary<int, int>();
-                        if (i != j)
-                        {
-                            newDic.Add(i, 1);
-                            newDic.Add(j, 1);
-                        }
-                        else
-                            newDic.Add(i, 1);                        
-                        circleList.Add(newDic);
-                    }
-                }
+                if (parent[i] == i)
+                    countProvince++;
             }
-            return circleList.Count;
+            return countProvince;
+
+            //Dictionary<int, int> dicParent = new Dictionary<int, int>();
+            //for (int m = 0; m < n; m++)
+            //{
+            //    var parentNode = find_FindCircleNum(m);
+            //    if (!dicParent.ContainsKey(find_FindCircleNum(m)))
+            //        dicParent.Add(parentNode, 1);
+            //}
+            
+            //return dicParent.Count;
+            #endregion
+        }
+        public int find_FindCircleNum(int x)
+        {
+            if (parent[x] == x)
+                return x;
+            else
+            {
+                parent[x] = find_FindCircleNum(parent[x]);
+                return parent[x];
+            }                
+        }
+        public void merge_FindCircleNum(int i, int j)
+        {
+            int x = find_FindCircleNum(i);
+            int y = find_FindCircleNum(j);
+            if (rank[x] <= rank[y])            
+                parent[x] = y;            
+            else
+                parent[y] = x;
+            if (rank[x] == rank[y] && x != y)
+                rank[y]++;
         }
 
+        int[] parent_MinReorder;
+        int[] rank_MinReorder;
         public int MinReorder(int n, int[][] connections)
         {
+            for (int i = 0; i < n; i++)
+            {
+                parent_MinReorder[i] = i;
+                rank_MinReorder[i] = 1;
+            }
+            foreach (var pair in connections)            
+                merge_MinReorder(pair[0], pair[1]);
+            for (int j = 0; j < n; j++)
+            { 
+
+            }
+
             return 0;
+        }
+        public int find_MinReorder(int x)
+        {
+            if (parent_MinReorder[x] == x)
+                return x;
+            else
+            {
+                parent_MinReorder[x] = find_MinReorder(parent_MinReorder[x]);
+                return parent_MinReorder[x];
+            }
+        }
+        public void merge_MinReorder(int i, int j)
+        {
+            int x = find_MinReorder(i);
+            int y = find_MinReorder(j);
+            parent_MinReorder[x] = y;
         }
     }
 
