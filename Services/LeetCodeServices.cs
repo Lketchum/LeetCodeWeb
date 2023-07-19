@@ -813,6 +813,12 @@ namespace LeetCodeWeb.Services
             }
             return reorderNum;
         }
+
+        public double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
+        {
+
+            return null;
+        }
     }
 
     /// <summary>

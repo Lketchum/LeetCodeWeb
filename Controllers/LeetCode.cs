@@ -174,6 +174,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MinReorder(n, connections);
             return result;
         }
+
+        [HttpPost("CalcEquation")]
+        public double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
+        {
+            var result = _leetCodeServices.CalcEquation(equations, values, queries);
+            return result;
+        }
     }
 }
 

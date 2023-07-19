@@ -29,5 +29,6 @@ namespace LeetCodeWeb.IServices
         bool CanVisitAllRooms(IList<IList<int>> rooms);
         int FindCircleNum(int[][] isConnected);
         int MinReorder(int n, int[][] connections);
+        double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
     }
 }
