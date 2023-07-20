@@ -176,8 +176,11 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("CalcEquation")]
-        public double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
+        public double[] CalcEquation(Arrays_CalcEquation inputArrays)
         {
+            var equations = inputArrays.array1;
+            var values = inputArrays.array2;
+            var queries = inputArrays.array3;
             var result = _leetCodeServices.CalcEquation(equations, values, queries);
             return result;
         }

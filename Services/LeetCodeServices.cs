@@ -814,16 +814,71 @@ namespace LeetCodeWeb.Services
             return reorderNum;
         }
 
+        int[] parent_CalcEquation;
+        double[] weight_CalcEquation;
         public double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries)
         {
-            int n = values.Length;
-            List<char> inVariable = new List<char>();
-            List<char> outVarible = new List<char>();
-            for (int i = 0; i < n; i++)
+            Dictionary<string, int> varDic = new Dictionary<string, int>();
+            int nE = equations.Count;
+            int varOrder = -1;
+            for (int i = 0; i < nE; i++)
             {
-
+                if (!varDic.ContainsKey(equations[i][0]))
+                    varDic.Add(equations[i][0], ++varOrder);
+                if (!varDic.ContainsKey(equations[i][1]))
+                    varDic.Add(equations[i][1], ++varOrder);
             }
-            return null;
+            parent_CalcEquation = new int[varOrder + 1];
+            weight_CalcEquation = new double[varOrder + 1];
+            for (int i = 0; i < varOrder + 1; i++)
+            {
+                parent_CalcEquation[i] = i;
+                weight_CalcEquation[i] = 1.0;
+            }
+            for (int i = 0; i < nE; i++)
+            {
+                int order_0 = varDic[equations[i][0]];
+                int order_1 = varDic[equations[i][1]];
+                double order_num = values[i];
+                merge_CalcEquation(order_0, order_1, order_num);
+            }
+            int nQ = queries.Count;
+            double[] result = new double[nQ];
+            for (int i = 0; i < nQ; i++)
+            {
+                string variable_0 = queries[i][0];
+                string variable_1 = queries[i][1];
+                if (varDic.ContainsKey(variable_0) && varDic.ContainsKey(variable_1))
+                {
+                    int order_0 = varDic[variable_0];
+                    int order_1 = varDic[variable_1];
+                    if (parent_CalcEquation[order_0] == parent_CalcEquation[order_1])
+                        result[i] = weight_CalcEquation[order_0] / weight_CalcEquation[order_1];
+                    else
+                        result[i] = -1.0;
+                }
+                else
+                    result[i] = -1.0;
+            }
+            return result;
+        }
+        public int find_CalcEquation(int x)
+        {
+            if (parent_CalcEquation[x] == x)
+                return x;
+            else
+            {
+                parent_CalcEquation[x] = find_CalcEquation(parent_CalcEquation[x]);
+                return parent_CalcEquation[x];
+            }
+        }
+        public void merge_CalcEquation(int i, int j, double num)
+        {
+            int x = find_CalcEquation(i);
+            int y = find_CalcEquation(j);
+
+            parent_CalcEquation[x] = y;
+            weight_CalcEquation[x] = weight_CalcEquation[x] * weight_CalcEquation[y] * num;
         }
     }
 
@@ -877,5 +932,12 @@ namespace LeetCodeWeb.Services
         public int?[] array1 { get; set; }
         public int?[] array2 { get; set; }
         public int?[] array3 { get; set; }
+    }
+
+    public class Arrays_CalcEquation
+    {
+        public IList<IList<string>> array1 { get; set; }
+        public double[] array2 { get; set; }
+        public IList<IList<string>> array3 { get; set; }
     }
 }
