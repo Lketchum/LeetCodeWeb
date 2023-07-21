@@ -868,7 +868,9 @@ namespace LeetCodeWeb.Services
                 return x;
             else
             {
+                int tmp = parent_CalcEquation[x];
                 parent_CalcEquation[x] = find_CalcEquation(parent_CalcEquation[x]);
+                weight_CalcEquation[x] = weight_CalcEquation[x] * weight_CalcEquation[tmp];
                 return parent_CalcEquation[x];
             }
         }
@@ -878,7 +880,7 @@ namespace LeetCodeWeb.Services
             int y = find_CalcEquation(j);
 
             parent_CalcEquation[x] = y;
-            weight_CalcEquation[x] = weight_CalcEquation[x] * weight_CalcEquation[y] * num;
+            weight_CalcEquation[x] = weight_CalcEquation[y] * num;
         }
     }
 
