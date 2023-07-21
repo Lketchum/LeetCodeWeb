@@ -852,7 +852,7 @@ namespace LeetCodeWeb.Services
                 {
                     int order_0 = varDic[variable_0];
                     int order_1 = varDic[variable_1];
-                    if (parent_CalcEquation[order_0] == parent_CalcEquation[order_1])
+                    if (find_CalcEquation(order_0) == find_CalcEquation(order_1))
                         result[i] = weight_CalcEquation[order_0] / weight_CalcEquation[order_1];
                     else
                         result[i] = -1.0;
@@ -880,7 +880,7 @@ namespace LeetCodeWeb.Services
             int y = find_CalcEquation(j);
 
             parent_CalcEquation[x] = y;
-            weight_CalcEquation[x] = weight_CalcEquation[y] * num;
+            weight_CalcEquation[x] = weight_CalcEquation[j] * num / weight_CalcEquation[i];
         }
     }
 
