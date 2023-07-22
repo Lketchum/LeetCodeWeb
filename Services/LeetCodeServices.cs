@@ -913,10 +913,15 @@ namespace LeetCodeWeb.Services
                         queueMaze.Enqueue((nx, ny, d + 1));
                     }
                 }
-
             }
 
             //不存在到出口的路径，返回 -1
+            return 0;
+        }
+
+        public int OrangeRotting(int[][] grid)
+        {
+
             return 0;
         }
     }

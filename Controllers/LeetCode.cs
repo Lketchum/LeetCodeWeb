@@ -191,6 +191,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.NearestExit(maze, entrance);
             return result;
         }
+
+        [HttpPost("OrangeRotting")]
+        public int OrangeRotting(int[][] grid)
+        {
+            var result = _leetCodeServices.OrangeRotting(grid);
+            return result;
+        }
     }
 }
 
