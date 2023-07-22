@@ -969,7 +969,50 @@ namespace LeetCodeWeb.Services
 
         public int FindKthLargest(int[] nums, int k)
         {
-            return 0;
+            int heapSize = nums.Length;
+            buildMaxHeap(nums, heapSize);
+            //建堆完毕后，nums[0]为最大元素，逐个删除堆顶元素，直到删除了k-1个
+            for (int i = nums.Length - 1; i > nums.Length - k + 1; i--)
+            {
+                //先将堆的最后一个元素鱼堆顶元素交换，由于此时堆的性质破坏，需要堆节点的性质进行维护更新
+                swap(nums, 0, i);
+                //相当于删除堆顶元素，此时长度变为nums.length - 2，即下次循环的i
+                heapSize--;
+                maxHeapify(nums, 0, heapSize);
+            }
+            return nums[0];
+        }
+        public void buildMaxHeap(int[] nums, int heapSize)
+        {
+            //从最后一个父节点位置开始调整每一个节点的子树
+            //数组长度为heapsize，因此最后一个节点的位置为heapsize-1，所以父节点的位置为heapsize-1-1/2
+            for (int i = (heapSize - 2) / 2; i >= 0; i--)
+                maxHeapify(nums, i, heapSize);
+        }
+        public void maxHeapify(int[] nums, int i, int heapSize)
+        {
+            //left和right表示当前父节点i的两个左右子节点
+            int left = i * 2 + 1, right = i * 2 + 2, largest = i;
+            //如果左子节点在数组内，且比当前父节点大，则将最大值的指针指向左子节点
+            if (left < heapSize && nums[left] > nums[largest])
+                largest = left;
+            //如果右子节点在数组内，且比当前父节点大，则将最大值的指针指向右子节点
+            if (right < heapSize && nums[right] > nums[largest])
+                largest = right;
+            //如果最大值的指针不是父节点，则交换父节点和当前最大值指针指向的子节点
+            if (largest != i)
+            {
+                swap(nums, i, largest);
+                //由于交换了父节点和子节点，因此可能堆子节点的树造成影响，所以对子节点的树进行调整
+                maxHeapify(nums, largest, heapSize);
+            }
+            
+        }
+        public void swap(int[] nums, int i, int j)
+        {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
         }
     }
 
