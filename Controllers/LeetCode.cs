@@ -198,6 +198,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.OrangeRotting(grid);
             return result;
         }
+
+        [HttpPost("FindKthLargest")]
+        public int FindKthLargest(int[] nums, int k)
+        {
+            var result = _leetCodeServices.FindKthLargest(nums, k);
+            return result;
+        }
     }
 }
 

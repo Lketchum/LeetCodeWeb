@@ -966,6 +966,11 @@ namespace LeetCodeWeb.Services
             else
                 return time;
         }
+
+        public int FindKthLargest(int[] nums, int k)
+        {
+            return 0;
+        }
     }
 
     /// <summary>

@@ -32,5 +32,6 @@ namespace LeetCodeWeb.IServices
         double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries);
         int NearestExit(char[][] maze, int[] entrance);
         int OrangeRotting(int[][] grid);
+        int FindKthLargest(int[] nums, int k);
     }
 }
