@@ -921,8 +921,50 @@ namespace LeetCodeWeb.Services
 
         public int OrangeRotting(int[][] grid)
         {
-
-            return 0;
+            int m = grid.Length;
+            int n = grid[0].Length;
+            int fineNum = 0;
+            int time = 0;
+            int[] dx = { 0, 1, 0, -1 };
+            int[] dy = { 1, 0, -1, 0 };
+            Queue<(int, int)> rotQueue = new Queue<(int, int)>();
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (grid[i][j] == 2)
+                        rotQueue.Enqueue((i, j));
+                    else if (grid[i][j] == 1)
+                        fineNum++;
+                }
+            }
+            //添加队列一轮标签
+            rotQueue.Enqueue((-1, -1));
+            while (rotQueue.Count > 0)
+            {
+                (int ox, int oy) = rotQueue.Dequeue();
+                if (ox == -1 && rotQueue.Count != 0)
+                {
+                    time++;
+                    rotQueue.Enqueue((-1, -1));
+                    continue;
+                }
+                for (int k = 0; k < 4; k++)
+                {
+                    int nx = ox + dx[k];
+                    int ny = oy + dy[k];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && grid[nx][ny] == 1)
+                    {
+                        grid[nx][ny] = 2;
+                        rotQueue.Enqueue((nx, ny));
+                        fineNum--;
+                    }
+                }
+            }
+            if (fineNum > 0)
+                return -1;
+            else
+                return time;
         }
     }
 
