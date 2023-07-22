@@ -30,5 +30,6 @@ namespace LeetCodeWeb.IServices
         int FindCircleNum(int[][] isConnected);
         int MinReorder(int n, int[][] connections);
         double[] CalcEquation(IList<IList<string>> equations, double[] values, IList<IList<string>> queries);
+        int NearestExit(char[][] maze, int[] entrance);
     }
 }

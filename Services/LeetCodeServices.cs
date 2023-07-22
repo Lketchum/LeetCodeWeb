@@ -882,6 +882,43 @@ namespace LeetCodeWeb.Services
             parent_CalcEquation[x] = y;
             weight_CalcEquation[x] = weight_CalcEquation[j] * num / weight_CalcEquation[i];
         }
+
+        public int NearestExit(char[][] maze, int[] entrance)
+        {
+            int m = maze.Length;
+            int n = maze[0].Length;
+            //上下左右四个相邻坐标对应的行列变化量
+            List<int> dx = new List<int> { 1, 0, -1, 0 };
+            List<int> dy = new List<int> { 0, 1, 0, -1 };
+            Queue<(int, int, int)> queueMaze = new Queue<(int, int, int)>();
+            //入口加入队列并修改为墙
+            queueMaze.Enqueue((entrance[0], entrance[1], 0));
+            maze[entrance[0]][entrance[1]] = '+';
+            while (queueMaze.Count != 0)
+            {
+                (int cx, int cy, int d) = queueMaze.Dequeue();
+                //遍历四个方向相邻坐标
+                for (int k = 0; k < 4; k++)
+                {
+                    int nx = cx + dx[k];
+                    int ny = cy + dy[k];
+                    //新坐标合法且不为墙
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && maze[nx][ny] == '.')
+                    {
+                        if (nx == 0 || nx == m - 1 || ny == 0 || ny == n - 1)
+                            //新坐标为出口，返回距离作为答案
+                            return d + 1;
+                        //新坐标为空格子且不为出口，修改为墙并加入队列
+                        maze[nx][ny] = '+';
+                        queueMaze.Enqueue((nx, ny, d + 1));
+                    }
+                }
+
+            }
+
+            //不存在到出口的路径，返回 -1
+            return 0;
+        }
     }
 
     /// <summary>

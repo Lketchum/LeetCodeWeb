@@ -184,6 +184,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CalcEquation(equations, values, queries);
             return result;
         }
+
+        [HttpPost("NearestExit")]
+        public int NearestExit(char[][] maze, int[] entrance)
+        {
+            var result = _leetCodeServices.NearestExit(maze, entrance);
+            return result;
+        }
     }
 }
 
