@@ -1015,17 +1015,29 @@ namespace LeetCodeWeb.Services
             nums[j] = tmp;
         }
 
-        public SmallestInfiniteSet()
+        HashSet<int> finiteSet = new HashSet<int>();
+        int setMin = 1;
+        public void SmallestInfiniteSet()
         {
-
+            finiteSet = new HashSet<int>();
         }
         public int PopSmallest()
         {
-
+            int res = setMin;
+            finiteSet.Add(setMin);
+            while (finiteSet.Contains(setMin))
+                setMin++;
+            return res;
         }
         public void AddBack(int num)
         {
-
+            if (finiteSet.Contains(num))
+            {
+                finiteSet.Remove(num);
+                if (num < setMin)
+                    setMin = num;
+            }
+                
         }
 
     }
