@@ -33,5 +33,6 @@ namespace LeetCodeWeb.IServices
         int NearestExit(char[][] maze, int[] entrance);
         int OrangeRotting(int[][] grid);
         int FindKthLargest(int[] nums, int k);
+        long MaxScore(int[] nums1, int[] nums2, int k);
     }
 }

@@ -205,6 +205,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindKthLargest(nums, k);
             return result;
         }
+
+        [HttpPost("MaxScore")]
+        public long MaxScore(int[] nums1, int[] nums2, int k)
+        {
+            var result = _leetCodeServices.MaxScore(nums1, nums2, k);
+            return result;
+        }
     }
 }
 
