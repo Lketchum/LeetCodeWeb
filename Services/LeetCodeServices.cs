@@ -1014,6 +1014,20 @@ namespace LeetCodeWeb.Services
             nums[i] = nums[j];
             nums[j] = tmp;
         }
+
+        public SmallestInfiniteSet()
+        {
+
+        }
+        public int PopSmallest()
+        {
+
+        }
+        public void AddBack(int num)
+        {
+
+        }
+
     }
 
     /// <summary>
