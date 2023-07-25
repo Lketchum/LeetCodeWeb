@@ -1015,6 +1015,7 @@ namespace LeetCodeWeb.Services
             nums[j] = tmp;
         }
 
+        #region 无限集合最小正整数
         HashSet<int> finiteSet = new HashSet<int>();
         int setMin = 1;
         public void SmallestInfiniteSet()
@@ -1038,9 +1039,11 @@ namespace LeetCodeWeb.Services
                     setMin = num;
             }               
         }
+        #endregion
 
         public long MaxScore(int[] nums1, int[] nums2, int k)
         {
+            PriorityQueue<int, int> pq = new PriorityQueue<int, int>();
             return 0;
         }
     }
