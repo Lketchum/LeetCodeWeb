@@ -1043,8 +1043,33 @@ namespace LeetCodeWeb.Services
 
         public long MaxScore(int[] nums1, int[] nums2, int k)
         {
-            PriorityQueue<int, int> pq = new PriorityQueue<int, int>();
-            return 0;
+            long maxScore = 0;
+            int n = nums1.Length;
+            List<(int, int)> listNums = new List<(int, int)>();
+            for (int i = 0; i < n; i++)            
+                listNums.Add((nums1[i], nums2[i]));
+            var sortedListNums = listNums.OrderByDescending(x => x.Item2).ToList();
+            PriorityQueue<int, int> priorityNums1 = new PriorityQueue<int, int>();
+            long sum = 0;
+            long minimum = int.MaxValue;
+            for (int i = 0; i < n; i++)
+            {
+                if (i >= k)
+                {
+                    int prev = priorityNums1.Dequeue();
+                    sum -= prev;
+                }
+                (int,int) values = listNums[i];
+                priorityNums1.Enqueue(values.Item1, values.Item2);
+                sum += values.Item1;
+                minimum = values.Item2;
+                if (i >= k - 1)
+                {
+                    long currScore = sum * minimum;
+                    maxScore = Math.Max(currScore, maxScore);
+                }
+            }
+            return maxScore;
         }
     }
 
@@ -1105,5 +1130,18 @@ namespace LeetCodeWeb.Services
         public IList<IList<string>> array1 { get; set; }
         public double[] array2 { get; set; }
         public IList<IList<string>> array3 { get; set; }
+    }
+
+    public class Input_NearestExit
+    {
+        public char[][] char1 { get; set; }
+        public int[] int2 { get; set; }
+    }
+
+    public class Input_MaxScore
+    {
+        public int[] nums1 { get; set; }
+        public int[] nums2 { get; set;}
+        public int num { get; set;}
     }
 }

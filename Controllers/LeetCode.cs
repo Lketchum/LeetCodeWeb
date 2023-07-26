@@ -186,8 +186,10 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("NearestExit")]
-        public int NearestExit(char[][] maze, int[] entrance)
+        public int NearestExit(Input_NearestExit inputArrays)
         {
+            var maze = inputArrays.char1;
+            var entrance = inputArrays.int2;
             var result = _leetCodeServices.NearestExit(maze, entrance);
             return result;
         }
@@ -207,8 +209,11 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("MaxScore")]
-        public long MaxScore(int[] nums1, int[] nums2, int k)
+        public long MaxScore(Input_MaxScore input_MaxScore)
         {
+            var nums1 = input_MaxScore.nums1;
+            var nums2 = input_MaxScore.nums2;
+            var k = input_MaxScore.num;
             var result = _leetCodeServices.MaxScore(nums1, nums2, k);
             return result;
         }
