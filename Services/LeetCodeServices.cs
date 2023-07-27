@@ -1060,7 +1060,7 @@ namespace LeetCodeWeb.Services
                     sum -= prev;
                 }
                 (int,int) values = sortedListNums[i];
-                priorityNums1.Enqueue(values.Item1, values.Item2);
+                priorityNums1.Enqueue(values.Item1, values.Item1);
                 sum += values.Item1;
                 minimum = values.Item2;
                 if (i >= k - 1)
