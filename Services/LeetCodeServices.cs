@@ -1065,7 +1065,7 @@ namespace LeetCodeWeb.Services
                 minimum = values.Item2;
                 if (i >= k - 1)
                 {
-                    long currScore = sum * minimum;
+                    long currScore = sum * minimum; 
                     maxScore = Math.Max(currScore, maxScore);
                 }
             }
