@@ -1059,7 +1059,7 @@ namespace LeetCodeWeb.Services
                     int prev = priorityNums1.Dequeue();
                     sum -= prev;
                 }
-                (int,int) values = listNums[i];
+                (int,int) values = sortedListNums[i];
                 priorityNums1.Enqueue(values.Item1, values.Item2);
                 sum += values.Item1;
                 minimum = values.Item2;
