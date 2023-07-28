@@ -34,5 +34,6 @@ namespace LeetCodeWeb.IServices
         int OrangeRotting(int[][] grid);
         int FindKthLargest(int[] nums, int k);
         long MaxScore(int[] nums1, int[] nums2, int k);
+        long TotalCost(int[] costs, int k, int candidates);
     }
 }

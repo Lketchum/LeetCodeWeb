@@ -1072,6 +1072,12 @@ namespace LeetCodeWeb.Services
             }
             return maxScore;
         }
+
+        public long TotalCost(int[] costs, int k, int candidates)
+        {
+
+            return 0;
+        }
     }
 
     ///// <summary>

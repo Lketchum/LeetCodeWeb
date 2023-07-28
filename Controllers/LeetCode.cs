@@ -218,6 +218,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MaxScore(nums1, nums2, k);
             return result;
         }
+
+        [HttpPost("TotalCost")]
+        public long TotalCost(int[] costs, int k, int candidates)
+        {
+            var result = _leetCodeServices.TotalCost(costs, k, candidates);
+            return result;
+        }
     }
 }
 
