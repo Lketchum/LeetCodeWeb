@@ -7,7 +7,7 @@ using static LeetCodeWeb.Services.CustomStructure;
 
 namespace LeetCodeWeb.IServices
 {
-    public interface ILeetCodeServices
+    public interface IArrayString
     {
         int EasyAdd(int num1, int num2);
         string DecodeString(string s);

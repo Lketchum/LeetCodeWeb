@@ -32,6 +32,7 @@ namespace LeetCodeWeb
 
             //注册服务
             services.AddSingleton<LeetCodeServices>();
+            services.AddSingleton<ArrayString>();
 
             //配置Swagger
             //注册Swagger生成器，定义一个Swagger 文档

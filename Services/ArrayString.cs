@@ -9,11 +9,11 @@ using static LeetCodeWeb.Services.CustomStructure;
 
 namespace LeetCodeWeb.Services
 {
-    public class LeetCodeServices : ILeetCodeServices
+    public class ArrayString : IArrayString
     {
-        private readonly ILogger<LeetCodeServices> _logger;
+        private readonly ILogger<ArrayString> _logger;
 
-        public LeetCodeServices(ILogger<LeetCodeServices> logger)
+        public ArrayString(ILogger<ArrayString> logger)
         {
             _logger = logger;
         }
@@ -402,7 +402,7 @@ namespace LeetCodeWeb.Services
             {
                 tmp = 1;
                 MaxValue = node.val;
-            }                
+            }
 
             int leftNum = DFS_GoodNodes(node.left, MaxValue);
             int rigthNum = DFS_GoodNodes(node.right, MaxValue);
@@ -448,17 +448,17 @@ namespace LeetCodeWeb.Services
             longestNum = Math.Max(longestNum, len);
             if (direction)
             {
-                if (node.left != null)                
-                    DFS_LongestZigZag(node.left, false, len + 1);                
-                if (node.right != null)                
-                    DFS_LongestZigZag(node.right, true, 1);                
+                if (node.left != null)
+                    DFS_LongestZigZag(node.left, false, len + 1);
+                if (node.right != null)
+                    DFS_LongestZigZag(node.right, true, 1);
             }
             else
             {
-                if (node.left != null)                
-                    DFS_LongestZigZag(node.left, false, 1);                
-                if (node.right != null)                
-                    DFS_LongestZigZag(node.right, true, len + 1);                
+                if (node.left != null)
+                    DFS_LongestZigZag(node.left, false, 1);
+                if (node.right != null)
+                    DFS_LongestZigZag(node.right, true, len + 1);
             }
         }
 
@@ -503,9 +503,9 @@ namespace LeetCodeWeb.Services
             if (listRes.Count < depth)
                 listRes.Add(node.val);
             DFS_RightSideView(node.right, listRes, depth + 1);
-            DFS_RightSideView(node.left, listRes, depth + 1);                        
+            DFS_RightSideView(node.left, listRes, depth + 1);
         }
-        
+
         public int MaxLevelSum(TreeNode root)
         {
             int maxSum = int.MinValue;
@@ -524,11 +524,11 @@ namespace LeetCodeWeb.Services
                 {
                     maxSum = tmpSum;
                     maxDepth = depth;
-                }                
+                }
                 if (currNode == null)
                     continue;
-                if (currDepth == depth)                
-                    tmpSum += currNode.val;                
+                if (currDepth == depth)
+                    tmpSum += currNode.val;
                 else
                 {
                     depth = currDepth;
@@ -557,9 +557,9 @@ namespace LeetCodeWeb.Services
                     targetNode = currNode;
                     break;
                 }
-                else if (currVal > val)                
-                    nodeQueue.Enqueue(currNode.left);                
-                else                
+                else if (currVal > val)
+                    nodeQueue.Enqueue(currNode.left);
+                else
                     nodeQueue.Enqueue(currNode.right);
             }
             return targetNode;
@@ -633,7 +633,7 @@ namespace LeetCodeWeb.Services
                         }
                     }
                     break;
-                }                    
+                }
             }
 
             return returnNode.left;
@@ -641,7 +641,7 @@ namespace LeetCodeWeb.Services
 
         public bool CanVisitAllRooms(IList<IList<int>> rooms)
         {
-            Dictionary<int, int> keyDic = new Dictionary<int, int> { { 0, 1} };
+            Dictionary<int, int> keyDic = new Dictionary<int, int> { { 0, 1 } };
             Queue<int> keyDeque = new Queue<int>(new[] { 0 });
             while (keyDeque.Count != 0)
             {
@@ -653,7 +653,7 @@ namespace LeetCodeWeb.Services
                         keyDic.Add(key, 1);
                         keyDeque.Enqueue(key);
                     }
-                }                    
+                }
             }
             return keyDic.Count == rooms.Count;
         }
@@ -764,14 +764,14 @@ namespace LeetCodeWeb.Services
             {
                 parent[x] = find_FindCircleNum(parent[x]);
                 return parent[x];
-            }                
+            }
         }
         public void merge_FindCircleNum(int i, int j)
         {
             int x = find_FindCircleNum(i);
             int y = find_FindCircleNum(j);
-            if (rank[x] <= rank[y])            
-                parent[x] = y;            
+            if (rank[x] <= rank[y])
+                parent[x] = y;
             else
                 parent[y] = x;
             if (rank[x] == rank[y] && x != y)
@@ -804,7 +804,7 @@ namespace LeetCodeWeb.Services
                         levels[node] = levels[city] + 1;
                         orderQueue.Enqueue(node);
                     }
-                }    
+                }
             }
             int reorderNum = 0;
             foreach (var pair in connections)
@@ -1007,7 +1007,7 @@ namespace LeetCodeWeb.Services
                 //由于交换了父节点和子节点，因此可能堆子节点的树造成影响，所以对子节点的树进行调整
                 maxHeapify(nums, largest, heapSize);
             }
-            
+
         }
         public void swap(int[] nums, int i, int j)
         {
@@ -1038,7 +1038,7 @@ namespace LeetCodeWeb.Services
                 finiteSet.Remove(num);
                 if (num < setMin)
                     setMin = num;
-            }               
+            }
         }
         #endregion
 
@@ -1047,7 +1047,7 @@ namespace LeetCodeWeb.Services
             long maxScore = 0;
             int n = nums1.Length;
             List<(int, int)> listNums = new List<(int, int)>();
-            for (int i = 0; i < n; i++)            
+            for (int i = 0; i < n; i++)
                 listNums.Add((nums1[i], nums2[i]));
             var sortedListNums = listNums.OrderByDescending(x => x.Item2).ToList();
             PriorityQueue<int, int> priorityNums1 = new PriorityQueue<int, int>();
@@ -1060,13 +1060,13 @@ namespace LeetCodeWeb.Services
                     int prev = priorityNums1.Dequeue();
                     sum -= prev;
                 }
-                (int,int) values = sortedListNums[i];
+                (int, int) values = sortedListNums[i];
                 priorityNums1.Enqueue(values.Item1, values.Item1);
                 sum += values.Item1;
                 minimum = values.Item2;
                 if (i >= k - 1)
                 {
-                    long currScore = sum * minimum; 
+                    long currScore = sum * minimum;
                     maxScore = Math.Max(currScore, maxScore);
                 }
             }
@@ -1142,7 +1142,7 @@ namespace LeetCodeWeb.Services
     //public class Input_MaxScore
     //{
     //    public int[] nums1 { get; set; }
-    //    public int[] nums2 { get; set;}
-    //    public int num { get; set;}
+    //    public int[] nums2 { get; set; }
+    //    public int num { get; set; }
     //}
 }
