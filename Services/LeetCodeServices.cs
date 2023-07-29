@@ -1135,9 +1135,33 @@ namespace LeetCodeWeb.Services
             return sum;
         }
 
-        public int GuessNumber(int n)
+        public int GuessNumber(int n,int realNum)
         {
-            return 0;
+            int guessNum = 0;
+            int guessResult = 2;
+            int bigNum = n;
+            int smallNum = 1;
+            while (guessResult != 0)
+            {
+                guessNum = (bigNum - smallNum) / 2 + smallNum;
+                guessResult = guess(guessNum, realNum);
+                if (guessResult == 1)
+                    smallNum = guessNum + 1;
+                else if (guessResult == -1)
+                    bigNum = guessNum - 1;
+                else
+                    continue;
+            }
+            return guessNum;
+        }
+        private int guess(int guessNum, int realNum)
+        {
+            if (guessNum > realNum)
+                return -1;
+            else if (guessNum < realNum)
+                return 1;
+            else
+                return 0;
         }
     }
 }

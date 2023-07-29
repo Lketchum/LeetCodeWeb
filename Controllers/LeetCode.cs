@@ -227,9 +227,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("GuessNumber")]
-        public int GuessNumber(int n)
+        public int GuessNumber(int n, int realNum)
         {
-            var result = _leetCodeServices.GuessNumber(n);
+            var result = _leetCodeServices.GuessNumber(n, realNum);
             return result;
         }
     }
