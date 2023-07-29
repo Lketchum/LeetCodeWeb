@@ -1190,5 +1190,10 @@ namespace LeetCodeWeb.Services
 
             return result;
         }
+
+        public int FindPeakElement(int[] nums)
+        {
+            return 0;
+        }
     }
 }

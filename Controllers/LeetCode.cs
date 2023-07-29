@@ -242,6 +242,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.SuccessfulPairs(nums1, nums2, num);
             return result;
         }
+
+        [HttpPost("FindPeekElement")]
+        public int FindPeakElement(int[] nums)
+        {
+            var result = _leetCodeServices.FindPeakElement(nums);
+            return result;
+        }
     }
 }
 
