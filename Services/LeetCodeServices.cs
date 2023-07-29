@@ -1166,6 +1166,7 @@ namespace LeetCodeWeb.Services
 
         public int[] SuccessfulPairs(int[] spells, int[] potions, long success)
         {
+            // 优化解法为potions数组排序，遍历spells数组内容，对potions使用二分解法
             int m = spells.Length;
             int n = potions.Length;
             int[] result = new int[m];
@@ -1193,7 +1194,20 @@ namespace LeetCodeWeb.Services
 
         public int FindPeakElement(int[] nums)
         {
-            return 0;
+            int n = nums.Length;
+            if (n == 1)
+                return 0;
+            else
+            {
+                for (int i = 1; i < n; i++)
+                {
+                    if (nums[i - 1] < nums[i])
+                        continue;
+                    else
+                        return i - 1;
+                }
+                return n - 1;
+            }            
         }
     }
 }
