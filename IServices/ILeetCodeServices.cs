@@ -36,5 +36,6 @@ namespace LeetCodeWeb.IServices
         long MaxScore(int[] nums1, int[] nums2, int k);
         long TotalCost(int[] costs, int k, int candidates);
         int GuessNumber(int n, int realNum);
+        public int[] SuccessfulPairs(int[] spells, int[] potions, long success);
     }
 }

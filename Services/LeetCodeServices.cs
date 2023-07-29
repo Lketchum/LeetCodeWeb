@@ -1163,5 +1163,10 @@ namespace LeetCodeWeb.Services
             else
                 return 0;
         }
+
+        public int[] SuccessfulPairs(int[] spells, int[] potions, long success)
+        {
+            return null;
+        }
     }
 }

@@ -232,6 +232,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.GuessNumber(n, realNum);
             return result;
         }
+
+        [HttpPost("SuccessfulPairs")]
+        public int[] SuccessfulPairs(int[] spells, int[] potions, long success)
+        {
+            var result = _leetCodeServices.SuccessfulPairs(spells, potions, success);
+            return result;
+        }
     }
 }
 
