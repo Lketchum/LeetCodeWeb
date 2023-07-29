@@ -225,6 +225,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.TotalCost(costs, k, candidates);
             return result;
         }
+
+        [HttpPost("GuessNumber")]
+        public int GuessNumber(int n)
+        {
+            var result = _leetCodeServices.GuessNumber(n);
+            return result;
+        }
     }
 }
 

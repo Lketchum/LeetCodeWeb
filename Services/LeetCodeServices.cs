@@ -1134,5 +1134,10 @@ namespace LeetCodeWeb.Services
 
             return sum;
         }
+
+        public int GuessNumber(int n)
+        {
+            return 0;
+        }
     }
 }
