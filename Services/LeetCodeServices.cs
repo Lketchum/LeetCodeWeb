@@ -1075,8 +1075,64 @@ namespace LeetCodeWeb.Services
 
         public long TotalCost(int[] costs, int k, int candidates)
         {
+            int n = costs.Length;
+            int before = candidates;
+            int after = n - candidates - 1;
+            long sum = 0;
+            PriorityQueue<int, int> queueBefore = new PriorityQueue<int, int>();
+            PriorityQueue<int, int> queueAfter = new PriorityQueue<int, int>();
+            // two priorityQueue
+            if (n < 2 * candidates)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    if (i < candidates)
+                        queueBefore.Enqueue(costs[i], costs[i]);
+                    else
+                        queueAfter.Enqueue(costs[i], costs[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < candidates; i++)
+                {
+                    queueBefore.Enqueue(costs[i], costs[i]);
+                    queueAfter.Enqueue(costs[n - i - 1], costs[n - i - 1]);
+                }
+            }
 
-            return 0;
+            while (k > 0)
+            {
+                int peekBefore = 100001;
+                int peekAfter = 100001;
+                if (queueBefore.Count > 0)
+                    peekBefore = queueBefore.Peek();
+                if (queueAfter.Count > 0)
+                    peekAfter = queueAfter.Peek();
+                if (peekBefore <= peekAfter)
+                {
+                    sum += peekBefore;
+                    queueBefore.Dequeue();
+                    if (before <= after)
+                    {
+                        queueBefore.Enqueue(costs[before], costs[before]);
+                        before++;
+                    }
+                }
+                else
+                {
+                    sum += peekAfter;
+                    queueAfter.Dequeue();
+                    if (after >= before)
+                    {
+                        queueAfter.Enqueue(costs[after], costs[after]);
+                        after--;
+                    } 
+                }
+                k--;
+            }
+
+            return sum;
         }
     }
 }
