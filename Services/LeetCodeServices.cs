@@ -1166,7 +1166,29 @@ namespace LeetCodeWeb.Services
 
         public int[] SuccessfulPairs(int[] spells, int[] potions, long success)
         {
-            return null;
+            int m = spells.Length;
+            int n = potions.Length;
+            int[] result = new int[m];
+            List<(int, int)> spellList = new List<(int, int)>();
+            for (int i = 0; i < m; i++)
+                spellList.Add((spells[i], i));
+            var spellSorted = spellList.OrderBy(x => x.Item1).ToList(); //升序排列
+            Array.Sort(potions);
+            Array.Reverse(potions); //降序排列
+
+            int tmpPotion = 0;
+            int tmpSuccess = 0;
+            for (int i = 0; i < m; i++)
+            {
+                while (tmpPotion < n && (long)spellSorted[i].Item1 * (long)potions[tmpPotion] >= success)
+                {
+                    tmpSuccess++;
+                    tmpPotion++;
+                }
+                result[spellSorted[i].Item2] = tmpSuccess;
+            }
+
+            return result;
         }
     }
 }

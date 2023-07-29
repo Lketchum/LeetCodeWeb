@@ -234,9 +234,12 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("SuccessfulPairs")]
-        public int[] SuccessfulPairs(int[] spells, int[] potions, long success)
+        public int[] SuccessfulPairs(Input_SuccessfulPairs input_SuccessfulPairs)
         {
-            var result = _leetCodeServices.SuccessfulPairs(spells, potions, success);
+            var nums1 = input_SuccessfulPairs.nums1;
+            var nums2 = input_SuccessfulPairs.nums2;
+            var num = input_SuccessfulPairs.num;
+            var result = _leetCodeServices.SuccessfulPairs(nums1, nums2, num);
             return result;
         }
     }
