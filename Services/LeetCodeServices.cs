@@ -1212,7 +1212,42 @@ namespace LeetCodeWeb.Services
 
         public int MinEatingSpeed(int[] piles, int h)
         {
-            return 0;
+            int n = piles.Length;
+            int[] step1 = SpeedModify(piles, piles, h);
+            int nN = step1[1] - step1[0];
+            int[] nums = new int[nN];
+            for (int i = step1[0]; i < step1[1]; i++)
+                nums[i] += step1[0];
+            int[] step2 = SpeedModify(nums, piles, h);
+            return step2[2];
+        }
+        private int[] SpeedModify(int[] nums, int[] piles, int h)
+        {
+            int nN = nums.Length;
+            int nP = piles.Length;
+            int currTime = 0;
+            int leftNum = 0;
+            int rightNum = nN - 1;
+            int currentNum = 0;
+            double currentSpeed = 0;
+            while (rightNum - leftNum > 1)
+            {
+                currentNum = (leftNum + rightNum) / 2;
+                currentSpeed = nums[currentNum];
+                for (int i = 0; i < nP; i++)
+                    currTime += (int)Math.Ceiling(piles[i] / currentSpeed);
+                if (currTime < h)
+                    leftNum = currentNum;
+                else if (currentNum > h)
+                    rightNum = currentNum;
+                else
+                {
+                    int[] arrayReturn1 = { currentNum,currentNum,(int)currentSpeed};
+                    return arrayReturn1;
+                }                    
+            }
+            int[] arrayReturn2 = { leftNum, rightNum, (int)currentSpeed };
+            return arrayReturn2;
         }
     }
 }
