@@ -38,5 +38,6 @@ namespace LeetCodeWeb.IServices
         int GuessNumber(int n, int realNum);
         public int[] SuccessfulPairs(int[] spells, int[] potions, long success);
         public int FindPeakElement(int[] nums);
+        public int MinEatingSpeed(int[] piles, int h);
     }
 }

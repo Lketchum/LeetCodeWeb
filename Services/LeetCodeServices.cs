@@ -1209,5 +1209,10 @@ namespace LeetCodeWeb.Services
                 return n - 1;
             }            
         }
+
+        public int MinEatingSpeed(int[] piles, int h)
+        {
+            return 0;
+        }
     }
 }

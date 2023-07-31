@@ -249,6 +249,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindPeakElement(nums);
             return result;
         }
+
+        [HttpPost("MinEatingSpeed")]
+        public int MinEatingSpeed(int[] piles, int h)
+        {
+            var result = _leetCodeServices.MinEatingSpeed(piles, h); ;
+            return result;
+        }
     }
 }
 
