@@ -256,6 +256,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MinEatingSpeed(piles, h); ;
             return result;
         }
+
+        [HttpPost("LetterCombinations")]
+        public IList<string> LetterCombinations(string digits)
+        {
+            var result = _leetCodeServices.LetterCombinations(digits);
+            return result;
+        }
     }
 }
 

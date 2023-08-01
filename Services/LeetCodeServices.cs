@@ -1286,5 +1286,10 @@ namespace LeetCodeWeb.Services
                 timeCost += (piles[i] + speed - 1)/ speed;            
             return timeCost;
         }
+
+        public IList<string> LetterCombinations(string digits)
+        {
+            return null;
+        }
     }
 }

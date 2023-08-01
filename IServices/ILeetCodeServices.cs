@@ -39,5 +39,6 @@ namespace LeetCodeWeb.IServices
         public int[] SuccessfulPairs(int[] spells, int[] potions, long success);
         public int FindPeakElement(int[] nums);
         public int MinEatingSpeed(int[] piles, int h);
+        public IList<string> LetterCombinations(string digits);
     }
 }
