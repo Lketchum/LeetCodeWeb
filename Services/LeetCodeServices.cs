@@ -1289,7 +1289,34 @@ namespace LeetCodeWeb.Services
 
         public IList<string> LetterCombinations(string digits)
         {
+            int n = digits.Length;
+            IList<string> oldList = new List<string>();
+            IList<string> newList = new List<string>();
+            for (int i = 0; i < n; i++)
+            {
+                string buttonString = Dic_LetterCombinations(digits[i]);
+                foreach (char buttonChar in buttonString)
+                {
+                       
+                }
+                
+            }
             return null;
+        }
+        private string Dic_LetterCombinations(int num)
+        {
+            Dictionary<int, string> keyValuePairs = new Dictionary<int, string>
+            {
+                { 2, "abc"},
+                { 3, "def" },
+                { 4, "ghi"},
+                { 5, "jkl"},
+                { 6, "mno"},
+                { 7, "pqrs"},
+                { 8, "tuv"},
+                { 9, "wxyz"}
+            };
+            return keyValuePairs[num];
         }
     }
 }
