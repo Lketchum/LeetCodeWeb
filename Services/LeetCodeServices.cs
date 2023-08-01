@@ -1212,42 +1212,79 @@ namespace LeetCodeWeb.Services
 
         public int MinEatingSpeed(int[] piles, int h)
         {
-            int n = piles.Length;
-            int[] step1 = SpeedModify(piles, piles, h);
-            int nN = step1[1] - step1[0];
-            int[] nums = new int[nN];
-            for (int i = step1[0]; i < step1[1]; i++)
-                nums[i] = i;
-            int[] step2 = SpeedModify(nums, piles, h);
-            return step2[2];
+            int left = 1, right = 0;
+            foreach (var pile in piles)
+                right = Math.Max(right, pile);
+            int properSpeed = right;
+            while (right > left)
+            {
+                int speed = (left - right) / 2 + left;
+                long currTime = Time_MinEatingSpeed(piles, speed);
+                if (currTime <= h)
+                {
+                    properSpeed = speed;
+                    right = speed;
+                }
+                else
+                    left = speed + 1;
+            }
+            return 0;
         }
+        // 弃用，问题被复杂化
         private int[] SpeedModify(int[] nums, int[] piles, int h)
-        {
+        {         
             int nN = nums.Length;
             int nP = piles.Length;
-            int currTime = 0;
             int leftNum = 0;
             int rightNum = nN - 1;
             int currentNum = 0;
-            double currentSpeed = 0;
+            // 判断左右端点
+            double leftTime = Time_MinEatingSpeed(piles, nums[leftNum]);
+            double rightTime = Time_MinEatingSpeed(piles, nums[rightNum]);
+            // 左端点小于给定时间
+            if (leftTime < h)
+            {
+                int[] arrayReturnLeft = { -1, 0};
+                return arrayReturnLeft;
+            }
+            // 右端点大于给定时间（不存在该情况）
+            // 左右端点等于给定时间
+            if (leftTime == h)
+            {
+                int[] arrayReturnLeft = { 0, 0};
+                return arrayReturnLeft;
+            }
+            if (rightTime == h)
+            {
+                int[] arrayReturnRight = { nN - 1, nN - 1};
+                return arrayReturnRight;
+            }
+
+            // 其余情况
             while (rightNum - leftNum > 1)
             {
                 currentNum = (leftNum + rightNum) / 2;
-                currentSpeed = nums[currentNum];
-                for (int i = 0; i < nP; i++)
-                    currTime += (int)Math.Ceiling(piles[i] / currentSpeed);
+                double currTime = Time_MinEatingSpeed(piles, nums[currentNum]);
                 if (currTime < h)
                     rightNum = currentNum;
                 else if (currTime > h)
                     leftNum = currentNum;
                 else
                 {
-                    int[] arrayReturn1 = { currentNum,currentNum,(int)currentSpeed};
+                    int[] arrayReturn1 = { currentNum,currentNum};
                     return arrayReturn1;
                 }                    
             }
-            int[] arrayReturn2 = { leftNum, rightNum, (int)currentSpeed };
+            int[] arrayReturn2 = { leftNum, rightNum};
             return arrayReturn2;
+        }
+        private long Time_MinEatingSpeed(int[] piles, long speed)
+        {
+            int n = piles.Length;
+            long timeCost = 0;
+            for (int i = 0; i < n; i++)            
+                timeCost += (piles[i] + speed - 1)/ speed;            
+            return timeCost;
         }
     }
 }
