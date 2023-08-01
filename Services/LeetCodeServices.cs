@@ -1217,7 +1217,7 @@ namespace LeetCodeWeb.Services
             int nN = step1[1] - step1[0];
             int[] nums = new int[nN];
             for (int i = step1[0]; i < step1[1]; i++)
-                nums[i] += step1[0];
+                nums[i] = i;
             int[] step2 = SpeedModify(nums, piles, h);
             return step2[2];
         }
@@ -1237,9 +1237,9 @@ namespace LeetCodeWeb.Services
                 for (int i = 0; i < nP; i++)
                     currTime += (int)Math.Ceiling(piles[i] / currentSpeed);
                 if (currTime < h)
-                    leftNum = currentNum;
-                else if (currentNum > h)
                     rightNum = currentNum;
+                else if (currTime > h)
+                    leftNum = currentNum;
                 else
                 {
                     int[] arrayReturn1 = { currentNum,currentNum,(int)currentSpeed};
