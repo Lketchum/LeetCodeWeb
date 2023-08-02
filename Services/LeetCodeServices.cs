@@ -1292,29 +1292,36 @@ namespace LeetCodeWeb.Services
             int n = digits.Length;
             IList<string> oldList = new List<string>();
             IList<string> newList = new List<string>();
-            for (int i = 0; i < n; i++)
+            if (n == 0)
+                return oldList;
+            string buttonFirst = Dic_LetterCombinations(digits[0]);
+            foreach (char digit in buttonFirst)
+                oldList.Add(digit.ToString());
+            for (int i = 1; i < n; i++)
             {
                 string buttonString = Dic_LetterCombinations(digits[i]);
                 foreach (char buttonChar in buttonString)
                 {
-                       
+                    foreach (var oldString in oldList)
+                        newList.Add(string.Concat(oldString, buttonChar));
                 }
-                
+                oldList = newList;
+                newList = new List<string>();
             }
-            return null;
+            return oldList;
         }
-        private string Dic_LetterCombinations(int num)
+        private string Dic_LetterCombinations(char num)
         {
-            Dictionary<int, string> keyValuePairs = new Dictionary<int, string>
+            Dictionary<char, string> keyValuePairs = new Dictionary<char, string>
             {
-                { 2, "abc"},
-                { 3, "def" },
-                { 4, "ghi"},
-                { 5, "jkl"},
-                { 6, "mno"},
-                { 7, "pqrs"},
-                { 8, "tuv"},
-                { 9, "wxyz"}
+                { '2', "abc"},
+                { '3', "def" },
+                { '4', "ghi"},
+                { '5', "jkl"},
+                { '6', "mno"},
+                { '7', "pqrs"},
+                { '8', "tuv"},
+                { '9', "wxyz"}
             };
             return keyValuePairs[num];
         }
