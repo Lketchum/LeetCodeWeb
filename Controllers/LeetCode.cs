@@ -263,6 +263,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LetterCombinations(digits);
             return result;
         }
+
+        [HttpPost("CombinationSum3")]
+        public IList<IList<int>> CombinationSum3(int k, int n)
+        {
+            var result = _leetCodeServices.CombinationSum3(k, n);
+            return result;
+        }
     }
 }
 
