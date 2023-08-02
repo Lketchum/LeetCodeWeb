@@ -40,5 +40,6 @@ namespace LeetCodeWeb.IServices
         public int FindPeakElement(int[] nums);
         public int MinEatingSpeed(int[] piles, int h);
         public IList<string> LetterCombinations(string digits);
+        public IList<IList<int>> CombinationSum3(int k, int n);
     }
 }
