@@ -1328,7 +1328,38 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<int>> CombinationSum3(int k, int n)
         {
-            return null;
+            combinationLists = new List<IList<int>>();
+            resList = new List<int>();
+            for (int i = 0; i < k; i++)
+                resList.Add(0);
+            Choose_CombinationsSum3(1, 0, k, n);
+            return combinationLists;
+        }
+        private IList<IList<int>> combinationLists;
+        private List<int> resList;
+        private void Choose_CombinationsSum3(int num, int sum,int k, int n)
+        {
+            if (k == 0 && sum == n)
+            {
+                //返回结果
+                List<int> currList = new (resList);
+                combinationLists.Add(currList);
+                return;
+            }
+            else if (k == 0)
+                return;
+            else
+            {
+                for (int i = num; i <= 9; i++)
+                {
+                    int tmpSum = sum + i;
+                    if (tmpSum > n)
+                        break;
+                    resList[k - 1] = i;
+                    Choose_CombinationsSum3(i + 1, tmpSum, k - 1, n);
+                }
+                return;
+            }
         }
     }
 }
