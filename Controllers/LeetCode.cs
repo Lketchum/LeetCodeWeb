@@ -270,6 +270,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CombinationSum3(k, n);
             return result;
         }
+
+        [HttpPost("Tribonacci")]
+        public int Tribonacci(int n)
+        {
+            var result = _leetCodeServices.Tribonacci(n);
+            return result;
+        }
     }
 }
 

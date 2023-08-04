@@ -1361,5 +1361,10 @@ namespace LeetCodeWeb.Services
                 return;
             }
         }
+
+        public int Tribonacci(int n)
+        {
+            return 0;
+        }
     }
 }
