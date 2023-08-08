@@ -1364,18 +1364,34 @@ namespace LeetCodeWeb.Services
 
         public int Tribonacci(int n)
         {
-            Queue<int> TriQueue = new Queue<int>(new int[] { 0, 1, 1 });
-            int tempOne = 0;
-            int tempThree;
-            int tempSum = 2;
-            for(int i = 0; i < n; i++)
+            //Queue<int> TriQueue = new Queue<int>(new int[] { 0, 1, 1 });
+            //int tempOne = 0;
+            //int tempThree;
+            //int tempSum = 2;
+            //for(int i = 0; i < n; i++)
+            //{
+            //    tempOne = TriQueue.Dequeue();
+            //    tempThree = tempSum;
+            //    tempSum = tempSum + tempThree - tempOne;
+            //    TriQueue.Enqueue(tempThree);
+            //}
+            //return tempOne;
+
+            // 优化代码如下
+            if (n == 0) return 0;
+            if (n == 1 || n == 2) return 1;
+
+            int[] triArray = new int[n + 1];
+            triArray[0] = 0;
+            triArray[1] = 1;
+            triArray[2] = 1;
+
+            for (int i = 3; i <= n; i++)
             {
-                tempOne = TriQueue.Dequeue();
-                tempThree = tempSum;
-                tempSum = tempSum + tempThree - tempOne;
-                TriQueue.Enqueue(tempThree);
+                triArray[i] = triArray[i - 1] + triArray[i - 2] + triArray[i - 3];
             }
-            return tempOne;
+
+            return triArray[n];
         }
     }
 }
