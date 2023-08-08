@@ -1396,7 +1396,15 @@ namespace LeetCodeWeb.Services
 
         public int MinCostClimbingStairs(int[] cost)
         {
-            return 0;
+            int n = cost.Length;
+            int prev = 0; int curr = 0;
+            for (int i = 2; i <= n; i++)
+            {
+                int next = Math.Max(curr + cost[i - 1], prev + cost[i - 2]);
+                prev = curr;
+                curr = next;
+            }
+            return curr;
         }
     }
 }
