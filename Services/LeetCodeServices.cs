@@ -1406,5 +1406,10 @@ namespace LeetCodeWeb.Services
             }
             return curr;
         }
+
+        public int Rob(int[] nums)
+        {
+            return 0;
+        }
     }
 }
