@@ -1393,5 +1393,10 @@ namespace LeetCodeWeb.Services
 
             return triArray[n];
         }
+
+        public int MinCostClimbingStairs(int[] cost)
+        {
+            return 0;
+        }
     }
 }

@@ -277,6 +277,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.Tribonacci(n);
             return result;
         }
+
+        [HttpPost("MinCostClimbingStairs")]
+        public int MinCostClimbingStairs(int[] cost)
+        {
+            var result = _leetCodeServices.MinCostClimbingStairs(cost);
+            return result;
+        }
     }
 }
 

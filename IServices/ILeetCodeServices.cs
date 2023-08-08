@@ -42,5 +42,6 @@ namespace LeetCodeWeb.IServices
         public IList<string> LetterCombinations(string digits);
         public IList<IList<int>> CombinationSum3(int k, int n);
         public int Tribonacci(int n);
+        public int MinCostClimbingStairs(int[] cost);
     }
 }
