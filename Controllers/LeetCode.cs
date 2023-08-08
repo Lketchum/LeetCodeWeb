@@ -291,6 +291,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.Rob(nums);
             return result;
         }
+
+        [HttpPost("NumTilings")]
+        public int NumTilings(int n)
+        {
+            var result = _leetCodeServices.NumTilings(n);
+            return result;
+        }
     }
 }
 

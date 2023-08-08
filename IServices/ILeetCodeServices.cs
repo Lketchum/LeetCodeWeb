@@ -44,5 +44,6 @@ namespace LeetCodeWeb.IServices
         public int Tribonacci(int n);
         public int MinCostClimbingStairs(int[] cost);
         public int Rob(int[] nums);
+        public int NumTilings(int n);
     }
 }

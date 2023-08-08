@@ -1421,5 +1421,10 @@ namespace LeetCodeWeb.Services
             }
             return curr;
         }
+
+        public int NumTilings(int n)
+        {
+            return 0;
+        }
     }
 }
