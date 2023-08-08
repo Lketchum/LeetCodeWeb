@@ -284,6 +284,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MinCostClimbingStairs(cost);
             return result;
         }
+
+        [HttpPost("Rob")]
+        public int Rob(int[] nums)
+        {
+            var result = _leetCodeServices.Rob(nums);
+            return result;
+        }
     }
 }
 
