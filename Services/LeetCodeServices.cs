@@ -1364,7 +1364,18 @@ namespace LeetCodeWeb.Services
 
         public int Tribonacci(int n)
         {
-            return 0;
+            Queue<int> TriQueue = new Queue<int>(new int[] { 0, 1, 1 });
+            int tempOne = 0;
+            int tempThree;
+            int tempSum = 2;
+            for(int i = 0; i < n; i++)
+            {
+                tempOne = TriQueue.Dequeue();
+                tempThree = tempSum;
+                tempSum = tempSum + tempThree - tempOne;
+                TriQueue.Enqueue(tempThree);
+            }
+            return tempOne;
         }
     }
 }
