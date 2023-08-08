@@ -1409,7 +1409,17 @@ namespace LeetCodeWeb.Services
 
         public int Rob(int[] nums)
         {
-            return 0;
+            int n = nums.Length;
+            if (n == 1)
+                return nums[0];
+            int prev = 0; int curr = nums[0];
+            for(int i = 1; i < n; i++)
+            {
+                int next = Math.Max(curr, prev + nums[i]);
+                prev = curr;
+                curr = next;
+            }
+            return curr;
         }
     }
 }
