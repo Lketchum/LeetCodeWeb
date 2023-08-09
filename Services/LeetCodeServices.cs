@@ -1467,5 +1467,10 @@ namespace LeetCodeWeb.Services
             }
             return pathNums[n - 1];
         }
+
+        public int LongestCommonSubsequence(string text1, string text2)
+        {
+            return 0;
+        }
     }
 }

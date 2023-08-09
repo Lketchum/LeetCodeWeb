@@ -305,6 +305,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.UniquePaths(m, n);
             return result;
         }
+
+        [HttpPost("LongestCommonSubsequence")]
+        public int LongestCommonSubsequence(string text1, string text2)
+        {
+            var result = _leetCodeServices.LongestCommonSubsequence(text1, text2);
+            return result;
+        }
     }
 }
 

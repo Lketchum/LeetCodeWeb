@@ -46,5 +46,6 @@ namespace LeetCodeWeb.IServices
         public int Rob(int[] nums);
         public int NumTilings(int n);
         public int UniquePaths(int m, int n);
+        public int LongestCommonSubsequence(string text1, string text2);
     }
 }
