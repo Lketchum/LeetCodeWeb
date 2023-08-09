@@ -45,5 +45,6 @@ namespace LeetCodeWeb.IServices
         public int MinCostClimbingStairs(int[] cost);
         public int Rob(int[] nums);
         public int NumTilings(int n);
+        public int UniquePaths(int m, int n);
     }
 }

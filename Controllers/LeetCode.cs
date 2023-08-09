@@ -298,6 +298,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.NumTilings(n);
             return result;
         }
+
+        [HttpPost("UniquePaths")]
+        public int UniquePaths(int m, int n)
+        {
+            var result = _leetCodeServices.UniquePaths(m, n);
+            return result;
+        }
     }
 }
 
