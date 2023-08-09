@@ -1424,18 +1424,20 @@ namespace LeetCodeWeb.Services
 
         public int NumTilings(int n)
         {
-            int[] resultNums = new int[n + 1];
+            // 存在取模操作，防止整数溢出
+            long mod = 1000000007;
+            long[] resultNums = new long[n + 1];
             resultNums[0] = 1;
             resultNums[1] = 1;
-            int tmpSum = 0;
+            long tmpSum = 0;
             if (n == 1)
-                return resultNums[1];
+                return (int)resultNums[1];
             for(int i = 2; i < n + 1; i++)
             {
-                resultNums[i] = resultNums[i - 2] + resultNums[i - 1] + tmpSum * 2;
+                resultNums[i] = (resultNums[i - 2] + resultNums[i - 1] + tmpSum * 2) % mod;
                 tmpSum += resultNums[i - 2];
             }                            
-            return resultNums[n];
+            return (int)resultNums[n];
         }
     }
 }
