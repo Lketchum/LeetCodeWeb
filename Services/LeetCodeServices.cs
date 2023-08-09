@@ -1470,7 +1470,22 @@ namespace LeetCodeWeb.Services
 
         public int LongestCommonSubsequence(string text1, string text2)
         {
-            return 0;
+            int m = text1.Length;
+            int n = text2.Length;
+            int[,] sequenceNum = new int[m + 1, n + 1];
+            for(int i = 1; i <= m; i++)
+            {
+                char char_text1 = text1[i - 1];
+                for(int j = 1; j <= n; j++)
+                {
+                    char char_text2 = text2[j - 1];
+                    if (char_text1 == char_text2)
+                        sequenceNum[i, j] = sequenceNum[i - 1, j - 1] + 1;
+                    else
+                        sequenceNum[i, j] = Math.Max(sequenceNum[i - 1, j], sequenceNum[i, j - 1]);
+                }
+            }
+            return sequenceNum[m + 1, n + 1];
         }
     }
 }
