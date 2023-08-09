@@ -1424,7 +1424,14 @@ namespace LeetCodeWeb.Services
 
         public int NumTilings(int n)
         {
-            return 0;
+            int[] resultNums = new int[n + 1];
+            resultNums[0] = 1;
+            resultNums[1] = 1;
+            if (n == 1)
+                return resultNums[1];
+            for(int i = 2; i < n + 1; i++)
+                resultNums[i] = resultNums[i - 2] + resultNums[i - 1] + (i - 1) * 2;            
+            return resultNums[n];
         }
     }
 }
