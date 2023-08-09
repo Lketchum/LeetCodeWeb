@@ -1427,10 +1427,14 @@ namespace LeetCodeWeb.Services
             int[] resultNums = new int[n + 1];
             resultNums[0] = 1;
             resultNums[1] = 1;
+            int tmpSum = 0;
             if (n == 1)
                 return resultNums[1];
             for(int i = 2; i < n + 1; i++)
-                resultNums[i] = resultNums[i - 2] + resultNums[i - 1] + (i - 1) * 2;            
+            {
+                resultNums[i] = resultNums[i - 2] + resultNums[i - 1] + tmpSum * 2;
+                tmpSum += resultNums[i - 2];
+            }                            
             return resultNums[n];
         }
     }
