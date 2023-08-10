@@ -48,5 +48,6 @@ namespace LeetCodeWeb.IServices
         public int UniquePaths(int m, int n);
         public int LongestCommonSubsequence(string text1, string text2);
         public int MaxProfit(int[] prices, int fee);
+        public int MinDistance(string word1, string word2);
     }
 }

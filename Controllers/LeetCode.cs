@@ -319,6 +319,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MaxProfit(prices, fee);
             return result;
         }
+
+        [HttpPost("")]
+        public int MinDistance(string word1, string word2)
+        {
+            var result = _leetCodeServices.MinDistance(word1, word2);
+            return result;
+        }
     }
 }
 

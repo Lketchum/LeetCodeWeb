@@ -1513,5 +1513,10 @@ namespace LeetCodeWeb.Services
                 maxProfit += max - min - fee;
             return maxProfit;
         }
+
+        public int MinDistance(string word1, string word2)
+        {
+            return 0;
+        }
     }
 }
