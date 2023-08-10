@@ -312,6 +312,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LongestCommonSubsequence(text1, text2);
             return result;
         }
+
+        [HttpPost("MaxProfit")]
+        public int MaxProfit(int[] prices, int fee)
+        {
+            var result = _leetCodeServices.MaxProfit(prices, fee);
+            return result;
+        }
     }
 }
 

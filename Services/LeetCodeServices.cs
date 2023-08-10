@@ -1487,5 +1487,10 @@ namespace LeetCodeWeb.Services
             }
             return sequenceNum[m, n];
         }
+
+        public int MaxProfit(int[] prices, int fee)
+        {
+            return 0;
+        }
     }
 }
