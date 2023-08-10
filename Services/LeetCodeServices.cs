@@ -1539,7 +1539,16 @@ namespace LeetCodeWeb.Services
 
         public int[] CountBits(int n)
         {
-            return null;
+            int[] oneCount = new int[n + 1];
+            oneCount[0] = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 2 == 0)
+                    oneCount[i] = oneCount[i / 2];
+                else
+                    oneCount[i] = oneCount[i - 1] + 1;
+            }
+            return oneCount;
         }
     }
 }
