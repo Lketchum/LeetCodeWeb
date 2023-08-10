@@ -326,6 +326,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MinDistance(word1, word2);
             return result;
         }
+
+        [HttpPost("CountBits")]
+        public int[] CountBits(int n)
+        {
+            var result = _leetCodeServices.CountBits(n);
+            return result;
+        }
     }
 }
 

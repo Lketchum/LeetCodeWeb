@@ -1536,5 +1536,10 @@ namespace LeetCodeWeb.Services
             }
             return dp[m, n];
         }
+
+        public int[] CountBits(int n)
+        {
+            return null;
+        }
     }
 }

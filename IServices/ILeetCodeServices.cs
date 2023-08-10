@@ -49,5 +49,6 @@ namespace LeetCodeWeb.IServices
         public int LongestCommonSubsequence(string text1, string text2);
         public int MaxProfit(int[] prices, int fee);
         public int MinDistance(string word1, string word2);
+        public int[] CountBits(int n);
     }
 }
