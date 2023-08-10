@@ -1490,7 +1490,28 @@ namespace LeetCodeWeb.Services
 
         public int MaxProfit(int[] prices, int fee)
         {
-            return 0;
+            // 未使用动态规划
+            int n = prices.Length;
+            int min = prices[0];
+            int max = prices[0];
+            int maxProfit = 0;
+            for (int i = 1; i < n; i++)
+            {
+                int currPrice = prices[i];
+                if (currPrice < min || currPrice + fee <= max)
+                {
+                    maxProfit = Math.Max(maxProfit, maxProfit + max - min - fee);
+                    min = currPrice;
+                    max = currPrice;
+                }
+                else if (currPrice > max)
+                    max = currPrice;
+                else
+                    continue;
+            }
+            if (max - min - fee > 0)
+                maxProfit += max - min - fee;
+            return maxProfit;
         }
     }
 }
