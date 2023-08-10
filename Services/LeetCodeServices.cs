@@ -1550,5 +1550,10 @@ namespace LeetCodeWeb.Services
             }
             return oneCount;
         }
+
+        public int SingleNumber(int[] nums)
+        {
+            return 0;
+        }
     }
 }

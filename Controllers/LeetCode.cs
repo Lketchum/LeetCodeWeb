@@ -333,6 +333,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CountBits(n);
             return result;
         }
+
+        [HttpPost("SingleNumber")]
+        public int SingleNumber(int[] nums)
+        {
+            var result = _leetCodeServices.SingleNumber(nums);
+            return result;
+        }
     }
 }
 
