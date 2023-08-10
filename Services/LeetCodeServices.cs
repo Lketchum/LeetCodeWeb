@@ -1485,7 +1485,7 @@ namespace LeetCodeWeb.Services
                         sequenceNum[i, j] = Math.Max(sequenceNum[i - 1, j], sequenceNum[i, j - 1]);
                 }
             }
-            return sequenceNum[m + 1, n + 1];
+            return sequenceNum[m, n];
         }
     }
 }
