@@ -320,7 +320,7 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
-        [HttpPost("")]
+        [HttpPost("MinDistance")]
         public int MinDistance(string word1, string word2)
         {
             var result = _leetCodeServices.MinDistance(word1, word2);
