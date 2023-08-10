@@ -340,6 +340,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.SingleNumber(nums);
             return result;
         }
+
+        [HttpPost("MinFlips")]
+        public int MinFlips(int a, int b, int c)
+        {
+            var result = _leetCodeServices.MinFlips(a, b, c);
+            return result;
+        }
     }
 }
 

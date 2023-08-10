@@ -1559,5 +1559,10 @@ namespace LeetCodeWeb.Services
                 result ^= num;            
             return result;
         }
+
+        public int MinFlips(int a, int b, int c)
+        {
+            return 0;
+        }
     }
 }

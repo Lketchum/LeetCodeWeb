@@ -51,5 +51,6 @@ namespace LeetCodeWeb.IServices
         public int MinDistance(string word1, string word2);
         public int[] CountBits(int n);
         public int SingleNumber(int[] nums);
+        public int MinFlips(int a, int b, int c);
     }
 }
