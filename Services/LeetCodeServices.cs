@@ -1,4 +1,5 @@
 ﻿using LeetCodeWeb.IServices;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
@@ -1562,7 +1563,18 @@ namespace LeetCodeWeb.Services
 
         public int MinFlips(int a, int b, int c)
         {
-            return 0;
+            int num = 0;
+            for (int i = 0; i < 31; i++)
+            {
+                int bit_a = (a >> i) & 1;
+                int bit_b = (b >> i) & 1;
+                int bit_c = (c >> i) & 1;
+                if (bit_c == 0)
+                    num += bit_a + bit_b;
+                else
+                    num += Convert.ToInt32(bit_a + bit_b == 0);
+            }
+            return num;
         }
     }
 }
