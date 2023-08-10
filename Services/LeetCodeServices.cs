@@ -1553,7 +1553,11 @@ namespace LeetCodeWeb.Services
 
         public int SingleNumber(int[] nums)
         {
-            return 0;
+            //计算机中，整数通常以二进制形式进行表示和处理。因此，可以利用异或运算来处理整数
+            int result = 0;
+            foreach (var num in nums )
+                result ^= num;            
+            return result;
         }
     }
 }
