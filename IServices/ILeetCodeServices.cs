@@ -52,5 +52,6 @@ namespace LeetCodeWeb.IServices
         public int[] CountBits(int n);
         public int SingleNumber(int[] nums);
         public int MinFlips(int a, int b, int c);
+        public IList<IList<string>> SuggestedProducts(string[] products, string searchWord);
     }
 }

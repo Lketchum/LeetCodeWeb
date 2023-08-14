@@ -347,6 +347,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MinFlips(a, b, c);
             return result;
         }
+
+        [HttpPost("")]
+        public IList<IList<string>> SuggestedProducts(string[] products, string searchWord)
+        {
+            var result = _leetCodeServices.SuggestedProducts(products, searchWord);
+            return result;
+        }
     }
 }
 

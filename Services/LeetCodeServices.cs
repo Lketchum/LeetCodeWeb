@@ -1577,5 +1577,10 @@ namespace LeetCodeWeb.Services
             }
             return num;
         }
+
+        public IList<IList<string>> SuggestedProducts(string[] products, string searchWord)
+        {
+            return null;
+        }
     }
 }
