@@ -1598,5 +1598,10 @@ namespace LeetCodeWeb.Services
             }
             return returnLists;
         }
+
+        public int EraseOverlapIntervals(int[][] intervals)
+        {
+            return 0;
+        }
     }
 }

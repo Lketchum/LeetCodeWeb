@@ -348,10 +348,17 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
-        [HttpPost("")]
+        [HttpPost("SuggestedProducts")]
         public IList<IList<string>> SuggestedProducts(string[] products, string searchWord)
         {
             var result = _leetCodeServices.SuggestedProducts(products, searchWord);
+            return result;
+        }
+
+        [HttpPost("EraseOverlapIntervals")]
+        public int EraseOverlapIntervals(int[][] intervals)
+        {
+            var result = _leetCodeServices.EraseOverlapIntervals(intervals);
             return result;
         }
     }
