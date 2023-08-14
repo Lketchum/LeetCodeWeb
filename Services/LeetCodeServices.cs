@@ -1580,6 +1580,7 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<string>> SuggestedProducts(string[] products, string searchWord)
         {
+            // 使用自带StartsWith定义方法，可使用二分搜索法进一步优化
             Array.Sort(products);
             IList<IList<string>> returnLists = new List<IList<string>>();
             for (int i = 1; i <= searchWord.Length; i++)
@@ -1597,6 +1598,5 @@ namespace LeetCodeWeb.Services
             }
             return returnLists;
         }
-
     }
 }
