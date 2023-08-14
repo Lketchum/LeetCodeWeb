@@ -42,6 +42,58 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //TrieNode自定义
+        public class Trie
+        {
+            private Trie[] children;
+            private bool isEnd;
+
+            public Trie()
+            {
+                children = new Trie[26];
+                isEnd = false;
+            }
+
+            public void insert(string word)
+            {
+                Trie node = this;
+                for (int i = 0; i < word.Length; i++)
+                {
+                    char ch = word[i];
+                    int index = ch - 'a';
+                    if (node.children[index] == null)
+                        node.children[index] = new Trie();
+                    node = node.children[index];
+                }
+                node.isEnd = true;
+            }
+
+            public bool search(string word)
+            {
+                Trie node = searchPrefix(word);
+                return node != null && node.isEnd;
+            }
+
+            public bool startWith(string prefix)
+            {
+                return searchPrefix(prefix) != null;
+            }
+
+            public Trie searchPrefix(string prefix)
+            {
+                Trie node = this;
+                for (int i = 0; i < prefix.Length; i++)
+                {
+                    char ch = prefix[i];
+                    int index = ch - 'a';
+                    if (node.children[index] == null)
+                        return null;
+                    node = node.children[index];
+                }
+                return node;
+            }
+        }
+
         //双数组输入
         public class TwoArrays
         {
