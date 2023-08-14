@@ -1580,7 +1580,23 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<string>> SuggestedProducts(string[] products, string searchWord)
         {
-            return null;
+            Array.Sort(products);
+            IList<IList<string>> returnLists = new List<IList<string>>();
+            for (int i = 1; i <= searchWord.Length; i++)
+            {
+                string subString = searchWord[..i];
+                List<string> subList = new List<string>();
+                foreach (string product in products)
+                {
+                    if (product.StartsWith(subString))
+                        subList.Add(product);
+                    if (subList.Count == 3)
+                        break;                        
+                }
+                returnLists.Add(subList);
+            }
+            return returnLists;
         }
+
     }
 }
