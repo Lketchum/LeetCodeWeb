@@ -1601,7 +1601,28 @@ namespace LeetCodeWeb.Services
 
         public int EraseOverlapIntervals(int[][] intervals)
         {
-            return 0;
+            List<Interval> FittedInterval = new List<Interval>();
+            foreach (var numSet in intervals)
+            {
+                List<Interval> overlappingIntervals = FittedInterval.FindAll(x =>
+                    (x.Start >= numSet[0] && x.End <= numSet[1]) ||
+                    (x.Start <= numSet[1] && x.End >= numSet[0]));
+                if (overlappingIntervals.Count == 0)
+                {
+                    Interval fitInterval = new Interval(numSet[0], numSet[1]);
+                    FittedInterval.Add(fitInterval);
+                }
+                else if (overlappingIntervals.Count == 1)
+                {
+                    if (numSet[1] - numSet[0] > overlappingIntervals.FirstOrDefault().End - overlappingIntervals.FirstOrDefault().Start)
+                        continue;
+                    else
+                        FittedInterval.Remove(overlappingIntervals);
+                }
+                else
+                    continue;
+            }
+            return intervals.Length - FittedInterval.Count;
         }
     }
 }

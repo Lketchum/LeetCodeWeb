@@ -94,6 +94,19 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        // 区间集合
+        public class Interval
+        {
+            public int Start { get; set; }
+            public int End { get; set; }
+
+            public Interval(int start, int end)
+            {
+                Start = start;
+                End = end;
+            }
+        }
+
         //双数组输入
         public class TwoArrays
         {
