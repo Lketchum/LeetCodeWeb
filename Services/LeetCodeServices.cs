@@ -1602,11 +1602,10 @@ namespace LeetCodeWeb.Services
         public int EraseOverlapIntervals(int[][] intervals) 
         {
             List<Interval> FittedInterval = new List<Interval>();
-            foreach (var numSet in intervals)  
+            foreach (var numSet in intervals)
             {
                 List<Interval> overlappingIntervals = FittedInterval.FindAll(x =>
-                    (x.Start >= numSet[0] && x.End <= numSet[1]) ||
-                    (x.Start < numSet[1] && x.End >= numSet[0]));
+                    (x.Start < numSet[1] && x.End > numSet[0]));
                 if (overlappingIntervals.Count == 0)
                 {
                     Interval fitInterval = new Interval(numSet[0], numSet[1]);
