@@ -1599,14 +1599,14 @@ namespace LeetCodeWeb.Services
             return returnLists;
         }
 
-        public int EraseOverlapIntervals(int[][] intervals)
+        public int EraseOverlapIntervals(int[][] intervals) 
         {
             List<Interval> FittedInterval = new List<Interval>();
-            foreach (var numSet in intervals)
+            foreach (var numSet in intervals)  
             {
                 List<Interval> overlappingIntervals = FittedInterval.FindAll(x =>
                     (x.Start >= numSet[0] && x.End <= numSet[1]) ||
-                    (x.Start <= numSet[1] && x.End >= numSet[0]));
+                    (x.Start < numSet[1] && x.End >= numSet[0]));
                 if (overlappingIntervals.Count == 0)
                 {
                     Interval fitInterval = new Interval(numSet[0], numSet[1]);
@@ -1614,10 +1614,10 @@ namespace LeetCodeWeb.Services
                 }
                 else if (overlappingIntervals.Count == 1)
                 {
-                    if (numSet[1] - numSet[0] > overlappingIntervals.FirstOrDefault().End - overlappingIntervals.FirstOrDefault().Start)
+                    if (numSet[1] - numSet[0] > overlappingIntervals[0].End - overlappingIntervals[0].Start)
                         continue;
                     else
-                        FittedInterval.Remove(overlappingIntervals);
+                        FittedInterval.Remove(overlappingIntervals[0]);
                 }
                 else
                     continue;
