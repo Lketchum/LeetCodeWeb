@@ -1616,7 +1616,12 @@ namespace LeetCodeWeb.Services
                     if (numSet[1] - numSet[0] > overlappingIntervals[0].End - overlappingIntervals[0].Start)
                         continue;
                     else
+                    {
                         FittedInterval.Remove(overlappingIntervals[0]);
+                        Interval fitInterval = new Interval(numSet[0], numSet[1]);
+                        FittedInterval.Add(fitInterval);
+                    }
+                        
                 }
                 else
                     continue;
