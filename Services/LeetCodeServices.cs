@@ -1649,5 +1649,10 @@ namespace LeetCodeWeb.Services
 
             return n - ans;
         }
+
+        public int FindMinArrowShots(int[][] points)
+        {
+            return 0;
+        }
     }
 }

@@ -361,6 +361,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.EraseOverlapIntervals(intervals);
             return result;
         }
+
+        [HttpPost("FindMinArrowShots")]
+        public int FindMinArrowShots(int[][] points)
+        {
+            var result = _leetCodeServices.FindMinArrowShots(points);
+            return result;
+        }
     }
 }
 
