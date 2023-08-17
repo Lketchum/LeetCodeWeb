@@ -1601,30 +1601,29 @@ namespace LeetCodeWeb.Services
 
         public int EraseOverlapIntervals(int[][] intervals) 
         {
+            // 修正为先排序，而后保留重合区域中最右端端点更小的，但空间、时间复杂度高，可进一步修正
             List<Interval> FittedInterval = new List<Interval>();
-            foreach (var numSet in intervals)
+            var sortedIntervals = intervals.OrderBy(intervals => intervals[0]).ToArray();
+            foreach (var numSet in sortedIntervals)
             {
-                List<Interval> overlappingIntervals = FittedInterval.FindAll(x =>
+                Interval overlappingIntervals = FittedInterval.Find(x =>
                     (x.Start < numSet[1] && x.End > numSet[0]));
-                if (overlappingIntervals.Count == 0)
+                if (overlappingIntervals == null)
                 {
                     Interval fitInterval = new Interval(numSet[0], numSet[1]);
                     FittedInterval.Add(fitInterval);
                 }
-                else if (overlappingIntervals.Count == 1)
+                else
                 {
-                    if (numSet[1] - numSet[0] > overlappingIntervals[0].End - overlappingIntervals[0].Start)
+                    if (numSet[1] >= overlappingIntervals.End)
                         continue;
                     else
                     {
-                        FittedInterval.Remove(overlappingIntervals[0]);
+                        FittedInterval.Remove(overlappingIntervals);
                         Interval fitInterval = new Interval(numSet[0], numSet[1]);
                         FittedInterval.Add(fitInterval);
                     }
-                        
                 }
-                else
-                    continue;
             }
             return intervals.Length - FittedInterval.Count;
         }
