@@ -1602,30 +1602,52 @@ namespace LeetCodeWeb.Services
         public int EraseOverlapIntervals(int[][] intervals) 
         {
             // 修正为先排序，而后保留重合区域中最右端端点更小的，但空间、时间复杂度高，可进一步修正
-            List<Interval> FittedInterval = new List<Interval>();
-            var sortedIntervals = intervals.OrderBy(intervals => intervals[0]).ToArray();
-            foreach (var numSet in sortedIntervals)
+            //List<Interval> FittedInterval = new List<Interval>();
+            //var sortedIntervals = intervals.OrderBy(intervals => intervals[0]).ToArray();
+            //foreach (var numSet in sortedIntervals)
+            //{
+            //    Interval overlappingIntervals = FittedInterval.Find(x =>
+            //        (x.Start < numSet[1] && x.End > numSet[0]));
+            //    if (overlappingIntervals == null)
+            //    {
+            //        Interval fitInterval = new Interval(numSet[0], numSet[1]);
+            //        FittedInterval.Add(fitInterval);
+            //    }
+            //    else
+            //    {
+            //        if (numSet[1] >= overlappingIntervals.End)
+            //            continue;
+            //        else
+            //        {
+            //            FittedInterval.Remove(overlappingIntervals);
+            //            Interval fitInterval = new Interval(numSet[0], numSet[1]);
+            //            FittedInterval.Add(fitInterval);
+            //        }
+            //    }
+            //}
+            //return intervals.Length - FittedInterval.Count;
+
+            // 动态规划算法优化
+            if (intervals.Length == 0)
             {
-                Interval overlappingIntervals = FittedInterval.Find(x =>
-                    (x.Start < numSet[1] && x.End > numSet[0]));
-                if (overlappingIntervals == null)
+                return 0;
+            }
+
+            Array.Sort(intervals, (a, b) => a[1] - b[1]);
+
+            int n = intervals.Length;
+            int right = intervals[0][1];
+            int ans = 1;
+            for (int i = 1; i < n; ++i)
+            {
+                if (intervals[i][0] >= right)
                 {
-                    Interval fitInterval = new Interval(numSet[0], numSet[1]);
-                    FittedInterval.Add(fitInterval);
-                }
-                else
-                {
-                    if (numSet[1] >= overlappingIntervals.End)
-                        continue;
-                    else
-                    {
-                        FittedInterval.Remove(overlappingIntervals);
-                        Interval fitInterval = new Interval(numSet[0], numSet[1]);
-                        FittedInterval.Add(fitInterval);
-                    }
+                    ++ans;
+                    right = intervals[i][1];
                 }
             }
-            return intervals.Length - FittedInterval.Count;
+
+            return n - ans;
         }
     }
 }
