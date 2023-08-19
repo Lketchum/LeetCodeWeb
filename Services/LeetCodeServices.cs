@@ -1652,7 +1652,21 @@ namespace LeetCodeWeb.Services
 
         public int FindMinArrowShots(int[][] points)
         {
-            return 0;
+            if (points.Length == 0)
+                return 0;
+            Array.Sort(points, (a, b) => a[1].CompareTo(b[1]));
+            int pos = points[0][1];
+            int ans = 1;
+            foreach(var balloon in points)
+            {
+                if (balloon[0] > pos)
+                {
+                    pos = balloon[1];
+                    ans++;
+                }
+            }
+
+            return ans;
         }
     }
 }
