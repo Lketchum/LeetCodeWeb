@@ -368,6 +368,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindMinArrowShots(points);
             return result;
         }
+
+        [HttpPost("DailyTemperatures")]
+        public int[] DailyTemperatures(int[] temperatures)
+        {
+            var result = _leetCodeServices.DailyTemperatures(temperatures);
+            return result;
+        }
     }
 }
 

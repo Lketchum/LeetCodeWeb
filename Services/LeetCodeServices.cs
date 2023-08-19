@@ -1668,5 +1668,10 @@ namespace LeetCodeWeb.Services
 
             return ans;
         }
+
+        public int[] DailyTemperatures(int[] temperatures)
+        {
+            return null;
+        }
     }
 }

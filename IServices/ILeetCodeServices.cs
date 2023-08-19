@@ -55,5 +55,6 @@ namespace LeetCodeWeb.IServices
         public IList<IList<string>> SuggestedProducts(string[] products, string searchWord);
         public int EraseOverlapIntervals(int[][] intervals);
         public int FindMinArrowShots(int[][] points);
+        public int[] DailyTemperatures(int[] temperatures);
     }
 }
