@@ -56,5 +56,6 @@ namespace LeetCodeWeb.IServices
         public int EraseOverlapIntervals(int[][] intervals);
         public int FindMinArrowShots(int[][] points);
         public int[] DailyTemperatures(int[] temperatures);
+        public int FindContentChildren(int[] g, int[] s);
     }
 }

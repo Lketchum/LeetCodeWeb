@@ -375,6 +375,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.DailyTemperatures(temperatures);
             return result;
         }
+
+        [HttpPost("")]
+        public int FindContentChildren(int[] g, int[] s)
+        {
+            var result = _leetCodeServices.FindContentChildren(g, s);
+            return result;
+        }
     }
 }
 

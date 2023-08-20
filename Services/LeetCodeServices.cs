@@ -1703,5 +1703,10 @@ namespace LeetCodeWeb.Services
             stack.Push(new Tuple<int, int>(idx, price));
             return ret;
         }
+
+        public int FindContentChildren(int[] g, int[] s)
+        {
+            return 0;
+        }
     }
 }
