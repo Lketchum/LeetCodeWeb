@@ -1706,7 +1706,25 @@ namespace LeetCodeWeb.Services
 
         public int FindContentChildren(int[] g, int[] s)
         {
-            return 0;
+            int nG = g.Length;
+            int nS = s.Length;
+            Array.Sort(g);
+            Array.Sort(s);
+            int tmpG = 0;
+            int tmpS = 0;
+            while (tmpG < nG && tmpS < nS)
+            {
+                if (g[tmpG] <= s[tmpS])
+                {
+                    tmpG++;
+                    tmpS++;
+                }
+                else
+                    tmpS++;
+            }
+
+
+            return tmpG;
         }
     }
 }
