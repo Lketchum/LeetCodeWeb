@@ -382,6 +382,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindContentChildren(g, s);
             return result;
         }
+
+        [HttpPost("ReverseString")]
+        public char[] ReverseString(char[] s)
+        {
+            var result = _leetCodeServices.ReverseString(s);
+            return result;
+        }
     }
 }
 

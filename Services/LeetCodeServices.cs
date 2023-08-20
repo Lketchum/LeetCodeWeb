@@ -1722,9 +1722,12 @@ namespace LeetCodeWeb.Services
                 else
                     tmpS++;
             }
-
-
             return tmpG;
+        }
+
+        public char[] ReverseString(char[] s)
+        {
+            return s;
         }
     }
 }
