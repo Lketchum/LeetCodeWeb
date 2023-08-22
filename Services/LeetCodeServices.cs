@@ -1743,6 +1743,19 @@ namespace LeetCodeWeb.Services
 
         public int MajorityElement(int[] nums)
         {
+            Array.Sort(nums);
+            int n = nums.Length;
+            int mostNum = nums[0];
+            for (int i = 0; i < n; i++)
+            {
+                if (mostNum == nums[i])
+                    continue;
+                else
+                {
+                    int numCount = i - 0;
+                }
+                int tmpNum = nums[i];
+            }
             return 0;
         }
     }
