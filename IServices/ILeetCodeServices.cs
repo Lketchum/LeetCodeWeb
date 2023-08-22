@@ -58,5 +58,6 @@ namespace LeetCodeWeb.IServices
         public int[] DailyTemperatures(int[] temperatures);
         public int FindContentChildren(int[] g, int[] s);
         public char[] ReverseString(char[] s);
+        public int MajorityElement(int[] nums);
     }
 }

@@ -389,6 +389,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ReverseString(s);
             return result;
         }
+
+        [HttpPost("MajorityElement")]
+        public int MajorityElement(int[] nums)
+        {
+            var result = _leetCodeServices.MajorityElement(nums);
+            return result;
+        }
     }
 }
 

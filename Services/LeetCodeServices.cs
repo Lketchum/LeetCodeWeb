@@ -1740,5 +1740,10 @@ namespace LeetCodeWeb.Services
             }                
             return s;
         }
+
+        public int MajorityElement(int[] nums)
+        {
+            return 0;
+        }
     }
 }
