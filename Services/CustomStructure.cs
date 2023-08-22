@@ -147,5 +147,11 @@ namespace LeetCodeWeb.Services
             public int[] nums2 { get; set; }
             public long num { get; set; }
         }
+
+        public class Input_FindContentChildren
+        {
+            public int[] nums1 { get; set; }
+            public int[] nums2 { get; set; }
+        }
     }
 }

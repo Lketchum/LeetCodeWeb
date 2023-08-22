@@ -376,10 +376,10 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
-        [HttpPost("")]
-        public int FindContentChildren(int[] g, int[] s)
+        [HttpPost("FindContentChildren")]
+        public int FindContentChildren(Input_FindContentChildren input)
         {
-            var result = _leetCodeServices.FindContentChildren(g, s);
+            var result = _leetCodeServices.FindContentChildren(input.nums1, input.nums2);
             return result;
         }
 

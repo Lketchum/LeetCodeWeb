@@ -1727,6 +1727,17 @@ namespace LeetCodeWeb.Services
 
         public char[] ReverseString(char[] s)
         {
+            int n = s.Length;
+            int before = 0;
+            int after = n - 1;
+            while (before < after)
+            {
+                char tmp = s[before];
+                s[before] = s[after];
+                s[after] = tmp;
+                before++;
+                after--;
+            }                
             return s;
         }
     }

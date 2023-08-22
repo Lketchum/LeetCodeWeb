@@ -57,6 +57,6 @@ namespace LeetCodeWeb.IServices
         public int FindMinArrowShots(int[][] points);
         public int[] DailyTemperatures(int[] temperatures);
         public int FindContentChildren(int[] g, int[] s);
-        public void ReverseString(char[] s);
+        public char[] ReverseString(char[] s);
     }
 }
