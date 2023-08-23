@@ -59,5 +59,6 @@ namespace LeetCodeWeb.IServices
         public int FindContentChildren(int[] g, int[] s);
         public char[] ReverseString(char[] s);
         public int MajorityElement(int[] nums);
+        public int LengthOfLongestSubstring(string s);
     }
 }

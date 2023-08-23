@@ -396,6 +396,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MajorityElement(nums);
             return result;
         }
+
+        [HttpPost("LengthOfLongestSubstring")]
+        public int LengthOfLongestSubstring(string s)
+        {
+            var result = _leetCodeServices.LengthOfLongestSubstring(s);
+            return result;
+        }
     }
 }
 

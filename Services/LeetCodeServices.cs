@@ -1770,5 +1770,10 @@ namespace LeetCodeWeb.Services
             int n = nums.Length;
             return nums[n / 2];
         }
+
+        public int LengthOfLongestSubstring(string s)
+        {
+            return 0;
+        }
     }
 }
