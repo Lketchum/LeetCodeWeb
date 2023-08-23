@@ -1743,20 +1743,32 @@ namespace LeetCodeWeb.Services
 
         public int MajorityElement(int[] nums)
         {
+            //Array.Sort(nums);
+            //int n = nums.Length;
+            //int currNum = nums[0];
+            //int numStart = 0;
+            //for (int i = 0; i < n; i++)
+            //{
+            //    if (currNum == nums[i] && i < n - 1)
+            //        continue;
+            //    else
+            //    {
+            //        int numCount = i - numStart;
+            //        if (numCount > n / 2)
+            //            break;
+            //        else
+            //        {
+            //            currNum = nums[i];
+            //            numStart = i - 1;
+            //        }
+            //    }
+            //}
+            //return currNum;
+
+            // 代码优化
             Array.Sort(nums);
             int n = nums.Length;
-            int mostNum = nums[0];
-            for (int i = 0; i < n; i++)
-            {
-                if (mostNum == nums[i])
-                    continue;
-                else
-                {
-                    int numCount = i - 0;
-                }
-                int tmpNum = nums[i];
-            }
-            return 0;
+            return nums[n / 2];
         }
     }
 }
