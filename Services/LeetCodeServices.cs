@@ -1,4 +1,5 @@
 ﻿using LeetCodeWeb.IServices;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -1773,7 +1774,22 @@ namespace LeetCodeWeb.Services
 
         public int LengthOfLongestSubstring(string s)
         {
-            return 0;
+            int n = s.Length;
+            int longestLength = 0;
+            int start = 0;
+            HashSet<char> subStringDic = new HashSet<char>();
+            for (int i = 0; i < n; i++)
+            {
+                if (subStringDic.Contains(s[i]))
+                {
+                    subStringDic.Remove(s[i]);
+                    start++;
+                }
+                subStringDic.Add(s[i]);
+                longestLength = Math.Max(longestLength, i - start + 1);
+            }           
+
+            return longestLength;
         }
     }
 }
