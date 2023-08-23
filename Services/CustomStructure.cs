@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
+using System.Collections.Generic;
 
 namespace LeetCodeWeb.Services
 {
@@ -104,6 +105,26 @@ namespace LeetCodeWeb.Services
             {
                 Start = start;
                 End = end;
+            }
+        }
+
+        public class LRUCache
+        {
+            private int capacity;
+
+
+
+            public LRUCache(int capacity)
+            {
+
+            }
+            public int Get(int key)
+            {
+                return 0;
+            }
+            public void Put(int key, int value)
+            {
+
             }
         }
 
