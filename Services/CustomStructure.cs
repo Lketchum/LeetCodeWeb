@@ -108,23 +108,61 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //LRU缓存
         public class LRUCache
         {
-            private int capacity;
-
-
+            Dictionary<int, int> dict;
+            LinkedList<int> nums;
+            Dictionary<int, LinkedListNode<int>> nodes;
+            int capacity;
 
             public LRUCache(int capacity)
             {
-
+                this.capacity = capacity;
+                dict = new Dictionary<int, int>();
+                nums = new LinkedList<int>();
+                nodes = new Dictionary<int, LinkedListNode<int>>();
             }
+
             public int Get(int key)
             {
-                return 0;
+                if (dict.ContainsKey(key))
+                {
+                    nums.Remove(nodes[key]);
+                    var node = nums.AddLast(key);
+                    nodes[key] = node;
+                    return dict[key];
+                }
+                return -1;
             }
+
             public void Put(int key, int value)
             {
-
+                if (dict.ContainsKey(key))
+                {
+                    nums.Remove(nodes[key]);
+                    var node = nums.AddLast(key);
+                    nodes[key] = node;
+                    dict[key] = value;
+                }
+                else
+                {
+                    if (nums.Count == capacity)
+                    {
+                        dict.Remove(nums.First.Value);
+                        nodes.Remove(nums.First.Value);
+                        nums.RemoveFirst();
+                        var node = nums.AddLast(key);
+                        dict.Add(key, value);
+                        nodes.Add(key, node);
+                    }
+                    else
+                    {
+                        var node = nums.AddLast(key);
+                        dict.Add(key, value);
+                        nodes.Add(key, node);
+                    }
+                }
             }
         }
 
