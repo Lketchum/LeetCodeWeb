@@ -1791,5 +1791,10 @@ namespace LeetCodeWeb.Services
 
             return longestLength;
         }
+
+        public int[] Merge(int[] nums1, int m, int[] nums2, int n)
+        {
+            return null;
+        }
     }
 }

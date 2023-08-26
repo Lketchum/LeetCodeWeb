@@ -403,6 +403,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LengthOfLongestSubstring(s);
             return result;
         }
+
+        [HttpPost("Merge")]
+        public int[] Merge(int[] nums1, int m, int[] nums2, int n)
+        {
+            var result = _leetCodeServices.Merge(nums1, m, nums2, n);
+            return result;
+        }
     }
 }
 
