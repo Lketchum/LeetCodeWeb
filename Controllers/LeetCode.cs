@@ -403,6 +403,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LengthOfLongestSubstring(s);
             return result;
         }
+
+        [HttpPost("")]
+        public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
+        {
+            var result = _leetCodeServices.ZigzagLevelOrder(root);
+            return result;
+        }
     }
 }
 

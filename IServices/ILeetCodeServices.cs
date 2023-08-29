@@ -60,5 +60,6 @@ namespace LeetCodeWeb.IServices
         public char[] ReverseString(char[] s);
         public int MajorityElement(int[] nums);
         public int LengthOfLongestSubstring(string s);
+        public IList<IList<int>> ZigzagLevelOrder(TreeNode root);
     }
 }
