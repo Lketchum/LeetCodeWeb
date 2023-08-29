@@ -408,6 +408,10 @@ namespace LeetCodeWeb.Controllers
         public int[] Merge(int[] nums1, int m, int[] nums2, int n)
         {
             var result = _leetCodeServices.Merge(nums1, m, nums2, n);
+        [HttpPost("")]
+        public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
+        {
+            var result = _leetCodeServices.ZigzagLevelOrder(root);
             return result;
         }
     }

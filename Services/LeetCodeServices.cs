@@ -1793,6 +1793,7 @@ namespace LeetCodeWeb.Services
         }
 
         public int[] Merge(int[] nums1, int m, int[] nums2, int n)
+        public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
             return null;
         }
