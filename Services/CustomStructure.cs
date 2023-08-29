@@ -212,5 +212,11 @@ namespace LeetCodeWeb.Services
             public int[] nums1 { get; set; }
             public int[] nums2 { get; set; }
         }
+
+        public class Input_Merge
+        {
+            public int[] nums1 { get; set; }
+            public int[] nums2 { get; set; }
+        }
     }
 }

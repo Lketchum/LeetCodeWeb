@@ -405,10 +405,13 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("Merge")]
-        public int[] Merge(int[] nums1, int m, int[] nums2, int n)
+        public int[] Merge(Input_Merge input, int m, int n)
         {
-            var result = _leetCodeServices.Merge(nums1, m, nums2, n);
-        [HttpPost("")]
+            var result = _leetCodeServices.Merge(input.nums1, m, input.nums2, n);
+            return result;
+        }
+
+        [HttpPost("ZigzagLevelOrder")]
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
             var result = _leetCodeServices.ZigzagLevelOrder(root);

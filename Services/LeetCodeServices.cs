@@ -1793,6 +1793,37 @@ namespace LeetCodeWeb.Services
         }
 
         public int[] Merge(int[] nums1, int m, int[] nums2, int n)
+        {
+            int p1 = 0;
+            int p2 = 0;
+            int storePosition = m;
+            while (p1 < m + n && p2 < n)
+            {
+                if (p1 < m)
+                    nums1[p1 + n] = int.MaxValue;
+                int currMin = Math.Min(Math.Min(nums1[p1], nums2[p2]), nums1[storePosition - 1]);
+                if (currMin == nums1[p1])
+                    p1++;
+                else if (currMin == nums2[p2])
+                {
+                    nums1[storePosition] = nums1[p1];
+                    nums1[p1] = nums2[p2];
+                    storePosition++;
+                    p2++;
+                    p1++;
+                }
+                else
+                {
+                    int tmp = nums1[p1];
+                    nums1[p1] = nums1[storePosition];
+                    nums1[storePosition] = tmp;
+                    p1++;
+                    storePosition++;
+                }
+            }
+
+            return nums1;
+        }
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
             return null;
