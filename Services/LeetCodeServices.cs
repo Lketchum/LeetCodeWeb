@@ -1904,5 +1904,13 @@ namespace LeetCodeWeb.Services
             }
             return result;
         }
+
+        public int Search(int[] nums, int target)
+        {
+            int n = nums.Length;
+            int start = nums[0];
+            int end = nums[nums.Length - 1];
+            return 0;
+        }
     }
 }

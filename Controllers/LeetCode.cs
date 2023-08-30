@@ -418,6 +418,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ZigzagLevelOrder(root);
             return result;
         }
+
+        [HttpPost("Search")]
+        public int Search(int[] nums, int target)
+        {
+            var result = _leetCodeServices.Search(nums, target);
+            return result;
+        }
     }
 }
 
