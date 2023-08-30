@@ -412,8 +412,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("ZigzagLevelOrder")]
-        public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
+        public IList<IList<int>> ZigzagLevelOrder(int?[] nums)
         {
+            TreeNode root = _leetCodeServices.ArrayToBinaryTree(nums);
             var result = _leetCodeServices.ZigzagLevelOrder(root);
             return result;
         }

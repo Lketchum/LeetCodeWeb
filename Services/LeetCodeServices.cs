@@ -1878,7 +1878,31 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
-            return null;
+            IList<IList<int>> result = new List<IList<int>>();
+            if (root == null)
+                return result;
+            Queue<TreeNode> nodeQueue = new Queue<TreeNode>();
+            nodeQueue.Enqueue(root);
+            bool even = false;
+            while (nodeQueue.Count > 0)
+            {
+                List<int> levelLlist = new List<int>();
+                int queueCount = nodeQueue.Count;
+                for (int i = 0; i < queueCount; i++)
+                {
+                    TreeNode tmpNode = nodeQueue.Dequeue();
+                    levelLlist.Add(tmpNode.val);
+                    if (tmpNode.left != null)
+                        nodeQueue.Enqueue(tmpNode.left);
+                    if (tmpNode.right != null)
+                        nodeQueue.Enqueue(tmpNode.right);
+                }
+                if (even)
+                    levelLlist.Reverse(); // Reverse the list in-place
+                result.Add(levelLlist);
+                even = !even;
+            }
+            return result;
         }
     }
 }
