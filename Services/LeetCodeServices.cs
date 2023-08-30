@@ -1794,36 +1794,56 @@ namespace LeetCodeWeb.Services
 
         public int[] Merge(int[] nums1, int m, int[] nums2, int n)
         {
-            int p1 = 0;
-            int p2 = 0;
-            int storePosition = m;
-            while (p1 < m + n && p2 < n)
+            if (n == 0)
+                nums1 = nums1;
+            else
             {
-                if (p1 < m)
-                    nums1[p1 + n] = int.MaxValue;
-                int currMin = Math.Min(Math.Min(nums1[p1], nums2[p2]), nums1[storePosition - 1]);
-                if (currMin == nums1[p1])
-                    p1++;
-                else if (currMin == nums2[p2])
+                int p1 = 0;
+                int p2 = 0;
+                Queue<int> tmpQueue = new Queue<int>();
+                int minNum = int.MaxValue;
+                while (p1 < m + n)
                 {
-                    nums1[storePosition] = nums1[p1];
-                    nums1[p1] = nums2[p2];
-                    storePosition++;
-                    p2++;
-                    p1++;
-                }
-                else
-                {
-                    int tmp = nums1[p1];
-                    nums1[p1] = nums1[storePosition];
-                    nums1[storePosition] = tmp;
-                    p1++;
-                    storePosition++;
+                    if (p1 < n)
+                        nums1[p1 + m] = int.MaxValue;
+                    
+                    if (p2 < n)
+                    {
+                        if (tmpQueue.Count != 0)
+                            minNum = Math.Min(Math.Min(nums1[p1], nums2[p2]), tmpQueue.Peek());
+                        else
+                            minNum = Math.Min(nums1[p1], nums2[p2]);
+
+                        if (minNum == nums1[p1])
+                            p1++;
+                        else if (minNum == nums2[p2])
+                        {
+                            tmpQueue.Enqueue(nums1[p1]);
+                            nums1[p1] = nums2[p2];
+                            p1++;
+                            p2++;
+                        }
+                        else
+                        {
+                            tmpQueue.Enqueue(nums1[p1]);
+                            nums1[p1] = tmpQueue.Dequeue();
+                            p1++;
+                        }
+                    }
+                    else
+                    {
+                        while (p1 < m + n)
+                        {
+                            tmpQueue.Enqueue(nums1[p1]);
+                            nums1[p1] = tmpQueue.Dequeue();
+                            p1++;
+                        }
+                    }
                 }
             }
-
             return nums1;
         }
+
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root)
         {
             return null;
