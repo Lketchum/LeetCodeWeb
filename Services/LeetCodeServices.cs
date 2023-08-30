@@ -1909,7 +1909,8 @@ namespace LeetCodeWeb.Services
         {
             int n = nums.Length;
             int start = nums[0];
-            int end = nums[nums.Length - 1];
+            int end = nums[n - 1];
+            int middle = nums[n / 2];      
             return 0;
         }
     }
