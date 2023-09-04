@@ -425,6 +425,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.Search(nums, target);
             return result;
         }
+
+        [HttpPost("ThreeSum")]
+        public IList<IList<int>> ThreeSum(int[] nums)
+        {
+            var result = _leetCodeServices.ThreeSum(nums);
+            return result;
+        }
     }
 }
 

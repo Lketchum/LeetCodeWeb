@@ -1927,7 +1927,7 @@ namespace LeetCodeWeb.Services
                 else
                 {
                     //右半边有序
-                    if (target < nums[middle] && target <= nums[end])
+                    if (target > nums[middle] && target <= nums[end])
                     {
                         start = middle + 1;
                     }
@@ -1936,6 +1936,11 @@ namespace LeetCodeWeb.Services
                 }
             }
             return -1;           
+        }
+
+        public IList<IList<int>> ThreeSum(int[] nums)
+        {
+            return null;
         }
     }
 }
