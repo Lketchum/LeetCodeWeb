@@ -1907,11 +1907,35 @@ namespace LeetCodeWeb.Services
 
         public int Search(int[] nums, int target)
         {
-            int n = nums.Length;
-            int start = nums[0];
-            int end = nums[n - 1];
-            int middle = nums[n / 2];      
-            return 0;
+            int start = 0;
+            int end = nums.Length - 1;
+            while (start <= end)
+            {
+                int middle = start + (end - start) / 2;
+                if (nums[middle] == target)
+                    return middle;
+                else if (nums[start] <= nums[middle])
+                {
+                    //左半边有序
+                    if (target >= nums[start] && target <= nums[middle])
+                        end = middle - 1;
+                    else
+                    {
+                        start = middle + 1;
+                    }
+                }
+                else
+                {
+                    //右半边有序
+                    if (target < nums[middle] && target <= nums[end])
+                    {
+                        start = middle + 1;
+                    }
+                    else
+                        end = middle - 1;
+                }
+            }
+            return -1;           
         }
     }
 }
