@@ -166,6 +166,57 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //队列实现栈
+        public class MyStack
+        {
+            private Queue<int> queue1;
+            private Queue<int> queue2;
+
+            public MyStack()
+            {
+                queue1= new Queue<int>();
+                queue2= new Queue<int>();
+            }
+
+            public void Push(int x)
+            {
+                if (queue1.Count == 0)
+                {
+                    queue1.Enqueue(x);
+                    while (queue2.Count > 0)
+                        queue1.Enqueue(queue2.Dequeue());
+                }
+                else
+                {
+                    queue2.Enqueue(x);
+                    while (queue1.Count > 0)
+                        queue2.Enqueue(queue1.Dequeue());
+                }
+            }
+
+            public int Pop()
+            {
+                if (queue1.Count > 0)
+                    return queue1.Dequeue();
+                else
+                    return queue2.Dequeue();
+            }
+
+            public int Top()
+            {
+                if (queue1.Count > 0)
+                    return queue1.Peek();
+                else
+                    return queue2.Peek();
+            }
+
+            public bool Empty()
+            {
+                return queue1.Count == 0 && queue2.Count == 0;
+            }
+        }
+
+        #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
         {
@@ -218,5 +269,6 @@ namespace LeetCodeWeb.Services
             public int[] nums1 { get; set; }
             public int[] nums2 { get; set; }
         }
+        #endregion
     }
 }
