@@ -1940,7 +1940,70 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<int>> ThreeSum(int[] nums)
         {
-            return null;
+            //超时
+            //Array.Sort(nums);
+            //IList<IList<int>> sumLists = new List<IList<int>>();
+            //HashSet<Tuple<int,int,int>> sumSets = new HashSet<Tuple<int, int, int>>();
+            //int n = nums.Length;
+            //for (int i = 0; i < n - 2; i++)
+            //{
+            //    for (int j = i + 1; j < n - 1; j++)
+            //    {
+            //        for (int k = j + 1; k < n; k++)
+            //        {
+            //            if (nums[i] + nums[j] + nums[k] == 0)
+            //            {
+            //                var tmpTuple = Tuple.Create(nums[i], nums[j], nums[k]);
+            //                if (!sumSets.Contains(tmpTuple))
+            //                {
+            //                    sumLists.Add(new List<int> { nums[i], nums[j], nums[k] });
+            //                    sumSets.Add(tmpTuple);
+            //                }
+
+            //            }
+
+            //        }
+            //    }
+            //}
+            //return sumLists;
+
+            //代码优化
+            IList<IList<int>> sumLists = new List<IList<int>>();
+            int n = nums.Length;
+            Array.Sort(nums);
+            for (int i = 0; i < n - 2; i++)
+            {
+                if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) //避免重复
+                {
+                    int left = i + 1;
+                    int right = n - 1;
+                    int target = -nums[i];
+
+                    while (left < right)
+                    {
+                        int sum = nums[left] + nums[right];
+                        if (sum == target)
+                        {
+                            sumLists.Add(new List<int> { nums[i], nums[left], nums[right] });
+                            //避免重复
+                            while (left < right && nums[left] == nums[left + 1])
+                                left++;
+                            while (left < right && nums[right] == nums[right - 1])
+                                right--;
+                        }
+                        else if (sum< target)
+                        {
+                            left++;
+                        }
+                        else
+                        {
+                            right--;
+                        }
+                    }
+                }
+            }
+
+            return sumLists;
         }
     }
 }
