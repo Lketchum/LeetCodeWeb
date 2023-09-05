@@ -432,6 +432,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ThreeSum(nums);
             return result;
         }
+
+        [HttpPost("ReverseKGroup")]
+        public ListNode ReverseKGroup(ListNode head, int k)
+        {
+            var result = _leetCodeServices.ReverseKGroup(head, k);
+            return result;
+        }
     }
 }
 

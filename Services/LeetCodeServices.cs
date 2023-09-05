@@ -2010,5 +2010,10 @@ namespace LeetCodeWeb.Services
 
             return sumLists;
         }
+
+        public ListNode ReverseKGroup(ListNode head, int k)
+        {
+            return null;
+        }
     }
 }
