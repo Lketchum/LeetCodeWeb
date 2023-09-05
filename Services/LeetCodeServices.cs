@@ -1941,6 +1941,7 @@ namespace LeetCodeWeb.Services
         public IList<IList<int>> ThreeSum(int[] nums)
         {
             //超时
+            #region 暴力代码
             //Array.Sort(nums);
             //IList<IList<int>> sumLists = new List<IList<int>>();
             //HashSet<Tuple<int,int,int>> sumSets = new HashSet<Tuple<int, int, int>>();
@@ -1966,8 +1967,10 @@ namespace LeetCodeWeb.Services
             //    }
             //}
             //return sumLists;
+            #endregion
 
             //代码优化
+            //三数之和可以看作一个数加上一个两数之和，两数之和可以使用双指针
             IList<IList<int>> sumLists = new List<IList<int>>();
             int n = nums.Length;
             Array.Sort(nums);
@@ -1990,6 +1993,8 @@ namespace LeetCodeWeb.Services
                                 left++;
                             while (left < right && nums[right] == nums[right - 1])
                                 right--;
+                            left++;
+                            right--;
                         }
                         else if (sum< target)
                         {
