@@ -66,5 +66,6 @@ namespace LeetCodeWeb.IServices
         public IList<IList<int>> ThreeSum(int[] nums);
         public List<int> ReverseKGroup(List<int> numsBefore, int k);
         public int NumIslands(char[][] grid);
+        public int[] NextPermutation(int[] nums);
     }
 }

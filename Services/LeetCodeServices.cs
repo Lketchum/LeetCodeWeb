@@ -2104,5 +2104,10 @@ namespace LeetCodeWeb.Services
             if (c - 1 >= 0 && grid[r][c - 1] == '1')
                 DFS_NumIslands(grid, r, c - 1);
         }
+
+        public int[] NextPermutation(int[] nums)
+        {
+            return null;
+        }
     }
 }

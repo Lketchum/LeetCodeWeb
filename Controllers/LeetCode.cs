@@ -446,6 +446,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.NumIslands(grid);
             return result;
         }
+
+        [HttpPost("NextPermutation")]
+        public int[] NextPermutation(int[] nums)
+        {
+            var result = _leetCodeServices.NextPermutation(nums);
+            return result;
+        }
     }
 }
 
