@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
@@ -2070,9 +2071,38 @@ namespace LeetCodeWeb.Services
             return numsAfter;
         }
 
+        int gridRow = 0;
+        int gridColumn = 0;
         public int NumIslands(char[][] grid)
         {
-            return 0;
+            int countNum = 0;            
+            gridRow = grid.Length;
+            gridColumn = grid[0].Length;
+            for (int i = 0; i < gridRow; i++)
+            {
+                for (int j = 0; j < gridColumn; j++)
+                {
+                    if (grid[i][j] == '1')
+                    {
+                        countNum++;
+                        DFS_NumIslands(grid, i, j);
+                    }
+                }
+            }    
+
+            return countNum;
+        }
+        private void DFS_NumIslands(char[][] grid, int r, int c)
+        {
+            grid[r][c] = '0';
+            if (r + 1 < gridRow && grid[r + 1][c] == '1')
+                DFS_NumIslands(grid, r + 1, c);
+            if (c + 1 < gridColumn && grid[r][c + 1] == '1')
+                DFS_NumIslands(grid, r, c + 1);
+            if (r - 1 >= 0 && grid[r - 1][c] == '1')
+                DFS_NumIslands(grid, r - 1, c);
+            if (c - 1 >= 0 && grid[r][c - 1] == '1')
+                DFS_NumIslands(grid, r, c - 1);
         }
     }
 }
