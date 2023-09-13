@@ -2059,7 +2059,6 @@ namespace LeetCodeWeb.Services
             ExitLoop: //循环跳出位置
 
             ListNode returnNode = dummyNode.next;
-
             //后处理：将ListNode类转换为数组
             List<int> numsAfter = new List<int>();
             while (returnNode != null)
@@ -2069,6 +2068,11 @@ namespace LeetCodeWeb.Services
             }
 
             return numsAfter;
+        }
+
+        public int NumIslands(char[][] grid)
+        {
+            return 0;
         }
     }
 }

@@ -439,6 +439,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ReverseKGroup(numsBefore, k);
             return result;
         }
+
+        [HttpPost("NumIslands")]
+        public int NumIslands(char[][] grid)
+        {
+            var result = _leetCodeServices.NumIslands(grid);
+            return result;
+        }
     }
 }
 
