@@ -434,9 +434,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("ReverseKGroup")]
-        public ListNode ReverseKGroup(ListNode head, int k)
+        public List<int> ReverseKGroup(List<int> numsBefore, int k)
         {
-            var result = _leetCodeServices.ReverseKGroup(head, k);
+            var result = _leetCodeServices.ReverseKGroup(numsBefore, k);
             return result;
         }
     }

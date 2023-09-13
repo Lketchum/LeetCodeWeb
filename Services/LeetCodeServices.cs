@@ -2011,9 +2011,64 @@ namespace LeetCodeWeb.Services
             return sumLists;
         }
 
-        public ListNode ReverseKGroup(ListNode head, int k)
+        public List<int> ReverseKGroup(List<int> numsBefore, int k)
         {
-            return null;
+            #region 前处理：将数组转换为ListNode类
+            ListNode head;
+
+            ListNode dummy = new ListNode(0); // 创建一个虚拟节点作为链表的头节点
+            ListNode current = dummy;
+
+            foreach (int num in numsBefore)
+            {
+                ListNode newNode = new ListNode(num);
+                current.next = newNode;
+                current = current.next;
+            }
+            head = dummy.next;
+            #endregion
+
+            //逻辑代码内容
+            ListNode dummyNode = new ListNode(0);
+            dummyNode.next = head;
+            ListNode prevNode = dummyNode;
+            while (true)
+            {
+                //检查剩余节点是否有k个，不足则返回
+                ListNode last = prevNode;
+                for (int i = 0; i < k; i++)
+                {
+                    last = last.next;
+                    if (last == null)
+                        goto ExitLoop; //跳出循环
+                }
+
+                //翻转k个节点
+                ListNode curr = prevNode.next;
+                ListNode next;
+                for (int i = 0; i < k - 1; i++)
+                {
+                    next = curr.next;
+                    curr.next = next.next;
+                    next.next = prevNode.next;
+                    prevNode.next = next;
+                }
+                prevNode = curr;
+            }
+
+            ExitLoop: //循环跳出位置
+
+            ListNode returnNode = dummyNode.next;
+
+            //后处理：将ListNode类转换为数组
+            List<int> numsAfter = new List<int>();
+            while (returnNode != null)
+            {
+                numsAfter.Add(returnNode.val);
+                returnNode = returnNode.next;
+            }
+
+            return numsAfter;
         }
     }
 }
