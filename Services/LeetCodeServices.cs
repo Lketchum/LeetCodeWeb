@@ -2107,6 +2107,13 @@ namespace LeetCodeWeb.Services
 
         public int[] NextPermutation(int[] nums)
         {
+            int length = nums.Length;
+            int posLarger = length - 1;
+            int largerNum = nums[length - 1];
+            for (int i = length - 1; i > 0; i--)
+            {
+
+            }
             
             return null;
         }
