@@ -462,7 +462,7 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("ReverseBetween")]
-        public int[] ReverseBetween(int[] nums, int left, int right)
+        public List<int> ReverseBetween(List<int> nums, int left, int right)
         {
             var result = _leetCodeServices.ReverseBetween(nums, left, right);
             return result;

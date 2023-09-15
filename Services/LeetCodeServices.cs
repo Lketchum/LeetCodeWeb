@@ -2230,9 +2230,51 @@ namespace LeetCodeWeb.Services
                 return 1;
         }
 
-        public int[] ReverseBetween(int[] nums, int left, int right)
+        public List<int> ReverseBetween(List<int> nums, int left, int right)
         {
-            return null;
+            #region 前处理：将数组转换为ListNode类
+            ListNode head;
+
+            ListNode dummy = new ListNode(0); // 创建一个虚拟节点作为链表的头节点
+            ListNode current = dummy;
+
+            foreach (int num in nums)
+            {
+                ListNode newNode = new ListNode(num);
+                current.next = newNode;
+                current = current.next;
+            }
+            head = dummy.next;
+            #endregion
+            ListNode currNode = head;
+            int i = 0;
+            while (i < right)
+            {
+                if (currNode != null && i < left)
+                    currNode = currNode.next;
+                else // left <= i < right
+                {
+                    ListNode next;
+                    for (int j = 0; j < right - left; j++)
+                    {
+                        next = currNode.next;
+                        currNode.next = next.next;
+                        next.next = head.next;
+                        head.next = next;
+                    }
+                }
+            }
+
+            ListNode returnNode = head;
+            //后处理：将ListNode类转换为数组
+            List<int> numsAfter = new List<int>();
+            while (returnNode != null)
+            {
+                numsAfter.Add(returnNode.val);
+                returnNode = returnNode.next;
+            }
+
+            return numsAfter;
         }
     }
 }
