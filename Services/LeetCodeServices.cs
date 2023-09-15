@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
@@ -2182,7 +2183,51 @@ namespace LeetCodeWeb.Services
 
         public int PeakIndexInMountainArray(int[] arr)
         {
-            return 0;
+            #region IsPeak函数添加
+            //int start = 0;
+            //int end = arr.Length - 1;
+            //int middle = start + (end - start) / 2;
+            //while (start < end)
+            //{
+            //    int isPeak = IsPeak(arr, middle);
+            //    if (isPeak == -1)
+            //        start = middle;
+            //    else if (isPeak == 1)
+            //        end = middle;
+            //    else
+            //        break;
+            //    middle = start  + (end - start) / 2;
+            //}
+            //return middle;
+            #endregion
+
+            // 二分查找法，直接比较中间与右边数值
+            int start = 0;
+            int end = arr.Length - 1;
+
+            while (start < end)
+            {
+                int middle = start + (end - start) / 2;
+                if (arr[middle] < arr[middle + 1])
+                    start = middle + 1;
+                else
+                    end = middle;
+            }
+
+            return start;
+        }
+        private int IsPeak(int[] arr, int n)
+        {
+            //0为peak，-1为peak在右边，1为peak在左边
+            int left = (n > 0) ? arr[n - 1] : int.MinValue;
+            int right = (n < arr.Length - 1) ? arr[n + 1] : int.MinValue;
+
+            if (left < arr[n] && right < arr[n])
+                return 0;
+            else if (left < arr[n] && right > arr[n])
+                return -1;
+            else // (left > arr[n] && right < arr[n])
+                return 1;
         }
     }
 }
