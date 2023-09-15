@@ -68,5 +68,6 @@ namespace LeetCodeWeb.IServices
         public int NumIslands(char[][] grid);
         public int[] NextPermutation(int[] nums);
         public int PeakIndexInMountainArray(int[] arr);
+        public int[] ReverseBetween(int[] nums, int left, int right);
     }
 }

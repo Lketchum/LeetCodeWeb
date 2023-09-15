@@ -460,6 +460,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.PeakIndexInMountainArray(arr);
             return result;
         }
+
+        [HttpPost("ReverseBetween")]
+        public int[] ReverseBetween(int[] nums, int left, int right)
+        {
+            var result = _leetCodeServices.ReverseBetween(nums, left, right);
+            return result;
+        }
     }
 }
 

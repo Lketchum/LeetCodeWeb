@@ -2229,5 +2229,10 @@ namespace LeetCodeWeb.Services
             else // (left > arr[n] && right < arr[n])
                 return 1;
         }
+
+        public int[] ReverseBetween(int[] nums, int left, int right)
+        {
+            return null;
+        }
     }
 }
