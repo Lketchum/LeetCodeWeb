@@ -453,6 +453,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.NextPermutation(nums);
             return result;
         }
+
+        [HttpPost("PeakIndexInMountainArray")]
+        public int PeakIndexInMountainArray(int[] arr)
+        {
+            var result = _leetCodeServices.PeakIndexInMountainArray(arr);
+            return result;
+        }
     }
 }
 

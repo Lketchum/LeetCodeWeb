@@ -67,5 +67,6 @@ namespace LeetCodeWeb.IServices
         public List<int> ReverseKGroup(List<int> numsBefore, int k);
         public int NumIslands(char[][] grid);
         public int[] NextPermutation(int[] nums);
+        public int PeakIndexInMountainArray(int[] arr);
     }
 }

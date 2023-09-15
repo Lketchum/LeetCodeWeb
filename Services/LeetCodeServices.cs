@@ -2179,5 +2179,10 @@ namespace LeetCodeWeb.Services
             }
         }
         #endregion
+
+        public int PeakIndexInMountainArray(int[] arr)
+        {
+            return 0;
+        }
     }
 }
