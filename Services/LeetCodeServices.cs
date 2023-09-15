@@ -2107,28 +2107,77 @@ namespace LeetCodeWeb.Services
 
         public int[] NextPermutation(int[] nums)
         {
-            int length = nums.Length;
-            int pos = length - 1;
-            int largerNum = nums[length - 1];
-            bool IsEnd = false;
-            for (int i = length - 1; i >= 0; i--)
-            { 
-                if (nums[i] >= largerNum)
-                    largerNum = nums[i];
-                else
-                {
-                    (nums[i + 1], nums[i]) = (nums[i], nums[i + 1]);
-                    break;
-                }
-                if (i == 0) 
-                    IsEnd = true;
-            }
-            if (IsEnd)
+            int i = nums.Length - 2;
+            while (i >= 0 && nums[i] >= nums[i + 1])
             {
-                Array.Reverse(nums);
+                i--;
             }
+
+            if (i >= 0)
+            {
+                int j = nums.Length - 1;
+                while (j >= 0 && nums[j] <= nums[i])
+                {
+                    j--;
+                }
+                Swap_NextPermutation(nums, i, j);
+            }
+
+            Reverse_NextPermutation(nums, i + 1, nums.Length - 1);
 
             return nums;
         }
+
+        private void Swap_NextPermutation(int[] nums, int i, int j)
+        {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
+        private void Reverse_NextPermutation(int[] nums, int start, int end)
+        {
+            while (start < end)
+            {
+                Swap_NextPermutation(nums, start, end);
+                start++;
+                end--;
+            }
+        }
+        #region NextPermutation算法重写
+        public int[] NextPermutation_redone(int[] nums)
+        {
+            int i = nums.Length - 2;
+            while (i >= 0 && nums[i] >= nums[i + 1])
+                i--;
+            if (i >= 0)
+            {
+                int j = nums.Length - 1;
+                while (j >= 0 && nums[j] <= nums[i])
+                    j--;
+                Swap_redone(nums, i, j);
+            }
+            Reverse_redone(nums, i + 1, nums.Length - 1);
+
+            return null;
+        }
+
+        private void Swap_redone(int[] nums, int m, int n)
+        {
+            int temp = nums[m];
+            nums[m] = nums[n];
+            nums[n] = temp;
+        }
+
+        private void Reverse_redone(int[] nums, int m, int n)
+        {
+            while (m < n)
+            {
+                Swap_redone(nums, m, n);
+                m++;
+                n--;
+            }
+        }
+        #endregion
     }
 }
