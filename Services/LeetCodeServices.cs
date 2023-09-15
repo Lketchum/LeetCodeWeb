@@ -2108,30 +2108,27 @@ namespace LeetCodeWeb.Services
         public int[] NextPermutation(int[] nums)
         {
             int length = nums.Length;
-            int posLarger = length - 1;
+            int pos = length - 1;
             int largerNum = nums[length - 1];
-            for (int i = length - 1; i > 0; i--)
-            {
-
-            }
-            
-            return null;
-        }
-        private int FindLarge(int[] nums, int sort)
-        {
-            int large = nums[sort];
-            int largeSort = sort;
-            int length = nums.Length;
-            for (int i = sort + 1; i < length; i++)
-            {
-                if (nums[i] > large)
+            bool IsEnd = false;
+            for (int i = length - 1; i >= 0; i--)
+            { 
+                if (nums[i] >= largerNum)
+                    largerNum = nums[i];
+                else
                 {
-                    large = nums[i];
-                    largeSort = i;
+                    (nums[i + 1], nums[i]) = (nums[i], nums[i + 1]);
+                    break;
                 }
-                    
+                if (i == 0) 
+                    IsEnd = true;
             }
-            return largeSort;
+            if (IsEnd)
+            {
+                Array.Reverse(nums);
+            }
+
+            return nums;
         }
     }
 }
