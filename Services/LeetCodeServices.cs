@@ -2246,26 +2246,36 @@ namespace LeetCodeWeb.Services
             }
             head = dummy.next;
             #endregion
-            ListNode currNode = head;
-            int i = 0;
-            while (i < right)
+            ListNode returnNode = null;
+
+            if (head == null || left == right)
+                returnNode = head;
+
+            else
             {
-                if (currNode != null && i < left)
-                    currNode = currNode.next;
-                else // left <= i < right
+                ListNode dummyNode = new ListNode(0);
+                dummyNode.next = head;
+                ListNode prev = dummyNode.next;
+
+                for (int i = 0; i < left; i++)
+                    prev = prev.next;
+
+                ListNode currNode = prev.next;
+                ListNode temp = null;
+                for (int i = left; i < right; i++)
                 {
-                    ListNode next;
-                    for (int j = 0; j < right - left; j++)
-                    {
-                        next = currNode.next;
-                        currNode.next = next.next;
-                        next.next = head.next;
-                        head.next = next;
-                    }
+                    if (currNode == null || currNode.next == null)
+                        break;
+
+                    temp = currNode.next;
+                    currNode.next = temp.next;
+                    temp.next = prev.next;
+                    prev.next = temp;
                 }
+
+                returnNode = dummyNode.next;
             }
 
-            ListNode returnNode = head;
             //后处理：将ListNode类转换为数组
             List<int> numsAfter = new List<int>();
             while (returnNode != null)
