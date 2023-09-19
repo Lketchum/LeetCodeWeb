@@ -1,4 +1,5 @@
-﻿using LeetCodeWeb.IServices;
+﻿using LeetCodeWeb.Controllers;
+using LeetCodeWeb.IServices;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -2281,31 +2282,77 @@ namespace LeetCodeWeb.Services
 
         public IList<int> FindMinHeightTrees(int n, int[][] edges)
         {
-            //暴力搜索
-            List<int>[] path = new List<int>[n];
-            for (int i = 0; i < n; i++)
-                path[i] = new List<int>();
-            for (int i = 0; i < edges.Length; i++)
+            #region 暴力搜索
+
+            //List<int>[] path = new List<int>[n];
+            //for (int i = 0; i < n; i++)
+            //    path[i] = new List<int>();
+            //for (int i = 0; i < edges.Length; i++)
+            //{
+            //    path[edges[i][0]].Add(edges[i][1]);
+            //    path[edges[i][1]].Add(edges[i][0]);
+            //}
+            //int minDepth = n + 5;
+            //List<int> ans = new List<int>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    int d = MaxDepth_FineMinHeightTrees(i, new bool[n], path);
+            //    if (minDepth == d)
+            //        ans.Add(i);
+            //    else if (minDepth > d)
+            //    {
+            //        minDepth = d;
+            //        ans = new List<int>();
+            //        ans.Add(i);
+            //    }
+            //}
+
+            #endregion
+
+            //算法优化
+            List<int> res = new List<int>();
+            if (n == 1)
             {
-                path[edges[i][0]].Add(edges[i][1]);
-                path[edges[i][1]].Add(edges[i][0]);
-            }
-            int minDepth = n + 5;
-            List<int> ans = new List<int>();
-            for (int i = 0; i < n; i++)
-            {
-                int d = MaxDepth_FineMinHeightTrees(i, new bool[n], path);
-                if (minDepth == d)
-                    ans.Add(i);
-                else if (minDepth > d)
-                {
-                    minDepth = d;
-                    ans = new List<int>();
-                    ans.Add(i);
-                }
+                res.Add(0);
+                return res;
             }
 
-            return ans;
+            int[] degree = new int[n];
+            List<List<int>> map = new List<List<int>>();
+            for (int i = 0; i < n; i++)
+                map.Add(new List<int>());
+            foreach (int[] edge in edges)
+            {
+                degree[edge[0]]++;
+                degree[edge[1]]++;
+                map[edge[0]].Add(edge[1]);
+                map[edge[1]].Add(edge[0]);
+            }
+
+            Queue<int> queue = new Queue<int>();
+            for (int i = 0; i < n; i++)
+            {
+                if (degree[i] == 1)
+                    queue.Enqueue(i);
+            }
+            while (queue.Count != 0)
+            {
+                res = new List<int>();
+                int size = queue.Count;
+                for (int i = 0; i < size; i++)
+                {
+                    int cur = queue.Dequeue();
+                    res.Add(cur);
+                    List<int> neighbors = map[cur];
+                    foreach (int neighbor in neighbors)
+                    {
+                        degree[neighbor]--;
+                        if (degree[neighbor] == 1)
+                            queue.Enqueue(neighbor);
+                    }
+                }
+            }
+            return res;
         }
         private int MaxDepth_FineMinHeightTrees(int root, bool[] cameBefore, List<int>[] path)
         {
