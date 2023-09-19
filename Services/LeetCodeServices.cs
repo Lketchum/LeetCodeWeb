@@ -1494,6 +1494,7 @@ namespace LeetCodeWeb.Services
             return sequenceNum[m, n];
         }
 
+        //收取手续费
         public int MaxProfit(int[] prices, int fee)
         {
             // 未使用动态规划
@@ -2368,9 +2369,34 @@ namespace LeetCodeWeb.Services
             return ans + 1;
         }
 
+        //不收取手续费
         public int MaxProfit(int[] prices)
         {
-            return 0;
+            #region 原始代码
+            //int n = prices.Length;
+            //if (n == 0) return 0;
+            //int maxProfit = 0;
+            //int minPrice = prices[0];
+            //for (int i = 1; i < n; i++)
+            //{
+            //    minPrice = Math.Min(minPrice, prices[i - 1]);
+            //    maxProfit = Math.Max(maxProfit, prices[i] - minPrice);
+            //}
+
+            //return maxProfit > 0 ? maxProfit : 0;
+            #endregion
+
+            //优化代码
+            int maxProfit = 0;
+            int minPrice = int.MaxValue;
+
+            foreach (int price in prices)
+            {
+                minPrice = Math.Min(minPrice, price);
+                maxProfit = Math.Max(maxProfit, price - minPrice);
+            }
+
+            return maxProfit;
         }
     }
 }

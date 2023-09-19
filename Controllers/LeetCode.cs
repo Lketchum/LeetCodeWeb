@@ -475,7 +475,7 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
-        [HttpPost("MaxProfit")]
+        [HttpPost("MaxProfitBuyOne")]
         public int MaxProfit(int[] prices)
         {
             var result = _leetCodeServices.MaxProfit(prices);
