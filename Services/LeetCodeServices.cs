@@ -2367,5 +2367,10 @@ namespace LeetCodeWeb.Services
             }
             return ans + 1;
         }
+
+        public int MaxProfit(int[] prices)
+        {
+            return 0;
+        }
     }
 }

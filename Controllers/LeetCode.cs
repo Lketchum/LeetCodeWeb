@@ -474,6 +474,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindMinHeightTrees(n, edges);
             return result;
         }
+
+        [HttpPost("MaxProfit")]
+        public int MaxProfit(int[] prices)
+        {
+            var result = _leetCodeServices.MaxProfit(prices);
+            return result;
+        }
     }
 }
 

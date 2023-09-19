@@ -70,5 +70,6 @@ namespace LeetCodeWeb.IServices
         public int PeakIndexInMountainArray(int[] arr);
         public List<int> ReverseBetween(List<int> nums, int left, int right);
         public IList<int> FindMinHeightTrees(int n, int[][] edges);
+        public int MaxProfit(int[] prices);
     }
 }
