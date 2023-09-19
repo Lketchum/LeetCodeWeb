@@ -2281,7 +2281,44 @@ namespace LeetCodeWeb.Services
 
         public IList<int> FindMinHeightTrees(int n, int[][] edges)
         {
-            return null;
+            //暴力搜索
+            List<int>[] path = new List<int>[n];
+            for (int i = 0; i < n; i++)
+                path[i] = new List<int>();
+            for (int i = 0; i < edges.Length; i++)
+            {
+                path[edges[i][0]].Add(edges[i][1]);
+                path[edges[i][1]].Add(edges[i][0]);
+            }
+            int minDepth = n + 5;
+            List<int> ans = new List<int>();
+            for (int i = 0; i < n; i++)
+            {
+                int d = MaxDepth_FineMinHeightTrees(i, new bool[n], path);
+                if (minDepth == d)
+                    ans.Add(i);
+                else if (minDepth > d)
+                {
+                    minDepth = d;
+                    ans = new List<int>();
+                    ans.Add(i);
+                }
+            }
+
+            return ans;
+        }
+        private int MaxDepth_FineMinHeightTrees(int root, bool[] cameBefore, List<int>[] path)
+        {
+            if (cameBefore[root])
+                return -1;
+            cameBefore[root] = true;
+            int ans = -1;
+            List<int> list = path[root];
+            foreach (var neighbor in list)
+            {
+                ans = Math.Max(ans, MaxDepth_FineMinHeightTrees(neighbor, cameBefore, path));
+            }
+            return ans + 1;
         }
     }
 }
