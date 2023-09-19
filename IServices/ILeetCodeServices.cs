@@ -69,5 +69,6 @@ namespace LeetCodeWeb.IServices
         public int[] NextPermutation(int[] nums);
         public int PeakIndexInMountainArray(int[] arr);
         public List<int> ReverseBetween(List<int> nums, int left, int right);
+        public IList<int> FindMinHeightTrees(int n, int[][] edges);
     }
 }

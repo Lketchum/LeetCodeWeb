@@ -2278,5 +2278,10 @@ namespace LeetCodeWeb.Services
 
             return numsAfter;
         }
+
+        public IList<int> FindMinHeightTrees(int n, int[][] edges)
+        {
+            return null;
+        }
     }
 }

@@ -467,6 +467,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ReverseBetween(nums, left, right);
             return result;
         }
+
+        [HttpPost("FindMinHeightTrees")]
+        public IList<int> FindMinHeightTrees(int n, int[][] edges)
+        {
+            var result = _leetCodeServices.FindMinHeightTrees(n, edges);
+            return result;
+        }
     }
 }
 
