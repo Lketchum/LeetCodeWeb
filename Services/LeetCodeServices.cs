@@ -2501,5 +2501,10 @@ namespace LeetCodeWeb.Services
 
             return false;
         }
+
+        public int[] PlusOne(int[] digits)
+        {
+            return null;
+        }
     }
 }

@@ -509,6 +509,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.RepeatedSubstringPattern(s);
             return result;
         }
+
+        [HttpPost("PlusOne")]
+        public int[] PlusOne(int[] digits)
+        {
+            var result = _leetCodeServices.PlusOne(digits);
+            return result;
+        }
     }
 }
 

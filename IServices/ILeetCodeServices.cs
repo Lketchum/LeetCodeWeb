@@ -75,5 +75,6 @@ namespace LeetCodeWeb.IServices
         public char FindTheDifference(string s, string t);
         public int StrStr(string haystack, string needle);
         public bool IsAnagram(string s, string t);
+        public int[] PlusOne(int[] digits);
     }
 }
