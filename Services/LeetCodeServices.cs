@@ -2401,7 +2401,36 @@ namespace LeetCodeWeb.Services
 
         public char FindTheDifference(string s, string t)
         {
-            return 'q';
+            #region 原始代码
+            //string sortedS = new string(s.OrderBy(c => c).ToArray());
+            //string sortedT = new string(t.OrderBy(c => c).ToArray());
+            //int n = sortedS.Length;
+            //for (int i = 0; i < n; i++)
+            //{
+            //    if (sortedS[i] == sortedT[i])
+            //        continue;
+            //    else
+            //        return sortedT[i];
+            //}
+
+            //return sortedT[n];
+            #endregion
+
+            //优化代码
+            int[] charSet = new int[26];
+            foreach (var ch in s)
+            {
+                charSet[ch - 'a']++;
+            }
+
+            foreach (var ch in t)
+            {
+                if (charSet[ch - 'a'] == 0)
+                    return ch;
+                charSet[ch - 'a']--;
+            }
+
+            return '0'; //确保所有路径都有返回值
         }
     }
 }
