@@ -516,6 +516,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.PlusOne(digits);
             return result;
         }
+
+        [HttpPost("ArraySign")]
+        public int ArraySign(int[] nums)
+        {
+            var result = _leetCodeServices.ArraySign(nums);
+            return result;
+        }
     }
 }
 

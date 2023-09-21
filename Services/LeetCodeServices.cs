@@ -2517,5 +2517,10 @@ namespace LeetCodeWeb.Services
 
             return digits;
         }
+
+        public int ArraySign(int[] nums)
+        {
+            return 0;
+        }
     }
 }

@@ -76,5 +76,6 @@ namespace LeetCodeWeb.IServices
         public int StrStr(string haystack, string needle);
         public bool IsAnagram(string s, string t);
         public int[] PlusOne(int[] digits);
+        public int ArraySign(int[] nums);
     }
 }
