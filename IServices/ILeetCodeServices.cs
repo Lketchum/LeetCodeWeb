@@ -77,5 +77,6 @@ namespace LeetCodeWeb.IServices
         public bool IsAnagram(string s, string t);
         public int[] PlusOne(int[] digits);
         public int ArraySign(int[] nums);
+        public bool CanMakeArithmeticProgression(int[] arr);
     }
 }

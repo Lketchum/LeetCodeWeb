@@ -523,6 +523,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ArraySign(nums);
             return result;
         }
+
+        [HttpPost("CanMakeArithmeticProgression")]
+        public bool CanMakeArithmeticProgression(int[] arr)
+        {
+            var result = _leetCodeServices.CanMakeArithmeticProgression(arr);
+            return result;
+        }
     }
 }
 

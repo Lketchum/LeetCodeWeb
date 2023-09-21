@@ -2541,5 +2541,10 @@ namespace LeetCodeWeb.Services
             else 
                 return 0;
         }
+
+        public bool CanMakeArithmeticProgression(int[] arr)
+        {
+            return true;
+        }
     }
 }
