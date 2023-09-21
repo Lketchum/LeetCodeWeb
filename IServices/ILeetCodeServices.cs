@@ -72,5 +72,6 @@ namespace LeetCodeWeb.IServices
         public IList<int> FindMinHeightTrees(int n, int[][] edges);
         public int MaxProfit(int[] prices);
         public char FindTheDifference(string s, string t);
+        public int StrStr(string haystack, string needle);
     }
 }

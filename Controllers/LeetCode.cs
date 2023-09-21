@@ -482,10 +482,17 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
-        [HttpPost("")]
+        [HttpPost("FindTheDifference")]
         public char FindTheDifference(string s, string t)
         {
             var result = _leetCodeServices.FindTheDifference(s, t);
+            return result;
+        }
+
+        [HttpPost("StrStr")]
+        public int StrStr(string haystack, string needle)
+        {
+            var result = _leetCodeServices.StrStr(haystack, needle);
             return result;
         }
     }

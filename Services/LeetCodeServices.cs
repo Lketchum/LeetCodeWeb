@@ -2432,5 +2432,10 @@ namespace LeetCodeWeb.Services
 
             return '0'; //确保所有路径都有返回值
         }
+
+        public int StrStr(string haystack, string needle)
+        {
+            return 0;
+        }
     }
 }
