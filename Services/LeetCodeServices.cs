@@ -2520,7 +2520,26 @@ namespace LeetCodeWeb.Services
 
         public int ArraySign(int[] nums)
         {
-            return 0;
+            int product = 1;
+            foreach (var num in nums)
+            {
+                if (num == 0)
+                    return signFunc_ArraySign(0);
+                else if (num > 0)
+                    product = product * 1;
+                else
+                    product = product * -1;
+            }
+            return signFunc_ArraySign(product);
+        }
+        private int signFunc_ArraySign(int product)
+        {
+            if (product > 0)
+                return 1;
+            else if (product < 0) 
+                return -1;
+            else 
+                return 0;
         }
     }
 }
