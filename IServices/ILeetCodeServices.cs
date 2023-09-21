@@ -64,6 +64,7 @@ namespace LeetCodeWeb.IServices
         public IList<IList<int>> ZigzagLevelOrder(TreeNode root);
         public int Search(int[] nums, int target);
         public IList<IList<int>> ThreeSum(int[] nums);
+        public bool RepeatedSubstringPattern(string s);
         public List<int> ReverseKGroup(List<int> numsBefore, int k);
         public int NumIslands(char[][] grid);
         public int[] NextPermutation(int[] nums);

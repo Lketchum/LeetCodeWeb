@@ -502,6 +502,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsAnagram(s, t);
             return result;
         }
+
+        [HttpPost("RepeatedSubstringPattern")]
+        public bool RepeatedSubstringPattern(string s)
+        {
+            var result = _leetCodeServices.RepeatedSubstringPattern(s);
+            return result;
+        }
     }
 }
 
