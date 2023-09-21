@@ -2457,6 +2457,24 @@ namespace LeetCodeWeb.Services
 
         public bool IsAnagram(string s, string t)
         {
+            int nS = s.Length;
+            int[] charSet = new int[26];
+            foreach (var ch in s)
+            {
+                charSet[ch - 'a']++;
+            }
+            foreach (var ch in t)
+            {
+                if (charSet[ch - 'a'] < 0)
+                    return false;
+                charSet[ch - 'a']--;
+            }
+
+            foreach (var num in charSet)
+            {
+                if (num != 0)
+                    return false;
+            }
             return true;
         }
     }
