@@ -2435,7 +2435,24 @@ namespace LeetCodeWeb.Services
 
         public int StrStr(string haystack, string needle)
         {
-            return 0;
+            #region 原始代码
+            int nL = haystack.Length;
+            int nS = needle.Length;
+            for (int i = 0; i < nL - nS + 1; i++)
+            {
+                int j = 0;
+                while (haystack[i + j] == needle[j])
+                {
+                    if (j + 1 == nS)
+                        return i;
+                    else
+                        j++;
+                }
+            }
+            return -1;
+            #endregion
+
+            //优化代码：使用KMP算法，待学习
         }
     }
 }
