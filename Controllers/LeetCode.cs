@@ -495,6 +495,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.StrStr(haystack, needle);
             return result;
         }
+
+        [HttpPost("IsAnagram")]
+        public bool IsAnagram(string s, string t)
+        {
+            var result = _leetCodeServices.IsAnagram(s, t);
+            return result;
+        }
     }
 }
 

@@ -73,5 +73,6 @@ namespace LeetCodeWeb.IServices
         public int MaxProfit(int[] prices);
         public char FindTheDifference(string s, string t);
         public int StrStr(string haystack, string needle);
+        public bool IsAnagram(string s, string t);
     }
 }

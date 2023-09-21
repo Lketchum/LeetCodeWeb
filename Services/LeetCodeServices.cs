@@ -2454,5 +2454,10 @@ namespace LeetCodeWeb.Services
 
             //优化代码：使用KMP算法，待学习
         }
+
+        public bool IsAnagram(string s, string t)
+        {
+            return true;
+        }
     }
 }
