@@ -481,6 +481,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MaxProfit(prices);
             return result;
         }
+
+        [HttpPost("")]
+        public char FindTheDifference(string s, string t)
+        {
+            var result = _leetCodeServices.FindTheDifference(s, t);
+            return result;
+        }
     }
 }
 

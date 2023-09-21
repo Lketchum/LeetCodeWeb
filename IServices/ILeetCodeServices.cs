@@ -71,5 +71,6 @@ namespace LeetCodeWeb.IServices
         public List<int> ReverseBetween(List<int> nums, int left, int right);
         public IList<int> FindMinHeightTrees(int n, int[][] edges);
         public int MaxProfit(int[] prices);
+        public char FindTheDifference(string s, string t);
     }
 }

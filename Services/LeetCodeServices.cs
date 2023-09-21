@@ -2398,5 +2398,10 @@ namespace LeetCodeWeb.Services
 
             return maxProfit;
         }
+
+        public char FindTheDifference(string s, string t)
+        {
+            return 'q';
+        }
     }
 }
