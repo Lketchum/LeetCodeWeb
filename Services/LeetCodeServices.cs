@@ -2544,6 +2544,16 @@ namespace LeetCodeWeb.Services
 
         public bool CanMakeArithmeticProgression(int[] arr)
         {
+            Array.Sort(arr);
+            int n = arr.Length;
+            int tmpMinus = arr[1] - arr[0];
+            for (int i = 1; i < n; i++)
+            {
+                if (arr[i] - arr[i - 1] == tmpMinus)
+                    continue;
+                else
+                    return false;
+            }
             return true;
         }
     }
