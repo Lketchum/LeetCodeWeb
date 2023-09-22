@@ -2623,6 +2623,7 @@ namespace LeetCodeWeb.Services
 
         public string ToLowerCase(string s)
         {
+            //使用内部算法
             return s.ToLower();
         }
     }
