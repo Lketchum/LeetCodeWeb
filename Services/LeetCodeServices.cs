@@ -2598,11 +2598,27 @@ namespace LeetCodeWeb.Services
 
         public int LengthOfLastWord(string s)
         {
-            var myArray = s.Split(" ");
-            string lastElement = myArray[myArray.Length - 1];
-            return lastElement.Length;
+            //var myArray = s.Split(" ");
+            //string lastElement = myArray[myArray.Length - 1];
+            //return lastElement.Length;
 
-            return 0;
+            int length = 0;
+            int lastWordLength = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != ' ')
+                {
+                    length++;
+                    lastWordLength = length;
+                }
+                else
+                {
+                    length = 0;
+                }
+            }
+
+            return lastWordLength;
         }
     }
 }
