@@ -83,5 +83,6 @@ namespace LeetCodeWeb.IServices
         public string ToLowerCase(string s);
         public int CalPoints(string[] operations);
         public bool JudgeCircle(string moves);
+        public string Tictactoe(int[][] moves);
     }
 }

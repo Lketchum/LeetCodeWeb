@@ -565,6 +565,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.JudgeCircle(moves);
             return result;
         }
+
+        [HttpPost("Tictactoe")]
+        public string Tictactoe(int[][] moves)
+        {
+            var result = _leetCodeServices.Tictactoe(moves);
+            return result;
+        }
     }
 }
 

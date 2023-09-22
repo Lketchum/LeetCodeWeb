@@ -2731,5 +2731,10 @@ namespace LeetCodeWeb.Services
 
             return horizontal == 0 && vertical == 0;
         }
+
+        public string Tictactoe(int[][] moves)
+        {
+            return null;
+        }
     }
 }
