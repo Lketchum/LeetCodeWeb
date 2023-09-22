@@ -2559,7 +2559,41 @@ namespace LeetCodeWeb.Services
 
         public bool IsMonotonic(int[] nums)
         {
+            int n = nums.Length;
+            if (n == 1 || n == 2) return true;
+
+            int start = 1;
+            while (start < n && nums[start] == nums[start - 1])
+                start++;
+            if (start == n) return true;
+
+            if (nums[start] > nums[start - 1])
+            {
+                for (int i = start;i < n; i++)
+                {
+                    if (nums[i] < nums[i - 1])
+                        return false;
+                }
+            }
+            else
+            {
+                for (int i = start;i < n; i++)
+                {
+                    if (nums[i] > nums[i - 1])
+                        return false;
+                }
+            }
+
             return true;
+        }
+        private int IsMonotonic_Judge(int prev, int curr)
+        {
+            if (curr > prev)
+                return 1;
+            else if (curr < prev)
+                return -1;
+            else 
+                return 0;
         }
     }
 }
