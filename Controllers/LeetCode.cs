@@ -558,6 +558,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CalPoints(operations);
             return result;
         }
+
+        [HttpPost("JudgeCircle")]
+        public bool JudgeCircle(string moves)
+        {
+            var result = _leetCodeServices.JudgeCircle(moves);
+            return result;
+        }
     }
 }
 

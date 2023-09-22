@@ -82,5 +82,6 @@ namespace LeetCodeWeb.IServices
         public int LengthOfLastWord(string s);
         public string ToLowerCase(string s);
         public int CalPoints(string[] operations);
+        public bool JudgeCircle(string moves);
     }
 }

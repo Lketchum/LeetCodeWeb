@@ -2665,5 +2665,10 @@ namespace LeetCodeWeb.Services
             //代码优化
             return stackPoints.Sum();
         }
+
+        public bool JudgeCircle(string moves)
+        {
+            return true;
+        }
     }
 }
