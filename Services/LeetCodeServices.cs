@@ -2668,40 +2668,68 @@ namespace LeetCodeWeb.Services
 
         public bool JudgeCircle(string moves)
         {
-            int n = moves.Length;
-            if (n % 2 != 0)
-                return  false;
-            Queue<char> horizontalQueue = new Queue<char>();
-            Queue<char> verticalQueue = new Queue<char>();
-            for (int i = 0; i < n; i++)
+            #region 原始代码
+            //int n = moves.Length;
+            //if (n % 2 != 0)
+            //    return  false;
+            //Queue<char> horizontalQueue = new Queue<char>();
+            //Queue<char> verticalQueue = new Queue<char>();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    if (moves[i] == 'L' || moves[i] == 'R')
+            //    {
+            //        if (horizontalQueue.Count == 0)
+            //            horizontalQueue.Enqueue(moves[i]);
+            //        else
+            //        {
+            //            if (moves[i] == horizontalQueue.Peek())
+            //                horizontalQueue.Enqueue(moves[i]);
+            //            else
+            //                horizontalQueue.Dequeue();
+            //        }                  
+            //    }
+            //    else
+            //    {
+            //        if (verticalQueue.Count == 0)
+            //            verticalQueue.Enqueue(moves[i]);
+            //        else
+            //        {
+            //            if (moves[i] == verticalQueue.Peek())
+            //                verticalQueue.Enqueue(moves[i]);
+            //            else
+            //                verticalQueue.Dequeue();
+            //        }
+            //    }
+            //}
+
+            //return verticalQueue.Count == 0 && horizontalQueue.Count == 0;
+            #endregion
+
+            //优化代码
+            int horizontal = 0;
+            int vertical = 0;
+
+            foreach (char move in moves)
             {
-                if (moves[i] == 'L' || moves[i] == 'R')
+                if (move == 'L')
                 {
-                    if (horizontalQueue.Count == 0)
-                        horizontalQueue.Enqueue(moves[i]);
-                    else
-                    {
-                        if (moves[i] == horizontalQueue.Peek())
-                            horizontalQueue.Enqueue(moves[i]);
-                        else
-                            horizontalQueue.Dequeue();
-                    }                  
+                    horizontal--;
                 }
-                else
+                else if (move == 'R')
                 {
-                    if (verticalQueue.Count == 0)
-                        verticalQueue.Enqueue(moves[i]);
-                    else
-                    {
-                        if (moves[i] == verticalQueue.Peek())
-                            verticalQueue.Enqueue(moves[i]);
-                        else
-                            verticalQueue.Dequeue();
-                    }
+                    horizontal++;
+                }
+                else if (move == 'U')
+                {
+                    vertical++;
+                }
+                else if (move == 'D')
+                {
+                    vertical--;
                 }
             }
 
-            return verticalQueue.Count == 0 && horizontalQueue.Count == 0;
+            return horizontal == 0 && vertical == 0;
         }
     }
 }
