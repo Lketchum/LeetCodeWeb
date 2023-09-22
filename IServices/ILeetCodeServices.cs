@@ -78,5 +78,6 @@ namespace LeetCodeWeb.IServices
         public int[] PlusOne(int[] digits);
         public int ArraySign(int[] nums);
         public bool CanMakeArithmeticProgression(int[] arr);
+        public bool IsMonotonic(int[] nums);
     }
 }

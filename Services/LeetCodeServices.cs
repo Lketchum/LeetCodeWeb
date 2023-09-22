@@ -2546,14 +2546,19 @@ namespace LeetCodeWeb.Services
         {
             Array.Sort(arr);
             int n = arr.Length;
-            int tmpMinus = arr[1] - arr[0];
+            int commonDifference = arr[1] - arr[0];
             for (int i = 1; i < n; i++)
             {
-                if (arr[i] - arr[i - 1] == tmpMinus)
+                if (arr[i] - arr[i - 1] == commonDifference)
                     continue;
                 else
                     return false;
             }
+            return true;
+        }
+
+        public bool IsMonotonic(int[] nums)
+        {
             return true;
         }
     }

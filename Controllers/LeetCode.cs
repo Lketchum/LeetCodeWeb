@@ -530,6 +530,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CanMakeArithmeticProgression(arr);
             return result;
         }
+
+        [HttpPost("IsMonotonic")]
+        public bool IsMonotonic(int[] nums)
+        {
+            var result = _leetCodeServices.IsMonotonic(nums);
+            return result;
+        }
     }
 }
 
