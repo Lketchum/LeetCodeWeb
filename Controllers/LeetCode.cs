@@ -545,6 +545,12 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
+        [HttpPost("ToLowerCase")]
+        public string ToLowerCase(string s)
+        {
+            var result = _leetCodeServices.ToLowerCase(s);
+            return result;
+        }
     }
 }
 

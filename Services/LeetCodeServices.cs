@@ -2620,5 +2620,10 @@ namespace LeetCodeWeb.Services
 
             return lastWordLength;
         }
+
+        public string ToLowerCase(string s)
+        {
+            return s.ToLower();
+        }
     }
 }

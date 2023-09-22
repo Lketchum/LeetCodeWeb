@@ -80,5 +80,6 @@ namespace LeetCodeWeb.IServices
         public bool CanMakeArithmeticProgression(int[] arr);
         public bool IsMonotonic(int[] nums);
         public int LengthOfLastWord(string s);
+        public string ToLowerCase(string s);
     }
 }
