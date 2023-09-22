@@ -2734,7 +2734,27 @@ namespace LeetCodeWeb.Services
 
         public string Tictactoe(int[][] moves)
         {
+            int n = moves.Length;
+            if (n < 5)
+                return "Pending";
+
             return null;
+        }
+        private bool Tictactoe_CheckWin(int[][] moves, string player)
+        {
+            //检查行
+            for (int i = 0; i < 3; i++)
+            {
+
+            }
+
+            //检查列
+
+
+            //检查对角线
+
+
+            return false;
         }
     }
 }
