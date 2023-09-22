@@ -81,5 +81,6 @@ namespace LeetCodeWeb.IServices
         public bool IsMonotonic(int[] nums);
         public int LengthOfLastWord(string s);
         public string ToLowerCase(string s);
+        public int CalPoints(string[] operations);
     }
 }

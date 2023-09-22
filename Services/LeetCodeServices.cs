@@ -2623,8 +2623,13 @@ namespace LeetCodeWeb.Services
 
         public string ToLowerCase(string s)
         {
-            //使用内部算法
+            //使用内置函数
             return s.ToLower();
+        }
+
+        public int CalPoints(string[] operations)
+        {
+            return 0;
         }
     }
 }

@@ -551,6 +551,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ToLowerCase(s);
             return result;
         }
+
+        [HttpPost("CalPoints")]
+        public int CalPoints(string[] operations)
+        {
+            var result = _leetCodeServices.CalPoints(operations);
+            return result;
+        }
     }
 }
 
