@@ -537,6 +537,14 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsMonotonic(nums);
             return result;
         }
+
+        [HttpPost("LengthOfLastWord")]
+        public int LengthOfLastWord(string s)
+        {
+            var result = _leetCodeServices.LengthOfLastWord(s);
+            return result;
+        }
+
     }
 }
 

@@ -2595,5 +2595,14 @@ namespace LeetCodeWeb.Services
             else 
                 return 0;
         }
+
+        public int LengthOfLastWord(string s)
+        {
+            var myArray = s.Split(" ");
+            string lastElement = myArray[myArray.Length - 1];
+            return lastElement.Length;
+
+            return 0;
+        }
     }
 }

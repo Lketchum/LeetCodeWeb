@@ -79,5 +79,6 @@ namespace LeetCodeWeb.IServices
         public int ArraySign(int[] nums);
         public bool CanMakeArithmeticProgression(int[] arr);
         public bool IsMonotonic(int[] nums);
+        public int LengthOfLastWord(string s);
     }
 }
