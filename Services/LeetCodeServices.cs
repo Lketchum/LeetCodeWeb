@@ -2629,7 +2629,41 @@ namespace LeetCodeWeb.Services
 
         public int CalPoints(string[] operations)
         {
-            return 0;
+            Stack<int> stackPoints = new Stack<int>();
+            foreach (var str in operations)
+            {
+                if (str == "+")
+                {
+                    int top = stackPoints.Pop();
+                    int newtop = top + stackPoints.Peek();
+                    stackPoints.Push(top);
+                    stackPoints.Push(newtop);
+                }
+                else if (str == "D")
+                {
+                    int newtop = stackPoints.Peek() * 2;
+                    stackPoints.Push(newtop);
+                }
+                else if (str == "C")
+                {
+                    stackPoints.Pop();
+                }
+                else
+                {
+                    stackPoints.Push(int.Parse(str));
+                }
+            }
+
+            //int result = 0;
+            //while (stackPoints.Count > 0)
+            //{
+            //    result += stackPoints.Pop();
+            //}
+
+            //return result;
+
+            //代码优化
+            return stackPoints.Sum();
         }
     }
 }
