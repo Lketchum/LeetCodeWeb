@@ -572,6 +572,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.Tictactoe(moves);
             return result;
         }
+
+        [HttpPost("IsRobotBounded")]
+        public bool IsRobotBounded(string instructions)
+        {
+            var result = _leetCodeServices.IsRobotBounded(instructions);
+            return result;
+        }
     }
 }
 

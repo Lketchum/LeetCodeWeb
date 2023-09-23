@@ -2791,5 +2791,10 @@ namespace LeetCodeWeb.Services
             //其余情况
             return false;
         }
+
+        public bool IsRobotBounded(string instructions)
+        {
+            return true;
+        }
     }
 }

@@ -84,5 +84,6 @@ namespace LeetCodeWeb.IServices
         public int CalPoints(string[] operations);
         public bool JudgeCircle(string moves);
         public string Tictactoe(int[][] moves);
+        public bool IsRobotBounded(string instructions);
     }
 }
