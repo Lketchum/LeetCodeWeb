@@ -2737,23 +2737,58 @@ namespace LeetCodeWeb.Services
             int n = moves.Length;
             if (n < 5)
                 return "Pending";
+            char[,] board = new char[3, 3];
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    board[row, col] = 'E'; // 初始化为'E'
+                }
+            }
 
-            return null;
+            bool IsX = true;
+            foreach (var move in moves)
+            {
+                if (IsX)
+                    board[move[0], move[1]] = 'X';                    
+                else
+                    board[move[0], move[1]] = 'O';
+                IsX = !IsX;
+            }
+
+            if (Tictactoe_CheckWin(board, 'X'))
+                return "A";
+            if (Tictactoe_CheckWin(board, 'O'))
+                return "B";
+            if (n == 9)
+                return "Draw";
+
+            return "Pending";
         }
-        private bool Tictactoe_CheckWin(int[][] moves, string player)
+        private bool Tictactoe_CheckWin(char[,] board, char player)
         {
             //检查行
             for (int i = 0; i < 3; i++)
             {
-
+                if (board[i, 0] == player && board[i, 1] == player && board[i, 2] == player)
+                    return true;
             }
 
             //检查列
-
+            for (int i = 0; i < 3; i++)
+            {
+                if (board[0, i] == player && board[1, i] == player && board[2, i] == player)
+                    return true;
+            }
 
             //检查对角线
+            if (board[0, 0] == player && board[1, 1] == player && board[2, 2] == player)
+                return true;
 
+            if (board[0, 2] == player && board[1,1] == player && board[2,0] == player)
+                return true;
 
+            //其余情况
             return false;
         }
     }
