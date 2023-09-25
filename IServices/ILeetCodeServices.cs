@@ -87,5 +87,6 @@ namespace LeetCodeWeb.IServices
         public bool IsRobotBounded(string instructions);
         public int MaximumWealth(int[][] accounts);
         public int DiagonalSum(int[][] mat);
+        public IList<int> SpiralOrder(int[][] matrix);
     }
 }

@@ -2845,5 +2845,10 @@ namespace LeetCodeWeb.Services
             else
                 return sum - mat[n / 2][n / 2];
         }
+
+        public IList<int> SpiralOrder(int[][] matrix)
+        {
+            return null;
+        }
     }
 }

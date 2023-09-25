@@ -593,6 +593,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.DiagonalSum(mat);
             return result;
         }
+
+        [HttpPost("SpiralOrder")]
+        public IList<int> SpiralOrder(int[][] matrix)
+        {
+            var result = _leetCodeServices.SpiralOrder(matrix);
+            return result;
+        }
     }
 }
 
