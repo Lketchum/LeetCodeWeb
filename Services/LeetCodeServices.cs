@@ -2794,7 +2794,31 @@ namespace LeetCodeWeb.Services
 
         public bool IsRobotBounded(string instructions)
         {
-            return true;
+            //将方向存储在数组中
+            int[][] directions = new int[][] { new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { -1, 0 }, new int[] { 0, 1 } };
+            int x = 0;
+            int y = 0;
+            int currDirIndex = 3;
+            foreach (var ch in instructions)
+            {
+                if (ch == 'G')
+                {
+                    x += directions[currDirIndex][0];
+                    y += directions[currDirIndex][1];
+                }
+                else if (ch == 'R')
+                {
+                    currDirIndex++;
+                    currDirIndex %= 4;
+                }
+                else
+                {
+                    currDirIndex += 3;
+                    currDirIndex %= 4;
+                }
+            }
+
+            return currDirIndex != 3 || (x == 0 && y == 0);
         }
     }
 }
