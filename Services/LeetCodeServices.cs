@@ -2848,7 +2848,50 @@ namespace LeetCodeWeb.Services
 
         public IList<int> SpiralOrder(int[][] matrix)
         {
-            return null;
+            int nR = matrix.Length;
+            int nC = matrix[0].Length;
+            IList<int> orderList = new List<int>();
+            int x = 0; int y = 0;
+            orderList.Add(matrix[0][0]);
+            int xLow = 0; int xHigh = nC - 1;
+            int yLow = 0; int yHigh = nR - 1;
+
+            int[][] directions = new int[][] { new int[] { 1, 0 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 0, -1 } };
+            int currDire = 0;
+            while (xLow != xHigh && yLow != yHigh)
+            {
+                while (x >= xLow && x <= xHigh && y >= yLow && y <= yHigh)
+                {
+                    int newX = x + directions[currDire][0];
+                    int newY = y + directions[currDire][1];
+                    // 检查新的 newX 和 newY 是否越界
+                    if (newX < xLow || newX > xHigh || newY < yLow || newY > yHigh)
+                    {
+                        break; // 如果越界，退出循环
+                    }
+                    x = newX; // 更新 x
+                    y = newY; // 更新 y
+                    orderList.Add(matrix[x][y]);
+                }
+                if (directions[currDire][0] == 0)
+                {
+                    if (directions[currDire][1] == 1)
+                        yHigh--;
+                    else 
+                        yLow++;
+                }
+                else
+                {
+                    if (directions[currDire][0] == 1)
+                        xLow++;
+                    else
+                        xHigh--;
+                }
+                currDire++;
+                currDire %= 4;
+            }
+
+            return orderList;
         }
     }
 }
