@@ -2823,7 +2823,15 @@ namespace LeetCodeWeb.Services
 
         public int MaximumWealth(int[][] accounts)
         {
-            return 0;
+            if (accounts == null)
+                return 0;
+            int max = 0;
+            foreach (var account in accounts)
+            {
+                int temp = account.Sum();
+                max = Math.Max(max, temp);
+            }
+            return max;
         }
     }
 }
