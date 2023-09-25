@@ -85,5 +85,6 @@ namespace LeetCodeWeb.IServices
         public bool JudgeCircle(string moves);
         public string Tictactoe(int[][] moves);
         public bool IsRobotBounded(string instructions);
+        public int MaximumWealth(int[][] accounts);
     }
 }

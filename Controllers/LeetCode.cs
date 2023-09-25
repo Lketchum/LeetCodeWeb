@@ -579,6 +579,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsRobotBounded(instructions);
             return result;
         }
+
+        [HttpPost("MaximumWealth")]
+        public int MaximumWealth(int[][] accounts)
+        {
+            var result = _leetCodeServices.MaximumWealth(accounts);
+            return result;
+        }
     }
 }
 

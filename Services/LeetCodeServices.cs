@@ -2820,5 +2820,10 @@ namespace LeetCodeWeb.Services
 
             return currDirIndex != 3 || (x == 0 && y == 0);
         }
+
+        public int MaximumWealth(int[][] accounts)
+        {
+            return 0;
+        }
     }
 }
