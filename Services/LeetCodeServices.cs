@@ -2871,7 +2871,7 @@ namespace LeetCodeWeb.Services
                     }
                     x = newX; // 更新 x
                     y = newY; // 更新 y
-                    orderList.Add(matrix[x][y]);
+                    orderList.Add(matrix[y][x]);
                 }
                 if (directions[currDire][0] == 0)
                 {
