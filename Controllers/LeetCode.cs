@@ -586,6 +586,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MaximumWealth(accounts);
             return result;
         }
+
+        [HttpPost("DiagonalSum")]
+        public int DiagonalSum(int[][] mat)
+        {
+            var result = _leetCodeServices.DiagonalSum(mat);
+            return result;
+        }
     }
 }
 

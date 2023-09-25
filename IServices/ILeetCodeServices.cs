@@ -86,5 +86,6 @@ namespace LeetCodeWeb.IServices
         public string Tictactoe(int[][] moves);
         public bool IsRobotBounded(string instructions);
         public int MaximumWealth(int[][] accounts);
+        public int DiagonalSum(int[][] mat);
     }
 }

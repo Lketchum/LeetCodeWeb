@@ -2833,5 +2833,10 @@ namespace LeetCodeWeb.Services
             }
             return max;
         }
+
+        public int DiagonalSum(int[][] mat)
+        {
+            return 0;
+        }
     }
 }
