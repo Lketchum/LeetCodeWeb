@@ -2851,41 +2851,34 @@ namespace LeetCodeWeb.Services
             int nR = matrix.Length;
             int nC = matrix[0].Length;
             IList<int> orderList = new List<int>();
-            int x = 0; int y = 0;
-            orderList.Add(matrix[0][0]);
-            int xLow = 0; int xHigh = nC - 1;
-            int yLow = 0; int yHigh = nR - 1;
+            int x = -1; int y = 0;
+            int xLimit = nC;
+            int yLimit = nR;
 
             int[][] directions = new int[][] { new int[] { 1, 0 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 0, -1 } };
             int currDire = 0;
-            while (xLow != xHigh && yLow != yHigh)
+            while (xLimit > 0 && yLimit > 0)
             {
-                while (x >= xLow && x <= xHigh && y >= yLow && y <= yHigh)
+                int Limit;
+                int listCount = 0;
+                if (directions[currDire][0] == 0)
+                    Limit = yLimit;
+                else
+                    Limit = xLimit;                
+                while (listCount < Limit)
                 {
-                    int newX = x + directions[currDire][0];
-                    int newY = y + directions[currDire][1];
-                    // 检查新的 newX 和 newY 是否越界
-                    if (newX < xLow || newX > xHigh || newY < yLow || newY > yHigh)
-                    {
-                        break; // 如果越界，退出循环
-                    }
-                    x = newX; // 更新 x
-                    y = newY; // 更新 y
+                    x = x + directions[currDire][0];
+                    y = y + directions[currDire][1];
                     orderList.Add(matrix[y][x]);
+                    listCount++;
                 }
                 if (directions[currDire][0] == 0)
                 {
-                    if (directions[currDire][1] == 1)
-                        yHigh--;
-                    else 
-                        yLow++;
+                    xLimit--;
                 }
                 else
                 {
-                    if (directions[currDire][0] == 1)
-                        xLow++;
-                    else
-                        xHigh--;
+                    yLimit--;
                 }
                 currDire++;
                 currDire %= 4;
