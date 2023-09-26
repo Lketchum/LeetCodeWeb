@@ -88,5 +88,6 @@ namespace LeetCodeWeb.IServices
         public int MaximumWealth(int[][] accounts);
         public int DiagonalSum(int[][] mat);
         public IList<int> SpiralOrder(int[][] matrix);
+        public int[][] SetZeroes(int[][] matrix);
     }
 }

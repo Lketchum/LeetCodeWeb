@@ -600,6 +600,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.SpiralOrder(matrix);
             return result;
         }
+
+        [HttpPost("SetZeroes")]
+        public int[][] SetZeroes(int[][] matrix)
+        {
+            var result = _leetCodeServices.SetZeroes(matrix);
+            return result;
+        }
     }
 }
 
