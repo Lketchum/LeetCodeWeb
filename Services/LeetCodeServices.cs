@@ -2851,6 +2851,7 @@ namespace LeetCodeWeb.Services
             int nR = matrix.Length;
             int nC = matrix[0].Length;
             IList<int> orderList = new List<int>();
+
             int x = -1; int y = 0;
             int xLimit = nC;
             int yLimit = nR;
@@ -2859,19 +2860,14 @@ namespace LeetCodeWeb.Services
             int currDire = 0;
             while (xLimit > 0 && yLimit > 0)
             {
-                int Limit;
-                int listCount = 0;
-                if (directions[currDire][0] == 0)
-                    Limit = yLimit;
-                else
-                    Limit = xLimit;                
-                while (listCount < Limit)
+                int Limit = (directions[currDire][0] == 0) ? yLimit : xLimit;
+                for (int i = 0; i < Limit; i++)
                 {
-                    x = x + directions[currDire][0];
-                    y = y + directions[currDire][1];
+                    x += directions[currDire][0];
+                    y += directions[currDire][1];
                     orderList.Add(matrix[y][x]);
-                    listCount++;
                 }
+
                 if (directions[currDire][0] == 0)
                 {
                     xLimit--;
@@ -2880,8 +2876,8 @@ namespace LeetCodeWeb.Services
                 {
                     yLimit--;
                 }
-                currDire++;
-                currDire %= 4;
+
+                currDire = (currDire + 1) % 4;
             }
 
             return orderList;
