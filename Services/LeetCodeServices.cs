@@ -3017,7 +3017,7 @@ namespace LeetCodeWeb.Services
             if (num1 == "0" || num2 == "0")
                 return "0";
 
-            int[] res = new int[L1 + L2];
+            int[] res = new int[L1 + L2]; //不会超出两数长度相加的范围
             for (int i = L1 -1; i >= 0; i--)
             {
                 int n1 = num1[i] - '0';
