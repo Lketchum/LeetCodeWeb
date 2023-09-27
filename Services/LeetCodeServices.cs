@@ -11,6 +11,7 @@ using System.Data.Common;
 using System.Globalization;
 using System.Linq;
 using System.Security.AccessControl;
+using System.Text;
 using System.Threading.Tasks;
 using static LeetCodeWeb.Services.CustomStructure;
 
@@ -3011,7 +3012,32 @@ namespace LeetCodeWeb.Services
 
         public string Multiply(string num1, string num2)
         {
-            return "";
+            int L1 = num1.Length;
+            int L2 = num2.Length;
+            if (num1 == "0" || num2 == "0")
+                return "0";
+
+            int[] res = new int[L1 + L2];
+            for (int i = L1 -1; i >= 0; i--)
+            {
+                int n1 = num1[i] - '0';
+                for (int j = L2 - 1; j >= 0; j--)
+                {
+                    int n2 = num2[j] - '0';
+                    int sum = (res[i + j + 1] + n1 * n2);
+                    res[i + j + 1] = sum % 10;
+                    res[i + j] += sum / 10;
+                }
+            }
+
+            string result = "";
+            for (int i = 0; i < res.Length; i++)
+            {
+                if (i == 0 && res[i] == 0) continue;
+                result = string.Concat(result, res[i]);
+            }
+
+            return result;
         }
     }
 }
