@@ -2979,6 +2979,14 @@ namespace LeetCodeWeb.Services
 
         public bool CheckStraightLine(int[][] coordinates)
         {
+            int n = coordinates.Length;
+            for (int i = 2; i < n; i++)
+            {
+                int tempK = (coordinates[i - 1][0] - coordinates[i - 2][0]) * (coordinates[i][1] - coordinates[i - 1][1]) - (coordinates[i - 1][1] - coordinates[i - 2][1]) * (coordinates[i][0] - coordinates[i - 1][0]);
+                if (tempK != 0)
+                    return false;
+            }
+
             return true;
         }
     }
