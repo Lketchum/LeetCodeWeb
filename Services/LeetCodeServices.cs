@@ -2921,7 +2921,16 @@ namespace LeetCodeWeb.Services
 
         public double Average(int[] salary)
         {
-            return 0.0;
+            int maxSalary = 0; int minSalary = int.MaxValue;
+            int n = salary.Length;
+            double totalSalary = 0;
+            for (int i = 0; i < n; i++)
+            {
+                maxSalary = Math.Max(maxSalary, salary[i]);
+                minSalary = Math.Min(minSalary, salary[i]);
+                totalSalary += salary[i];
+            }
+            return (totalSalary - maxSalary - minSalary) / (n - 2);
         }
     }
 }
