@@ -90,6 +90,7 @@ namespace LeetCodeWeb.IServices
         public IList<int> SpiralOrder(int[][] matrix);
         public int[][] SetZeroes(int[][] matrix);
         public int CountOdds(int low, int high);
+        public double Average(int[] salary);
 
     }
 }

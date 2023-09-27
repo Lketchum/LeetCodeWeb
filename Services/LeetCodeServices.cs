@@ -2918,5 +2918,10 @@ namespace LeetCodeWeb.Services
             else
                 return (high - low + 1) / 2;
         }
+
+        public double Average(int[] salary)
+        {
+            return 0.0;
+        }
     }
 }

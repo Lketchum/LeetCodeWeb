@@ -614,6 +614,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CountOdds(low, high);
             return result;
         }
+
+        [HttpPost("Average")]
+        public double Average(int[] salary)
+        {
+            var result = _leetCodeServices.Average(salary);
+            return result;
+        }
     }
 }
 
