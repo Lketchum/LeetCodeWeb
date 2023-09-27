@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data.Common;
 using System.Globalization;
 using System.Linq;
 using System.Security.AccessControl;
@@ -2887,15 +2888,25 @@ namespace LeetCodeWeb.Services
         {
             int m = matrix.Length;
             int n = matrix[0].Length;
+            Queue<(int,int)> posQueue = new Queue<(int,int)> ();
             for (int i = 0; i < m; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-
+                    if (matrix[i][j] == 0)
+                        posQueue.Enqueue((i, j));
                 }
             }
+            while (posQueue.Count != 0)
+            {
+                (int, int) temp = posQueue.Dequeue();
+                for (int r = 0; r < m; r++)
+                    matrix[r][temp.Item2] = 0;
+                for (int c = 0; c < n; c++)
+                    matrix[temp.Item1][c] = 0;
+            }           
 
-            return null;
+            return matrix;
         }
     }
 }
