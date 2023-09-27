@@ -93,5 +93,6 @@ namespace LeetCodeWeb.IServices
         public double Average(int[] salary);
         public bool LemonadeChange(int[] bills);
         public int LargestPerimeter(int[] nums);
+        public bool CheckStraightLine(int[][] coordinates);
     }
 }

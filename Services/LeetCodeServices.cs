@@ -2976,5 +2976,10 @@ namespace LeetCodeWeb.Services
             }
             return 0;
         }
+
+        public bool CheckStraightLine(int[][] coordinates)
+        {
+            return true;
+        }
     }
 }

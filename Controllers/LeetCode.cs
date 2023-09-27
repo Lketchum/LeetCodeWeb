@@ -635,6 +635,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LargestPerimeter(nums);
             return result;
         }
+
+        [HttpPost("CheckStraightLine")]
+        public bool CheckStraightLine(int[][] coordinates)
+        {
+            var result = _leetCodeServices.CheckStraightLine(coordinates);
+            return result;
+        }
     }
 }
 
