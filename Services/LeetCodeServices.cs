@@ -2982,7 +2982,8 @@ namespace LeetCodeWeb.Services
             int n = coordinates.Length;
             for (int i = 2; i < n; i++)
             {
-                int tempK = (coordinates[i - 1][0] - coordinates[i - 2][0]) * (coordinates[i][1] - coordinates[i - 1][1]) - (coordinates[i - 1][1] - coordinates[i - 2][1]) * (coordinates[i][0] - coordinates[i - 1][0]);
+                int tempK = (coordinates[i - 1][0] - coordinates[i - 2][0]) * (coordinates[i][1] - coordinates[i - 1][1]) 
+                          - (coordinates[i - 1][1] - coordinates[i - 2][1]) * (coordinates[i][0] - coordinates[i - 1][0]);
                 if (tempK != 0)
                     return false;
             }
@@ -2992,7 +2993,20 @@ namespace LeetCodeWeb.Services
 
         public string AddBinary(string a, string b)
         {
-            return "";
+            //for循环多个数值
+            string ans = "";
+            int ca = 0;
+            for (int i = a.Length -1, j = b.Length - 1; i >= 0 || j >= 0; i--, j--)
+            {
+                int sum = ca;
+                sum += i >= 0 ? a[i] - '0' : 0;
+                sum += j >= 0 ? b[j] - '0' : 0;
+                ans = string.Concat(sum % 2, ans);
+                ca = sum / 2;
+            }
+
+            ans = string.Concat(ca == 1 ? ca : "", ans);
+            return ans;
         }
     }
 }
