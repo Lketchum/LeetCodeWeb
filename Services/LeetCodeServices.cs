@@ -2932,5 +2932,10 @@ namespace LeetCodeWeb.Services
             }
             return (totalSalary - maxSalary - minSalary) / (n - 2);
         }
+
+        public bool LemonadeChange(int[] bills)
+        {
+            return false;
+        }
     }
 }

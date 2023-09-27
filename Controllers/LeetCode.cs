@@ -621,6 +621,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.Average(salary);
             return result;
         }
+
+        [HttpPost("LemonadeChange")]
+        public bool LemonadeChange(int[] bills)
+        {
+            var result = _leetCodeServices.LemonadeChange(bills);
+            return result;
+        }
     }
 }
 

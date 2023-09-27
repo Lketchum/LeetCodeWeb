@@ -91,6 +91,8 @@ namespace LeetCodeWeb.IServices
         public int[][] SetZeroes(int[][] matrix);
         public int CountOdds(int low, int high);
         public double Average(int[] salary);
+        public bool LemonadeChange(int[] bills);
+
 
     }
 }
