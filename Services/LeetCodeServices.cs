@@ -2911,7 +2911,12 @@ namespace LeetCodeWeb.Services
 
         public int CountOdds(int low, int high)
         {
-            return 0;
+            if (low % 2 == 0 && high % 2 == 0)
+                return (high - low) / 2;
+            else if (low % 2 != 0 && high % 2 != 0)
+                return ((high - low) / 2) + 1;
+            else
+                return (high - low + 1) / 2;
         }
     }
 }
