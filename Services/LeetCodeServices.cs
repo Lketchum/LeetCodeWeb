@@ -3042,7 +3042,44 @@ namespace LeetCodeWeb.Services
 
         public double MyPow(double x, int n)
         {
-            return 0.0;
+            #region 计算超时
+            //if (x == 0.0)
+            //    return 0.0;
+            //if (x == 1.0)
+            //    return 1.0;
+            //if (n == 0)
+            //    return 1.0;
+            //double result = x;
+            //for (int i = 1; i < Math.Abs((long)n); i++)
+            //{
+            //    result *=  x;
+            //}
+            //if (n > 0)
+            //    return result;
+            //else
+            //    return 1 / result;
+            #endregion
+
+            //快速幂 + 迭代
+            //降低幂次提高效率
+            long N = n;
+            return N >= 0 ? MyPow_quickMul(x, N) : 1.0 / MyPow_quickMul(x, -N);
+        }
+        private double MyPow_quickMul(double x, long N)
+        {
+            double ans = 1.0;
+            double x_contribute = x;
+
+            while (N > 0)
+            {
+                if (N % 2 == 1)
+                {
+                    ans *= x_contribute;
+                }
+                x_contribute *= x_contribute;
+                N /= 2;
+            }
+            return ans;
         }
     }
 }
