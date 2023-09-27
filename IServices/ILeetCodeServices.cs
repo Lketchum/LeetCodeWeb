@@ -89,5 +89,7 @@ namespace LeetCodeWeb.IServices
         public int DiagonalSum(int[][] mat);
         public IList<int> SpiralOrder(int[][] matrix);
         public int[][] SetZeroes(int[][] matrix);
+        public int CountOdds(int low, int high);
+
     }
 }

@@ -607,6 +607,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.SetZeroes(matrix);
             return result;
         }
+
+        [HttpPost("CountOdds")]
+        public int CountOdds(int low, int high)
+        {
+            var result = _leetCodeServices.CountOdds(low, high);
+            return result;
+        }
     }
 }
 

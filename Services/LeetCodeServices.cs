@@ -2908,5 +2908,10 @@ namespace LeetCodeWeb.Services
 
             return matrix;
         }
+
+        public int CountOdds(int low, int high)
+        {
+            return 0;
+        }
     }
 }
