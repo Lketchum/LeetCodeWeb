@@ -649,6 +649,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.AddBinary(a, b);
             return result;
         }
+
+        [HttpPost("Multiply")]
+        public string Multiply(string num1, string num2)
+        {
+            var result = _leetCodeServices.Multiply(num1, num2);
+            return result;
+        }
     }
 }
 

@@ -3008,5 +3008,10 @@ namespace LeetCodeWeb.Services
             ans = string.Concat(ca == 1 ? ca : "", ans);
             return ans;
         }
+
+        public string Multiply(string num1, string num2)
+        {
+            return "";
+        }
     }
 }

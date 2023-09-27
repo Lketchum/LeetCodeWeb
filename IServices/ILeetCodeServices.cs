@@ -95,5 +95,6 @@ namespace LeetCodeWeb.IServices
         public int LargestPerimeter(int[] nums);
         public bool CheckStraightLine(int[][] coordinates);
         public string AddBinary(string a, string b);
+        public string Multiply(string num1, string num2);
     }
 }
