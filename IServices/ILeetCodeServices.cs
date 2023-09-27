@@ -96,5 +96,6 @@ namespace LeetCodeWeb.IServices
         public bool CheckStraightLine(int[][] coordinates);
         public string AddBinary(string a, string b);
         public string Multiply(string num1, string num2);
+        public double MyPow(double x, int n);
     }
 }

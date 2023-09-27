@@ -656,6 +656,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.Multiply(num1, num2);
             return result;
         }
+
+        [HttpPost("MyPow")]
+        public double MyPow(double x, int n)
+        {
+            var result = _leetCodeServices.MyPow(x, n);
+            return result;
+        }
     }
 }
 

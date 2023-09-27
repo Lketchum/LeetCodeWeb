@@ -3039,5 +3039,10 @@ namespace LeetCodeWeb.Services
 
             return result;
         }
+
+        public double MyPow(double x, int n)
+        {
+            return 0.0;
+        }
     }
 }
