@@ -2989,5 +2989,10 @@ namespace LeetCodeWeb.Services
 
             return true;
         }
+
+        public string AddBinary(string a, string b)
+        {
+            return "";
+        }
     }
 }

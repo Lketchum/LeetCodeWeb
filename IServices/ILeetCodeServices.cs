@@ -94,5 +94,6 @@ namespace LeetCodeWeb.IServices
         public bool LemonadeChange(int[] bills);
         public int LargestPerimeter(int[] nums);
         public bool CheckStraightLine(int[][] coordinates);
+        public string AddBinary(string a, string b);
     }
 }

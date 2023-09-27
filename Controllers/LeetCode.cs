@@ -642,6 +642,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CheckStraightLine(coordinates);
             return result;
         }
+
+        [HttpPost("AddBinary")]
+        public string AddBinary(string a, string b)
+        {
+            var result = _leetCodeServices.AddBinary(a, b);
+            return result;
+        }
     }
 }
 
