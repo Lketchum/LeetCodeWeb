@@ -628,6 +628,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LemonadeChange(bills);
             return result;
         }
+
+        [HttpPost("LargestPerimeter")]
+        public int LargestPerimeter(int[] nums)
+        {
+            var result = _leetCodeServices.LargestPerimeter(nums);
+            return result;
+        }
     }
 }
 
