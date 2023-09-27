@@ -663,6 +663,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MyPow(x, n);
             return result;
         }
+
+        [HttpPost("MergeTwoLists")]
+        public List<int> MergeTwoLists(List<int> numsBefore1, List<int> numsBefore2)
+        {
+            var result = _leetCodeServices.MergeTwoLists(numsBefore1, numsBefore2);
+            return result;
+        }
     }
 }
 

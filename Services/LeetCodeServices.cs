@@ -3076,10 +3076,70 @@ namespace LeetCodeWeb.Services
                 {
                     ans *= x_contribute;
                 }
-                x_contribute *= x_contribute;
+                x_contribute *= x_contribute; 
                 N /= 2;
             }
             return ans;
+        }
+
+        public List<int> MergeTwoLists(List<int> numsBefore1, List<int> numsBefore2)
+        {
+            #region 前处理：将数组转换为ListNode类
+            ListNode list1;
+            ListNode list2;
+
+            ListNode dummy1 = new ListNode(0); // 创建一个虚拟节点作为链表的头节点
+            ListNode dummy2 = new ListNode(0);
+            ListNode current1 = dummy1;
+            ListNode current2 = dummy2;
+
+            foreach (int num in numsBefore1)
+            {
+                ListNode newNode = new ListNode(num);
+                current1.next = newNode;
+                current1 = current1.next;
+            }
+            list1 = dummy1.next;
+            
+            foreach (int num in numsBefore2)
+            {
+                ListNode newNode = new ListNode(num);
+                current2.next = newNode;
+                current2 = current2.next;
+            }
+            list2 = dummy2.next;
+            #endregion
+
+            ListNode mergeNode = new ListNode(0);
+            ListNode currNode = mergeNode;
+            int temp = int.MaxValue;
+            while (list1 != null && list2 != null)
+            {
+                if (list1.val < list2.val)
+                {
+                    currNode.val = list1.val;
+                    list1 = list1.next;
+                    temp = Math.Min(temp, list2.val);                    
+                }
+                else
+                {
+                    currNode.val = list2.val;
+                    list2 = list2.next;
+                    temp = Math.Min(temp, list1.val);
+                }
+                currNode = currNode.next;
+            }            
+
+            ListNode returnNode = mergeNode.next;
+            //后处理：将ListNode类转换为数组
+            List<int> numsAfter = new List<int>();
+            while (returnNode != null)
+            {
+                numsAfter.Add(returnNode.val);
+                returnNode = returnNode.next;
+            }
+
+            return numsAfter;
         }
     }
 }
