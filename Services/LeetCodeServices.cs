@@ -2935,7 +2935,34 @@ namespace LeetCodeWeb.Services
 
         public bool LemonadeChange(int[] bills)
         {
-            return false;
+            int[] currChanges = new int[] { 0, 0 };
+            int n = bills.Length;
+            for (int i = 0; i < n; i++)
+            {
+                if (bills[i] == 20)
+                {
+                    if (currChanges[1] > 0 && currChanges[0] > 0)
+                    {
+                        currChanges[1]--;
+                        currChanges[0]--;
+                    }
+                    else if (currChanges[0] > 2)
+                        currChanges[0] -= 3;
+                    else
+                        return false;
+                }                    
+                else if (bills[i] == 10)
+                {
+                    currChanges[1]++;
+                    if (currChanges[0] > 0)
+                        currChanges[0]--;
+                    else 
+                        return false;
+                }
+                else
+                    currChanges[0]++;
+            }
+            return true;
         }
     }
 }
