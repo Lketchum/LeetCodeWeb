@@ -3242,20 +3242,23 @@ namespace LeetCodeWeb.Services
 
             ListNode AddNode = new ListNode(0);
             ListNode currNode = AddNode;
+            ListNode reverseL1 = AddTwoNumbers2_reverse(l1);
+            ListNode reverseL2 = AddTwoNumbers2_reverse(l2);
+
             int carry = 0;
-            while (l1 != null || l2 != null || carry != 0)
+            while (reverseL1 != null || reverseL2 != null || carry != 0)
             {
                 int sum = carry;
-                if (l1 != null)
+                if (reverseL1 != null)
                 {
-                    sum += l1.val;
-                    l1 = l1.next;
+                    sum += reverseL1.val;
+                    reverseL1 = reverseL1.next;
                 }
 
-                if (l2 != null)
+                if (reverseL2 != null)
                 {
-                    sum += l2.val;
-                    l2 = l2.next;
+                    sum += reverseL2.val;
+                    reverseL2 = reverseL2.next;
                 }
 
                 carry = sum / 10;
@@ -3263,7 +3266,8 @@ namespace LeetCodeWeb.Services
                 currNode = currNode.next;
             }
 
-            ListNode returnNode = AddNode.next;
+            ListNode reverseAdd = AddTwoNumbers2_reverse(AddNode.next);
+            ListNode returnNode = reverseAdd;
             //后处理：将ListNode类转换为数组
             List<int> numsAfter = new List<int>();
             while (returnNode != null)
@@ -3273,6 +3277,23 @@ namespace LeetCodeWeb.Services
             }
 
             return numsAfter;
+        }
+        private ListNode AddTwoNumbers2_reverse(ListNode head)
+        {
+            //逻辑代码内容
+            ListNode temp = head;
+            ListNode reverseNode = null;
+
+            while (temp != null)
+            {
+                //空间优化答案
+                ListNode next = temp.next;
+                temp.next = reverseNode;
+                reverseNode = temp;
+                temp = next;
+            }
+
+            return reverseNode;
         }
     }
 }
