@@ -3148,5 +3148,10 @@ namespace LeetCodeWeb.Services
 
             return numsAfter;
         }
+
+        public List<int> AddTwoNumbers(List<int> numsBefore1, List<int> numsBefore2)
+        {
+            return null;
+        }
     }
 }
