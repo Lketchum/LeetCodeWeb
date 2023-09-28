@@ -3151,7 +3151,80 @@ namespace LeetCodeWeb.Services
 
         public List<int> AddTwoNumbers(List<int> numsBefore1, List<int> numsBefore2)
         {
-            return null;
+            #region 前处理：将数组转换为ListNode类
+            ListNode l1;
+            ListNode l2;
+
+            ListNode dummy1 = new ListNode(0); // 创建一个虚拟节点作为链表的头节点
+            ListNode dummy2 = new ListNode(0);
+            ListNode current1 = dummy1;
+            ListNode current2 = dummy2;
+
+            foreach (int num in numsBefore1)
+            {
+                ListNode newNode = new ListNode(num);
+                current1.next = newNode;
+                current1 = current1.next;
+            }
+            l1 = dummy1.next;
+
+            foreach (int num in numsBefore2)
+            {
+                ListNode newNode = new ListNode(num);
+                current2.next = newNode;
+                current2 = current2.next;
+            }
+            l2 = dummy2.next;
+            #endregion
+
+            ListNode AddNode = new ListNode(0);
+            ListNode currNode = AddNode;
+            int temp = 0;
+            while (l1 != null && l2 != null)
+            {
+                temp = l1.val + l2.val + temp;
+                ListNode next = new ListNode(temp % 10);
+                temp /= 10;
+                currNode.next = next;
+                currNode = currNode.next;
+                l1 = l1.next;
+                l2 = l2.next;
+            }
+            while (l1 != null)
+            {
+                temp = l1.val + temp;
+                ListNode next = new ListNode(temp % 10);
+                temp /= 10;
+                currNode.next = next;
+                currNode = currNode.next;
+                l1 = l1.next;
+            }
+            while (l2 != null)
+            {
+                temp = l2.val + temp;
+                ListNode next = new ListNode(temp % 10);
+                temp /= 10;
+                currNode.next = next;
+                currNode = currNode.next;
+                l2 = l2.next;
+            }
+
+            if (temp != 0)
+            {
+                ListNode next = new ListNode(temp);
+                currNode.next = next;
+            }
+
+            ListNode returnNode = AddNode.next;
+            //后处理：将ListNode类转换为数组
+            List<int> numsAfter = new List<int>();
+            while (returnNode != null)
+            {
+                numsAfter.Add(returnNode.val);
+                returnNode = returnNode.next;
+            }
+
+            return numsAfter;
         }
     }
 }

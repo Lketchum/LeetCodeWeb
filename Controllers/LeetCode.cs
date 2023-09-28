@@ -672,9 +672,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("AddTwoNumbers")]
-        public List<int> AddTwoNumbers(List<int> numsBefore1, List<int> numsBefore2)
+        public List<int> AddTwoNumbers(Input_MergeTwoLists input)
         {
-            var result = _leetCodeServices.AddTwoNumbers(numsBefore1, numsBefore2);
+            var result = _leetCodeServices.AddTwoNumbers(input.nums1, input.nums2);
             return result;
         }
     }
