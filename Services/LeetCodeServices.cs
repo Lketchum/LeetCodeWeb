@@ -3310,9 +3310,19 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        private IList<int> orderList = new List<int>();
         public IList<int> InorderTraversal(TreeNode root)
         {
-            return null;
+            if (root == null)
+                return orderList;
+            else
+            {
+                InorderTraversal(root.left);
+                orderList.Add(root.val);
+                InorderTraversal(root.right);
+            }
+
+            return orderList;
         }
     }
 }
