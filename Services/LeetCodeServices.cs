@@ -3295,5 +3295,19 @@ namespace LeetCodeWeb.Services
 
             return reverseNode;
         }
+
+        public int MinDepth(TreeNode root)
+        {
+            if (root == null)
+                return 0;
+            else if (root.left == null && root.right == null)
+                return 1;
+            else
+            {
+                int leftHeight = root.left != null ? MinDepth(root.left) : int.MaxValue;
+                int rightHeight = root.right != null ? MinDepth(root.right) : int.MaxValue;
+                return Math.Min(leftHeight, rightHeight) + 1;
+            }
+        }
     }
 }
