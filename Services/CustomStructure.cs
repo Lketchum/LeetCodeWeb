@@ -238,6 +238,31 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //哈希映射
+        public class MyHashMap
+        {
+
+            public MyHashMap()
+            {
+
+            }
+
+            public void Put(int key, int value)
+            {
+
+            }
+
+            public int Get(int key)
+            {
+
+            }
+
+            public void Remove(int key)
+            {
+
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
