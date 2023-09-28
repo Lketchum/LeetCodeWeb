@@ -3179,40 +3179,25 @@ namespace LeetCodeWeb.Services
 
             ListNode AddNode = new ListNode(0);
             ListNode currNode = AddNode;
-            int temp = 0;
-            while (l1 != null && l2 != null)
+            int carry = 0;
+            while (l1 != null || l2 != null || carry != 0)
             {
-                temp = l1.val + l2.val + temp;
-                ListNode next = new ListNode(temp % 10);
-                temp /= 10;
-                currNode.next = next;
-                currNode = currNode.next;
-                l1 = l1.next;
-                l2 = l2.next;
-            }
-            while (l1 != null)
-            {
-                temp = l1.val + temp;
-                ListNode next = new ListNode(temp % 10);
-                temp /= 10;
-                currNode.next = next;
-                currNode = currNode.next;
-                l1 = l1.next;
-            }
-            while (l2 != null)
-            {
-                temp = l2.val + temp;
-                ListNode next = new ListNode(temp % 10);
-                temp /= 10;
-                currNode.next = next;
-                currNode = currNode.next;
-                l2 = l2.next;
-            }
+                int sum = carry;
+                if (l1 != null)
+                {
+                    sum += l1.val;
+                    l1 = l1.next;
+                }
 
-            if (temp != 0)
-            {
-                ListNode next = new ListNode(temp);
-                currNode.next = next;
+                if (l2 != null)
+                {
+                    sum += l2.val;
+                    l2 = l2.next;
+                }
+
+                carry = sum / 10;
+                currNode.next = new ListNode(sum % 10);
+                currNode = currNode.next;
             }
 
             ListNode returnNode = AddNode.next;
