@@ -665,9 +665,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("MergeTwoLists")]
-        public List<int> MergeTwoLists(List<int> numsBefore1, List<int> numsBefore2)
+        public List<int> MergeTwoLists(Input_MergeTwoLists input)
         {
-            var result = _leetCodeServices.MergeTwoLists(numsBefore1, numsBefore2);
+            var result = _leetCodeServices.MergeTwoLists(input.nums1, input.nums2);
             return result;
         }
     }

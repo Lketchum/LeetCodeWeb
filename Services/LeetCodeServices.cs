@@ -3117,13 +3117,15 @@ namespace LeetCodeWeb.Services
             {
                 if (list1.val < list2.val)
                 {
-                    currNode.val = list1.val;
+                    ListNode next = new ListNode(list1.val);
+                    currNode.next = next;
                     list1 = list1.next;
                     temp = Math.Min(temp, list2.val);                    
                 }
                 else
                 {
-                    currNode.val = list2.val;
+                    ListNode next = new ListNode(list2.val);
+                    currNode.next = next;
                     list2 = list2.next;
                     temp = Math.Min(temp, list1.val);
                 }

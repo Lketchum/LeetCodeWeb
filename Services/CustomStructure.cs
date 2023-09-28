@@ -269,6 +269,12 @@ namespace LeetCodeWeb.Services
             public int[] nums1 { get; set; }
             public int[] nums2 { get; set; }
         }
+
+        public class Input_MergeTwoLists
+        {
+            public List<int> nums1 { get; set; }
+            public List<int> nums2 { get; set; }
+        }
         #endregion
     }
 }
