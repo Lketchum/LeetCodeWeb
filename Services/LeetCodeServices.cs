@@ -3211,5 +3211,68 @@ namespace LeetCodeWeb.Services
 
             return numsAfter;
         }
+
+        public List<int> AddTwoNumbers2(List<int> numsBefore1, List<int> numsBefore2)
+        {
+            #region 前处理：将数组转换为ListNode类
+            ListNode l1;
+            ListNode l2;
+
+            ListNode dummy1 = new ListNode(0); // 创建一个虚拟节点作为链表的头节点
+            ListNode dummy2 = new ListNode(0);
+            ListNode current1 = dummy1;
+            ListNode current2 = dummy2;
+
+            foreach (int num in numsBefore1)
+            {
+                ListNode newNode = new ListNode(num);
+                current1.next = newNode;
+                current1 = current1.next;
+            }
+            l1 = dummy1.next;
+
+            foreach (int num in numsBefore2)
+            {
+                ListNode newNode = new ListNode(num);
+                current2.next = newNode;
+                current2 = current2.next;
+            }
+            l2 = dummy2.next;
+            #endregion
+
+            ListNode AddNode = new ListNode(0);
+            ListNode currNode = AddNode;
+            int carry = 0;
+            while (l1 != null || l2 != null || carry != 0)
+            {
+                int sum = carry;
+                if (l1 != null)
+                {
+                    sum += l1.val;
+                    l1 = l1.next;
+                }
+
+                if (l2 != null)
+                {
+                    sum += l2.val;
+                    l2 = l2.next;
+                }
+
+                carry = sum / 10;
+                currNode.next = new ListNode(sum % 10);
+                currNode = currNode.next;
+            }
+
+            ListNode returnNode = AddNode.next;
+            //后处理：将ListNode类转换为数组
+            List<int> numsAfter = new List<int>();
+            while (returnNode != null)
+            {
+                numsAfter.Add(returnNode.val);
+                returnNode = returnNode.next;
+            }
+
+            return numsAfter;
+        }
     }
 }

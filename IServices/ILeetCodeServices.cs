@@ -99,5 +99,6 @@ namespace LeetCodeWeb.IServices
         public double MyPow(double x, int n);
         public List<int> MergeTwoLists(List<int> numsBefore1, List<int> numsBefore2);
         public List<int> AddTwoNumbers(List<int> numsBefore1, List<int> numsBefore2);
+        public List<int> AddTwoNumbers2(List<int> numsBefore1, List<int> numsBefore2);
     }
 }

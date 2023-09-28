@@ -677,6 +677,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.AddTwoNumbers(input.nums1, input.nums2);
             return result;
         }
+
+        [HttpPost("AddTwoNumbers2")]
+        public List<int> AddTwoNumbers2(Input_MergeTwoLists input)
+        {
+            var result = _leetCodeServices.AddTwoNumbers2(input.nums1, input.nums2);
+            return result;
+        }
     }
 }
 
