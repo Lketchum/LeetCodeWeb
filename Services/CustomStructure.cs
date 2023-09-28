@@ -216,6 +216,28 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //停车系统
+        public class ParkingSystem
+        {
+            private int[] parkingLots = new int[] { 0, 0, 0 };
+            public ParkingSystem(int big, int medium, int small)
+            {
+                parkingLots = new int[] { big, medium, small };
+            }
+
+            public bool AddCar(int carType)
+            {
+                int temp = parkingLots[carType - 1] - 1;
+                if (temp < 0)
+                    return false;
+                else
+                {
+                    parkingLots[carType - 1]--;
+                    return true;
+                }
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays

@@ -3325,23 +3325,5 @@ namespace LeetCodeWeb.Services
 
             return orderList;
         }
-
-        private int[] parkingLots = new int[] { 0, 0, 0 };
-        public void ParkingSystem(int big, int medium, int small)
-        {
-            parkingLots = new int[] { big, medium, small };
-        }
-
-        public bool AddCar(int carType)
-        {
-            int temp = parkingLots[carType - 1] - 1;
-            if (temp < 0)
-                return false;
-            else
-            {
-                parkingLots[carType - 1]--;
-                return true;
-            }
-        }
     }
 }
