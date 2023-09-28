@@ -3341,7 +3341,7 @@ namespace LeetCodeWeb.Services
             {
                 parkingLots[carType - 1]--;
                 return true;
-            }                
+            }
         }
     }
 }
