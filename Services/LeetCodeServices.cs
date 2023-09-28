@@ -13,6 +13,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using static LeetCodeWeb.Services.CustomStructure;
 
 namespace LeetCodeWeb.Services
@@ -3323,6 +3324,24 @@ namespace LeetCodeWeb.Services
             }
 
             return orderList;
+        }
+
+        private int[] parkingLots = new int[] { 0, 0, 0 };
+        public void ParkingSystem(int big, int medium, int small)
+        {
+            parkingLots = new int[] { big, medium, small };
+        }
+
+        public bool AddCar(int carType)
+        {
+            int temp = parkingLots[carType - 1] - 1;
+            if (temp < 0)
+                return false;
+            else
+            {
+                parkingLots[carType - 1]--;
+                return true;
+            }                
         }
     }
 }
