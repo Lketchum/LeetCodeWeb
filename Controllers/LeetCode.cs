@@ -684,6 +684,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.AddTwoNumbers2(input.nums1, input.nums2);
             return result;
         }
+
+        [HttpPost("InorderTraversal")]
+        public IList<int> InorderTraversal(TreeNode root)
+        {
+            var result = _leetCodeServices.InorderTraversal(root);
+            return result;
+        }
     }
 }
 

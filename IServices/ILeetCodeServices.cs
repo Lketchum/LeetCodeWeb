@@ -100,5 +100,6 @@ namespace LeetCodeWeb.IServices
         public List<int> MergeTwoLists(List<int> numsBefore1, List<int> numsBefore2);
         public List<int> AddTwoNumbers(List<int> numsBefore1, List<int> numsBefore2);
         public List<int> AddTwoNumbers2(List<int> numsBefore1, List<int> numsBefore2);
+        public IList<int> InorderTraversal(TreeNode root);
     }
 }

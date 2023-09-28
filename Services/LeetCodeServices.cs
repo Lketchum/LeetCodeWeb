@@ -3309,5 +3309,10 @@ namespace LeetCodeWeb.Services
                 return Math.Min(leftHeight, rightHeight) + 1;
             }
         }
+
+        public IList<int> InorderTraversal(TreeNode root)
+        {
+            return null;
+        }
     }
 }
