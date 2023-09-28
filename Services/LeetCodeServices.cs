@@ -3112,25 +3112,30 @@ namespace LeetCodeWeb.Services
 
             ListNode mergeNode = new ListNode(0);
             ListNode currNode = mergeNode;
-            int temp = int.MaxValue;
             while (list1 != null && list2 != null)
             {
                 if (list1.val < list2.val)
                 {
                     ListNode next = new ListNode(list1.val);
                     currNode.next = next;
-                    list1 = list1.next;
-                    temp = Math.Min(temp, list2.val);                    
+                    list1 = list1.next;                
                 }
                 else
                 {
                     ListNode next = new ListNode(list2.val);
                     currNode.next = next;
                     list2 = list2.next;
-                    temp = Math.Min(temp, list1.val);
                 }
                 currNode = currNode.next;
-            }            
+            } 
+            if (list1 != null)
+            {
+                currNode.next = list1;
+            }
+            if (list2 != null)
+            {
+                currNode.next = list2;
+            }
 
             ListNode returnNode = mergeNode.next;
             //后处理：将ListNode类转换为数组
