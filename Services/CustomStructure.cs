@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
@@ -321,6 +324,39 @@ namespace LeetCodeWeb.Services
                         break;
                     }
                 }
+            }
+        }
+
+        //地铁系统
+        public class UndergroundSystem
+        {
+            Dictionary<int, (string, int)> checkRecord = new();
+            Dictionary<string, (double, int)> timeRecord = new();
+
+            public UndergroundSystem()
+            {
+
+            }
+
+            public void CheckIn(int id, string stationName, int t)
+            {
+                checkRecord[id] = (stationName, t);
+            }
+
+            public void CheckOut(int id, string stationName, int t)
+            {
+                string sectionName = checkRecord[id].Item1 + "," + stationName;
+                double tempTime = t - checkRecord[id].Item2;
+                if (timeRecord.ContainsKey(sectionName))
+                    timeRecord[sectionName] = (timeRecord[sectionName].Item1 + tempTime, timeRecord[sectionName].Item2 + 1);
+                else
+                    timeRecord.Add(sectionName, (tempTime, 1));
+            }
+
+            public double GetAverageTime(string startStation, string endStation)
+            {
+                string getName = startStation + "," + endStation;
+                return timeRecord[getName].Item1 / timeRecord[getName].Item2;
             }
         }
 
