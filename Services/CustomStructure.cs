@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Reflection.Metadata;
 
 namespace LeetCodeWeb.Services
@@ -253,49 +254,73 @@ namespace LeetCodeWeb.Services
                     this.value = value;
                 }
 
-                public int getKey()
+                public int GetKey()
                 {
                     return key;
                 }
 
-                public int getValue()
+                public int GetValue()
                 {
                     return value;
                 }
 
-                public void setValue(int value)
+                public void SetValue(int value)
                 {
                     this.value = value;
                 }
             }
 
             private const int BASE = 769;
-            private LinkedList<Pair_MyHashMap> data;
+            private LinkedList<Pair_MyHashMap>[] data;
 
             public MyHashMap()
             {
-                data = new LinkedList<Pair_MyHashMap>();
+                data = new LinkedList<Pair_MyHashMap>[BASE];
                 for (int i = 0; i < BASE; i++)
                 {
-                    LinkedListNode<Pair_MyHashMap> temp = new LinkedListNode<Pair_MyHashMap>(0);
-                    data.AddLast(temp);
-
+                    data[i] = new LinkedList<Pair_MyHashMap>();
                 }
             }
 
             public void Put(int key, int value)
             {
-
+                int index = key % BASE;
+                LinkedList<Pair_MyHashMap> list = data[index];
+                foreach (Pair_MyHashMap pair in list)
+                {
+                    if (pair.GetKey() == key)
+                    {
+                        pair.SetValue(value);
+                        return;
+                    }
+                }
+                list.AddLast(new Pair_MyHashMap(key, value));
             }
 
             public int Get(int key)
             {
-
+                int index = key % BASE;
+                LinkedList<Pair_MyHashMap> list = data[index];
+                foreach (Pair_MyHashMap pair in list)
+                {
+                    if (pair.GetKey() == key)
+                        return pair.GetValue();
+                }
+                return -1;
             }
 
             public void Remove(int key)
             {
-
+                int index = key % BASE;
+                LinkedList<Pair_MyHashMap> list = data[index];
+                foreach (Pair_MyHashMap pair in list)
+                {
+                    if (pair.GetKey() == key)
+                    {
+                        list.Remove(pair);
+                        break;
+                    }
+                }
             }
         }
 
