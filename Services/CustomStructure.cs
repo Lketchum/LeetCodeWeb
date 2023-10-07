@@ -360,6 +360,31 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //浏览器历史记录
+        public class BrowserHistory
+        {
+
+            public BrowserHistory(string homepage)
+            {
+
+            }
+
+            public void Visit(string url)
+            {
+
+            }
+
+            public string Back(int steps)
+            {
+
+            }
+
+            public string Forward(int steps)
+            {
+
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
