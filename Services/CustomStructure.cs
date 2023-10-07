@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.TagHelpers.Cache;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 
 namespace LeetCodeWeb.Services
 {
@@ -241,10 +242,45 @@ namespace LeetCodeWeb.Services
         //哈希映射
         public class MyHashMap
         {
+            private class Pair_MyHashMap
+            {
+                private int key;
+                private int value;
+
+                public Pair_MyHashMap(int key, int value)
+                {
+                    this.key = key;
+                    this.value = value;
+                }
+
+                public int getKey()
+                {
+                    return key;
+                }
+
+                public int getValue()
+                {
+                    return value;
+                }
+
+                public void setValue(int value)
+                {
+                    this.value = value;
+                }
+            }
+
+            private const int BASE = 769;
+            private LinkedList<Pair_MyHashMap> data;
 
             public MyHashMap()
             {
+                data = new LinkedList<Pair_MyHashMap>();
+                for (int i = 0; i < BASE; i++)
+                {
+                    LinkedListNode<Pair_MyHashMap> temp = new LinkedListNode<Pair_MyHashMap>(0);
+                    data.AddLast(temp);
 
+                }
             }
 
             public void Put(int key, int value)
