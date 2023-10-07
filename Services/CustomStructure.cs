@@ -363,25 +363,52 @@ namespace LeetCodeWeb.Services
         //浏览器历史记录
         public class BrowserHistory
         {
+            Stack<string> backHistory = new();
+            Stack<string> forwardHisttory = new();
+            string currentUrl = "";
 
             public BrowserHistory(string homepage)
             {
-
+                currentUrl = homepage;
             }
 
             public void Visit(string url)
             {
-
+                backHistory.Push(currentUrl);
+                currentUrl = url;
+                forwardHisttory = new();
             }
 
             public string Back(int steps)
             {
-
+                while (steps > 0)
+                {
+                    if (backHistory.Count == 0)
+                        return currentUrl;
+                    else
+                    {
+                        forwardHisttory.Push(currentUrl);
+                        currentUrl = backHistory.Pop();
+                        steps--;
+                    }
+                }
+                return currentUrl;
             }
 
             public string Forward(int steps)
             {
-
+                while (steps > 0)
+                {
+                    if (forwardHisttory.Count == 0)
+                        return currentUrl;
+                    else
+                    {
+                        backHistory.Push(currentUrl);
+                        currentUrl = forwardHisttory.Pop();
+                        steps--;
+                    }
+                }
+                return currentUrl;
             }
         }
 
