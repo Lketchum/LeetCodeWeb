@@ -412,6 +412,41 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //链表设计
+        public class MyLinkedList
+        {
+
+            public MyLinkedList()
+            {
+
+            }
+
+            public int Get(int index)
+            {
+
+            }
+
+            public void AddAtHead(int val)
+            {
+
+            }
+
+            public void AddAtTail(int val)
+            {
+
+            }
+
+            public void AddAtIndex(int index, int val)
+            {
+
+            }
+
+            public void DeleteAtIndex(int index)
+            {
+
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
