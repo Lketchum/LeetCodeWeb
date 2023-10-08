@@ -3383,11 +3383,11 @@ namespace LeetCodeWeb.Services
         {
             //需要处理多种越界情况
             var rowNum = words.Count;
-            for (var row = 0; row < rowNum; row++)
+            for (int row = 0; row < rowNum; row++)
             {
-                for (var col = 0; col < words[row].Length; col++)
+                for (int col = 0; col < words[row].Length; col++)
                 {
-                    if (col >= rowNum || row >= words[col].Length || words[row][col] != words[col][row])
+                    if(col >= rowNum || row > words[row].Length || words[row][col] != words[col][row])
                         return false;
                 }
             }
