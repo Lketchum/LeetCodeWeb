@@ -3328,7 +3328,55 @@ namespace LeetCodeWeb.Services
 
         public bool BuddyStrings(string s, string goal)
         {
-            return false;
+            #region 原始代码
+            //if (s.Length != goal.Length)
+            //    return false;
+
+            //List<(char,char)> charDiff = new List<(char, char)> ();
+            //Dictionary<char, int> charSet = new Dictionary<char, int>();
+            //bool hasDuplicate = false;
+            //for (int i = 0; i < s.Length; i++)
+            //{
+            //    if (s[i] != goal[i])
+            //        charDiff.Add((s[i], goal[i]));
+
+            //    if (charSet.ContainsKey(s[i]))
+            //        hasDuplicate = true;
+            //    else
+            //        charSet.Add(s[i], 1);
+            //}
+
+            //if (charDiff.Count == 0 && hasDuplicate)
+            //    return true;
+            //if (charDiff.Count != 2)
+            //    return false;
+            //if (charDiff[0].Item1 != charDiff[1].Item2 || charDiff[0].Item2 != charDiff[1].Item1)
+            //    return false;
+
+            //return true;
+            #endregion
+
+            //代码优化
+            if (s.Length != goal.Length)
+                return false;
+
+            // 如果 s 和 goal 相等，检查是否存在重复字符
+            if (s == goal)
+            {
+                HashSet<char> charSet = new HashSet<char>(s); //HashSet可快速查找和去重
+                return charSet.Count < s.Length;
+            }
+
+            // 记录字符不同的位置
+            List<int> diffIndices = new List<int>();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] != goal[i])
+                    diffIndices.Add(i);
+            }
+
+            // 如果只有两个字符不同且它们可以交换，返回 true
+            return diffIndices.Count == 2 && s[diffIndices[0]] == goal[diffIndices[1]] && s[diffIndices[1]] == goal[diffIndices[0]];
         }
     }
 }
