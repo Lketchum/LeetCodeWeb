@@ -103,5 +103,6 @@ namespace LeetCodeWeb.IServices
         public IList<int> InorderTraversal(TreeNode root);
         public bool BuddyStrings(string s, string goal);
         public bool ValidWordSquare(IList<string> words);
+        public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper);
     }
 }

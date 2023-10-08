@@ -705,6 +705,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ValidWordSquare(words);
             return result;
         }
+
+        [HttpPost("FindMissingRanges")]
+        public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper)
+        {
+            var result = _leetCodeServices.FindMissingRanges(nums, lower, upper);
+            return result;
+        }
     }
 }
 

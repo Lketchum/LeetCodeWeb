@@ -3393,5 +3393,10 @@ namespace LeetCodeWeb.Services
             }
             return true;
         }
+
+        public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper)
+        {
+            return null;
+        }
     }
 }
