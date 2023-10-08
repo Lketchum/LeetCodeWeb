@@ -3325,5 +3325,10 @@ namespace LeetCodeWeb.Services
 
             return orderList;
         }
+
+        public bool BuddyStrings(string s, string goal)
+        {
+            return false;
+        }
     }
 }

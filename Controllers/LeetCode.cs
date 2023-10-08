@@ -691,6 +691,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.InorderTraversal(root);
             return result;
         }
+
+        [HttpPost("BuddyStrings")]
+        public bool BuddyStrings(string s, string goal)
+        {
+            var result = _leetCodeServices.BuddyStrings(s, goal);
+            return result;
+        }
     }
 }
 
