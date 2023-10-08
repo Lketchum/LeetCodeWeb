@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
+using System.Runtime.Versioning;
 
 namespace LeetCodeWeb.Services
 {
@@ -413,12 +414,12 @@ namespace LeetCodeWeb.Services
         }
 
         //链表设计-基于单向链表
-        public class MyLinkedList
+        public class MyLinkedList_Single
         {
             int size;
             ListNode head;
 
-            public MyLinkedList()
+            public MyLinkedList_Single()
             {
                 size = 0;
                 head = new ListNode(0);
@@ -469,6 +470,118 @@ namespace LeetCodeWeb.Services
                 pred.next = pred.next.next;
             }
         }
+
+        //链表设计-基于双向链表
+        public class MyLinkedList_Double
+        {
+            int size;
+            ListNode_Double head;
+            ListNode_Double tail;
+
+            public MyLinkedList_Double()
+            {
+                size = 0;
+                head = new ListNode_Double(0);
+                tail = new ListNode_Double(0);
+                head.next = tail;
+                tail.prev = head;
+            }
+
+            public int Get(int index)
+            {
+                if (index < 0 || index >= size)
+                    return -1;
+                ListNode_Double curr;
+                if (index + 1 < size - index)
+                {
+                    curr = head;
+                    for (int i = 0; i <= index; i++)
+                        curr = curr.next;
+                }
+                else
+                {
+                    curr = tail;
+                    for (int i = 0; i < size - index; i++)
+                        curr = curr.prev;
+                }
+                return curr.val;
+            }
+
+            public void AddAtHead(int val)
+            {
+                AddAtIndex(0, val);
+            }
+
+            public void AddAtTail(int val)
+            {
+                AddAtIndex(size, val);
+            }
+
+            public void AddAtIndex(int index, int val)
+            {
+                if (index > size)
+                    return;
+                index = Math.Max(0, index);
+                ListNode_Double pred, succ;
+                if (index < size - index)
+                {
+                    pred = head;
+                    for (int i = 0; i < index; i++)
+                        pred = pred.next;
+                    succ = pred.next;
+                }
+                else
+                {
+                    succ = tail;
+                    for (int i = 0; i < size - index; i++)
+                        succ = succ.prev;
+                    pred = succ.prev;
+                }
+                size++;
+                ListNode_Double toAdd = new ListNode_Double(val);
+                toAdd.prev = pred;
+                toAdd.next = succ;
+                pred.next = toAdd;
+                succ.prev = toAdd;
+            }
+
+            public void DeleteAtIndex(int index)
+            {
+                if (index < 0 || index >= size)
+                    return;
+                ListNode_Double pred, succ;
+                if (index < size - index)
+                {
+                    pred = head;
+                    for (int i = 0; i < index; i++)
+                        pred = pred.next;
+                    succ = pred.next.next;
+                }
+                else
+                {
+                    succ = tail;
+                    for (int i = 0; i < size - index - 1; i++)
+                        succ = succ.prev;
+                    pred = succ.prev;
+                }
+                size--;
+                pred.next = succ;
+                succ.prev = pred;
+            }
+        }
+        //双向链表
+        public class ListNode_Double
+        {
+            public int val;
+            public ListNode_Double prev;
+            public ListNode_Double next;
+
+            public ListNode_Double(int val)
+            {
+                this.val = val;
+            }
+        }
+
 
         #region 输入数据结构定义
         //双数组输入
