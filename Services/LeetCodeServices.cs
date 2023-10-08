@@ -3381,7 +3381,17 @@ namespace LeetCodeWeb.Services
 
         public bool ValidWordSquare(IList<string> words)
         {
-            return false;
+            //需要处理多种越界情况
+            var rowNum = words.Count;
+            for (var row = 0; row < rowNum; row++)
+            {
+                for (var col = 0; col < words[row].Length; col++)
+                {
+                    if (col >= rowNum || row >= words[col].Length || words[row][col] != words[col][row])
+                        return false;
+                }
+            }
+            return true;
         }
     }
 }

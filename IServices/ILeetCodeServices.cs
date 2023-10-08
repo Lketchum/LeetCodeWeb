@@ -102,6 +102,6 @@ namespace LeetCodeWeb.IServices
         public List<int> AddTwoNumbers2(List<int> numsBefore1, List<int> numsBefore2);
         public IList<int> InorderTraversal(TreeNode root);
         public bool BuddyStrings(string s, string goal);
-        public bool ValidWordSquare(IList<string> words)
+        public bool ValidWordSquare(IList<string> words);
     }
 }
