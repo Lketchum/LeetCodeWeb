@@ -698,6 +698,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.BuddyStrings(s, goal);
             return result;
         }
+
+        [HttpPost("ValidWordSquare")]
+        public bool ValidWordSquare(IList<string> words)
+        {
+            var result = _leetCodeServices.ValidWordSquare(words);
+            return result;
+        }
     }
 }
 

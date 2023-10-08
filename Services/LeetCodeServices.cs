@@ -3378,5 +3378,10 @@ namespace LeetCodeWeb.Services
             // 如果只有两个字符不同且它们可以交换，返回 true
             return diffIndices.Count == 2 && s[diffIndices[0]] == goal[diffIndices[1]] && s[diffIndices[1]] == goal[diffIndices[0]];
         }
+
+        public bool ValidWordSquare(IList<string> words)
+        {
+            return false;
+        }
     }
 }
