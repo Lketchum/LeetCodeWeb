@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
 using System.Runtime.Versioning;
+using System.Threading;
 
 namespace LeetCodeWeb.Services
 {
@@ -582,6 +583,79 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //循环队列
+        public class MyCircularQueue
+        {            
+            int size;
+            int count;
+            ListNode head;
+            ListNode tail;
+
+            public MyCircularQueue(int k)
+            {
+                size = k;
+                count= 0;
+            }
+
+            public bool EnQueue(int value)
+            {
+                if (count == size)
+                    return false;
+                if (head == null)
+                {
+                    head = new ListNode(value);
+                    tail = head;
+                }
+                else
+                {
+                    ListNode temp = new ListNode(value);
+                    tail.next = temp;
+                    tail = tail.next;
+                }                
+                count++;
+                return true;
+            }
+
+            public bool DeQueue()
+            {
+                if (count == 0)
+                    return false;
+
+                head = head.next;
+                count--;
+                return true;
+            }
+
+            public int Front()
+            {
+                if (count == 0)
+                    return -1;
+                return head.val;
+            }
+
+            public int Rear()
+            {
+                if (count == 0)
+                    return -1;
+                return tail.val;
+            }
+
+            public bool IsEmpty()
+            {
+                if (count != 0)
+                    return false;
+                else 
+                    return true;
+            }
+
+            public bool IsFull()
+            {
+                if (count == size)
+                    return true;
+                else
+                    return false;
+            }
+        }
 
         #region 输入数据结构定义
         //双数组输入
