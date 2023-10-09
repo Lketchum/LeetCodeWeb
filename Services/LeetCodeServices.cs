@@ -3541,7 +3541,7 @@ namespace LeetCodeWeb.Services
 
         private static readonly Regex NumberPattern = new Regex(@"^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$", RegexOptions.Compiled);
 
-        public bool IsNumber_Optimize(string s)
+        public bool IsNumber_RegularExpressions(string s)
         {
             return NumberPattern.IsMatch(s);
         }
