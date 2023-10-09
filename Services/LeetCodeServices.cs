@@ -14,6 +14,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.AccessControl;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 using static LeetCodeWeb.Services.CustomStructure;
@@ -3536,6 +3537,13 @@ namespace LeetCodeWeb.Services
 
                 return true;
             }        
+        }
+
+        private static readonly Regex NumberPattern = new Regex(@"^[-+]?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$", RegexOptions.Compiled);
+
+        public bool IsNumber_Optimize(string s)
+        {
+            return NumberPattern.IsMatch(s);
         }
     }
 }
