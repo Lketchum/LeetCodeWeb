@@ -3462,7 +3462,27 @@ namespace LeetCodeWeb.Services
 
         public bool ConfusingNumber(int n)
         {
-            return true;
+            int num = n;
+            int reverseNum = 0;
+            while (num > 0)
+            {
+                int digit = num % 10;
+                int reverseDigit = digit;
+                if (digit == 2 || digit == 3 || digit == 4 ||  digit == 5 || digit == 7)
+                    return false;
+                else if (digit != 0 && digit != 1 && digit != 8)
+                {
+                    if (digit == 6)
+                        reverseDigit = 9;
+                    else if (digit == 9)
+                        reverseDigit = 6;
+                }
+
+                num /= 10;
+                reverseNum = reverseNum * 10 + reverseDigit;
+            }
+
+            return n != reverseNum;
         }
     }
 }
