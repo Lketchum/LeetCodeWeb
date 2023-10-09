@@ -3548,6 +3548,26 @@ namespace LeetCodeWeb.Services
 
         public int ShortestDistance(int[][] maze, int[] start, int[] destination)
         {
+            int row = maze.Length;
+            int column = maze[0].Length;
+            int[][] directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } }; //上下左右
+            Queue<int[]> mazePos = new Queue<int[]>();
+            mazePos.Enqueue(start);
+            while (mazePos.Count > 0)
+            {
+                var temp = mazePos.Dequeue();
+                foreach (var dir in directions)
+                {
+                    int[] changePoint = new int[] { temp[0] + dir[0], temp[1] + dir[1] };
+                    if (changePoint[0] > -1 && changePoint[0] < column && changePoint[1] > -1 && changePoint[1] < row && maze[changePoint[0]][changePoint[1]] == 0)
+                    {
+                        if (changePoint == destination)
+                            return 100;
+                        mazePos.Enqueue(changePoint);
+                        maze[changePoint[0]][changePoint[1]] = 1;
+                    }
+                }
+            }
             return 0;
         }
     }
