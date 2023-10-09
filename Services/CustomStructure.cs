@@ -657,6 +657,21 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //数据流平均值
+        public class MovingAverage
+        {
+
+            public MovingAverage(int size)
+            {
+
+            }
+
+            public double Next(int val)
+            {
+                return 0.0;
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
