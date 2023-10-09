@@ -3397,14 +3397,43 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper)
         {
-            var result = new List<IList<int>>();
             int n = nums.Length;
+            var result = new List<IList<int>>();
+            if (n == 0)
+            {
+                List<int> temp = new List<int> { lower, upper };
+                result.Add(temp);
+                return result;
+            }
+                       
             int tempStart = lower;
             for (int i = 0; i < n; i++)
             {
+                if (i == 0 && nums[i] > lower) //判断首位
+                {
+                    int tempEnd = nums[i] - 1;
+                    List<int> temp = new List<int> { tempStart, tempEnd };
+                    result.Add(temp);
+                    tempStart = nums[i];
+                }
+
                 if (nums[i] == tempStart)
                 {
+                    tempStart++;
+                }
+                else
+                {
+                    int tempEnd = nums[i] - 1;
+                    List<int> temp = new List<int> { tempStart, tempEnd };
+                    result.Add(temp);
+                    tempStart = nums[i] + 1;
+                }
 
+                if (i == n - 1 && nums[i] < upper) //判断末位
+                {
+                    int tempEnd = upper;
+                    List<int> temp = new List<int> { tempStart, upper };
+                    result.Add(temp);
                 }
             }
 
