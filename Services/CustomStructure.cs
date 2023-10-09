@@ -660,15 +660,27 @@ namespace LeetCodeWeb.Services
         //数据流平均值
         public class MovingAverage
         {
+            Queue<int> moveQueue;
+            double sum;
+            int maxSize;
 
             public MovingAverage(int size)
             {
+                sum = 0;
+                maxSize = size;
+                moveQueue = new Queue<int>(size);
 
             }
 
             public double Next(int val)
             {
-                return 0.0;
+                if (moveQueue.Count == maxSize)
+                    sum -= moveQueue.Dequeue();
+
+                sum += val;
+                moveQueue.Enqueue(val);
+
+                return sum / moveQueue.Count;
             }
         }
 
