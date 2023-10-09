@@ -1,6 +1,7 @@
 ﻿using LeetCodeWeb.Controllers;
 using LeetCodeWeb.IServices;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -3396,7 +3397,18 @@ namespace LeetCodeWeb.Services
 
         public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper)
         {
-            return null;
+            var result = new List<IList<int>>();
+            int n = nums.Length;
+            int tempStart = lower;
+            for (int i = 0; i < n; i++)
+            {
+                if (nums[i] == tempStart)
+                {
+
+                }
+            }
+
+            return result;
         }
     }
 }
