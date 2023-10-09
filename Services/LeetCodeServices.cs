@@ -3487,7 +3487,55 @@ namespace LeetCodeWeb.Services
 
         public bool IsNumber(string s)
         {
-            return true;
+            if (s.Length == 1 && (s[0] - '0' < 0 || s[0] - '0' > 9))
+                return false;
+
+            foreach (char c in s)
+            {
+                if (c - '0' > 9 && c != 'e' && c != 'E')
+                    return false;
+            }
+
+            char[] separatorE = { 'e', 'E' }; // 定义多个分隔符
+            string[] strSet = s.Split(separatorE, StringSplitOptions.None);
+            if (strSet.Length > 2)
+                return false;
+            else
+            {
+                //判断前半部分数字
+                char[] separatorPlusMinus = { '+', '-' };
+                string[] firstStrSet = strSet[0].Split(separatorPlusMinus, StringSplitOptions.None);
+                if (firstStrSet.Length > 2)
+                    return false;
+                else if (firstStrSet.Length == 2)
+                {
+                    if (firstStrSet[0] != "")
+                        return false;
+                }
+                string firstNum = firstStrSet[^1]; //索引运算符，从末尾开始取数
+                string[] firstNumSet = firstNum.Split('.', StringSplitOptions.None);
+                if (firstNumSet.Length > 2 || firstNum == "." || firstNum == "")
+                    return false;
+
+                if (strSet.Length == 2)
+                {
+                    //判断后半部分数字
+                    string[] lastStrSet = strSet[1].Split(separatorPlusMinus, StringSplitOptions.None);
+                    if (lastStrSet.Length > 2)
+                        return false;
+                    else if (lastStrSet.Length == 2)
+                    {
+                        if (lastStrSet[0] != "")
+                            return false;
+                    }
+                    string lastNum = lastStrSet[^1]; //索引运算符，从末尾开始取数
+                    string[] lastNumSet = lastNum.Split('.', StringSplitOptions.None);
+                    if (lastNumSet.Length > 1 || lastNum == "")
+                        return false;
+                }
+
+                return true;
+            }        
         }
     }
 }
