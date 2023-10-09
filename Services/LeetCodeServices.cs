@@ -3545,5 +3545,10 @@ namespace LeetCodeWeb.Services
         {
             return NumberPattern.IsMatch(s);
         }
+
+        public int ShortestDistance(int[][] maze, int[] start, int[] destination)
+        {
+            return 0;
+        }
     }
 }

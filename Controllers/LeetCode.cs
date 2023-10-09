@@ -726,6 +726,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsNumber(s);
             return result;
         }
+
+        [HttpPost("ShortestDistance")]
+        public int ShortestDistance(int[][] maze, int[] start, int[] destination)
+        {
+            var result = _leetCodeServices.ShortestDistance(maze, start, destination);
+            return result;
+        }
     }
 }
 
