@@ -712,6 +712,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FindMissingRanges(nums, lower, upper);
             return result;
         }
+
+        [HttpPost("ConfusingNumber")]
+        public bool ConfusingNumber(int n)
+        {
+            var result = _leetCodeServices.ConfusingNumber(n);
+            return result;
+        }
     }
 }
 

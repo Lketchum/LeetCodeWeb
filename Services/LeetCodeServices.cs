@@ -11,6 +11,7 @@ using System.Collections.Specialized;
 using System.Data.Common;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -3457,6 +3458,11 @@ namespace LeetCodeWeb.Services
             }
 
             return result;
+        }
+
+        public bool ConfusingNumber(int n)
+        {
+            return true;
         }
     }
 }
