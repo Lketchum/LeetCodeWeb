@@ -105,5 +105,6 @@ namespace LeetCodeWeb.IServices
         public bool ValidWordSquare(IList<string> words);
         public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper);
         public bool ConfusingNumber(int n);
+        public bool IsNumber(string s);
     }
 }

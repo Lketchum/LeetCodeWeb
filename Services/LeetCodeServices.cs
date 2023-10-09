@@ -3484,5 +3484,10 @@ namespace LeetCodeWeb.Services
 
             return n != reverseNum;
         }
+
+        public bool IsNumber(string s)
+        {
+            return true;
+        }
     }
 }

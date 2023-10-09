@@ -719,6 +719,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ConfusingNumber(n);
             return result;
         }
+
+        [HttpPost("IsNumber")]
+        public bool IsNumber(string s)
+        {
+            var result = _leetCodeServices.IsNumber(s);
+            return result;
+        }
     }
 }
 
