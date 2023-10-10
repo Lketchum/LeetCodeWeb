@@ -106,7 +106,7 @@ namespace LeetCodeWeb.IServices
         public IList<IList<int>> FindMissingRanges(int[] nums, int lower, int upper);
         public bool ConfusingNumber(int n);
         public bool IsNumber(string s);
-        public int ShortestDistance(int[][] maze, int[] start, int[] destination);
+        public int ShortestDistance_NotSoccer(int[][] maze, int[] start, int[] destination);
         public bool HasPath(int[][] maze, int[] start, int[] destination);
     }
 }

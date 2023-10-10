@@ -3586,7 +3586,47 @@ namespace LeetCodeWeb.Services
 
         public bool HasPath(int[][] maze, int[] start, int[] destination)
         {
-            return true;
+            int row = maze.Length;
+            int column = maze[0].Length;
+            int[][] directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } }; //左右上下
+            Queue<int[]> mazePos = new Queue<int[]>();
+            mazePos.Enqueue(start);
+            mazePos.Enqueue(null);
+            maze[start[0]][start[1]] = -1; //设定-1为已经路过的位置
+            while (mazePos.Count > 0)
+            {
+                var temp = mazePos.Dequeue();
+                if (temp == null)
+                {
+                    if (mazePos.Count == 0)
+                        break;
+                    mazePos.Enqueue(null);
+                }
+                else
+                {
+                    foreach (var dir in directions)
+                    {
+                        int temp0 = temp[0];
+                        int temp1 = temp[1];
+                        while (temp0 < row && temp0 > -1 && temp1 < column && temp1 > -1 && maze[temp0][temp1] != 1)
+                        {
+                            temp0 += dir[0];
+                            temp1 += dir[1];
+                        }
+                        temp0 -= dir[0];
+                        temp1 -= dir[1];
+
+                        if (maze[temp0][temp1] == 0)
+                        {
+                            if (temp0 == destination[0] && temp1 == destination[1])
+                                return true;
+                            mazePos.Enqueue(new int[] { temp0, temp1 });
+                            maze[temp0][temp1] = -1;
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 }
