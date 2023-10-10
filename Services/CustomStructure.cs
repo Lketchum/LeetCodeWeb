@@ -744,7 +744,7 @@ namespace LeetCodeWeb.Services
             public List<int> nums2 { get; set; }
         }
 
-        public class Input_ShortestDistance
+        public class Input_Maze
         {
             public int[][] maze { get; set; }
             public int[] start { get; set; }

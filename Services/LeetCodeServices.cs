@@ -3583,5 +3583,10 @@ namespace LeetCodeWeb.Services
             }
             return -1;
         }
+
+        public bool HasPath(int[][] maze, int[] start, int[] destination)
+        {
+            return true;
+        }
     }
 }

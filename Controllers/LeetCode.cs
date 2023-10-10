@@ -728,9 +728,16 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("ShortestDistance_NotSoccer")]
-        public int ShortestDistance_NotSoccer(Input_ShortestDistance_NotSoccer input)
+        public int ShortestDistance_NotSoccer(Input_Maze input)
         {
             var result = _leetCodeServices.ShortestDistance_NotSoccer(input.maze, input.start, input.destination);
+            return result;
+        }
+
+        [HttpPost("HasPath")]
+        public bool HasPath(Input_Maze input)
+        {
+            var result = _leetCodeServices.HasPath(input.maze, input.start, input.destination);
             return result;
         }
     }
