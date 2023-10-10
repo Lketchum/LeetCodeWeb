@@ -727,10 +727,10 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
-        [HttpPost("ShortestDistance")]
-        public int ShortestDistance(int[][] maze, int[] start, int[] destination)
+        [HttpPost("ShortestDistance_NotSoccer")]
+        public int ShortestDistance_NotSoccer(Input_ShortestDistance_NotSoccer input)
         {
-            var result = _leetCodeServices.ShortestDistance(maze, start, destination);
+            var result = _leetCodeServices.ShortestDistance_NotSoccer(input.maze, input.start, input.destination);
             return result;
         }
     }

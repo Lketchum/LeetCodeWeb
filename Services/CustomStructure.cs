@@ -743,6 +743,13 @@ namespace LeetCodeWeb.Services
             public List<int> nums1 { get; set; }
             public List<int> nums2 { get; set; }
         }
+
+        public class Input_ShortestDistance
+        {
+            public int[][] maze { get; set; }
+            public int[] start { get; set; }
+            public int[] destination { get; set; }
+        }
         #endregion
     }
 }

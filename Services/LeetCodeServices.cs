@@ -3546,29 +3546,42 @@ namespace LeetCodeWeb.Services
             return NumberPattern.IsMatch(s);
         }
 
-        public int ShortestDistance(int[][] maze, int[] start, int[] destination)
+        public int ShortestDistance_NotSoccer(int[][] maze, int[] start, int[] destination)
         {
             int row = maze.Length;
             int column = maze[0].Length;
-            int[][] directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } }; //上下左右
+            int countStep = 0;
+            int[][] directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } }; //左右上下
             Queue<int[]> mazePos = new Queue<int[]>();
             mazePos.Enqueue(start);
+            mazePos.Enqueue(null);
+            maze[start[0]][start[1]] = 1;
             while (mazePos.Count > 0)
             {
                 var temp = mazePos.Dequeue();
-                foreach (var dir in directions)
+                if (temp == null)
                 {
-                    int[] changePoint = new int[] { temp[0] + dir[0], temp[1] + dir[1] };
-                    if (changePoint[0] > -1 && changePoint[0] < column && changePoint[1] > -1 && changePoint[1] < row && maze[changePoint[0]][changePoint[1]] == 0)
+                    countStep++;
+                    if (mazePos.Count == 0)
+                        break;
+                    mazePos.Enqueue(null);
+                }
+                else
+                {
+                    foreach (var dir in directions)
                     {
-                        if (changePoint == destination)
-                            return 100;
-                        mazePos.Enqueue(changePoint);
-                        maze[changePoint[0]][changePoint[1]] = 1;
+                        int[] changePoint = new int[] { temp[0] + dir[0], temp[1] + dir[1] };
+                        if (changePoint[0] > -1 && changePoint[0] < column && changePoint[1] > -1 && changePoint[1] < row && maze[changePoint[0]][changePoint[1]] == 0)
+                        {
+                            if (changePoint[0] == destination[0] && changePoint[1] == destination[1])
+                                return countStep++;
+                            mazePos.Enqueue(changePoint);
+                            maze[changePoint[0]][changePoint[1]] = 1;
+                        }
                     }
                 }
             }
-            return 0;
+            return -1;
         }
     }
 }
