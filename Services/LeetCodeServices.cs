@@ -3631,7 +3631,62 @@ namespace LeetCodeWeb.Services
 
         public int ShortestDistance_IsSoccer(int[][] maze, int[] start, int[] destination)
         {
-            return 0;
+            //最少层数并不一定是最小步数
+            int row = maze.Length;
+            int column = maze[0].Length;
+            int[][] directions = new int[][] { new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { -1, 0 }, new int[] { 1, 0 } }; //左右上下
+            Queue<(int[], int[], int)> mazePos = new Queue<(int[], int[], int)>(); //第一个为位置，第二个为方向，第三个为Step统计
+            mazePos.Enqueue((start, null, 0));
+            maze[start[0]][start[1]] = -1; //设定-1为已经路过的位置
+            while (mazePos.Count > 0)
+            {
+                var tempNode = mazePos.Dequeue();
+                var temp = tempNode.Item1;
+                int[] currDir = tempNode.Item2;
+                int currStep = tempNode.Item3;
+                if (currDir != null)
+                {
+                    int temp0 = temp[0] + currDir[0];
+                    int temp1 = temp[1] + currDir[1];
+                    if (temp0 < row && temp0 > -1 && temp1 < column && temp1 > -1 && maze[temp0][temp1] == 0)
+                    {
+                        mazePos.Enqueue((new int[] { temp0, temp1 }, currDir, currStep + 1));
+                    }                        
+                    else if (temp0 < row && temp0 > -1 && temp1 < column && temp1 > -1 && maze[temp0][temp1] == -1)
+                        continue;
+                    else
+                    {
+                        if (temp[0] == destination[0] && temp[1] == destination[1])
+                            return currStep;
+                        maze[temp[0]][temp[1]] = -1;
+                        foreach (var dir in directions)
+                        {
+                            if (dir[0] == currDir[0] || dir[1] == currDir[1])
+                                continue;
+                            temp0 = temp[0] + dir[0];
+                            temp1 = temp[1] + dir[1];
+                            if (temp0 > -1 && temp0 < row && temp1 > -1 && temp1 < column && maze[temp0][temp1] == 0)
+                            {                            
+                                mazePos.Enqueue((new int[] { temp0, temp1 }, dir, currStep + 1));
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var dir in directions)
+                    {
+                        int temp0 = temp[0] + dir[0];
+                        int temp1 = temp[1] + dir[1];
+                        if (temp0 > -1 && temp0 < row && temp1 > -1 && temp1 < column && maze[temp0][temp1] == 0)
+                        {
+                            mazePos.Enqueue((new int[] { temp0, temp1 }, dir, currStep + 1));
+                        }
+                    }
+                }
+            }
+
+            return -1;
         }
     }
 }
