@@ -3628,5 +3628,10 @@ namespace LeetCodeWeb.Services
             }
             return false;
         }
+
+        public int ShortestDistance_IsSoccer(int[][] maze, int[] start, int[] destination)
+        {
+            return 0;
+        }
     }
 }

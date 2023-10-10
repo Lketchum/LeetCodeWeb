@@ -740,6 +740,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.HasPath(input.maze, input.start, input.destination);
             return result;
         }
+
+        [HttpPost("ShortestDistance_IsSoccer")]
+        public int ShortestDistance_IsSoccer(Input_Maze input)
+        {
+            var result = _leetCodeServices.ShortestDistance_IsSoccer(input.maze, input.start, input.destination);
+            return result;
+        }
     }
 }
 
