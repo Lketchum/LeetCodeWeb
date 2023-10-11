@@ -3761,7 +3761,16 @@ namespace LeetCodeWeb.Services
 
         public bool CanAttendMeetings(int[][] intervals)
         {
-            return false;
+            Array.Sort(intervals, (x, y) => x[0].CompareTo(y[0]));
+            int start = -1;
+            foreach (var gap in intervals)
+            {
+                if (gap[0] >= start)
+                    start = gap[1];
+                else
+                    return false;
+            }
+            return true;
         }
     }
 }
