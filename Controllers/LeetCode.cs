@@ -775,6 +775,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsStrobogrammatic(num);
             return result;
         }
+
+        [HttpPost("CanAttendMeetings")]
+        public bool CanAttendMeetings(int[][] intervals)
+        {
+            var result = _leetCodeServices.CanAttendMeetings(intervals);
+            return result;
+        }
     }
 }
 

@@ -3758,5 +3758,10 @@ namespace LeetCodeWeb.Services
             }
             return reverseNum == num;
         }
+
+        public bool CanAttendMeetings(int[][] intervals)
+        {
+            return false;
+        }
     }
 }
