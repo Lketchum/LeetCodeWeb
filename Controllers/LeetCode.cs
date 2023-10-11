@@ -747,6 +747,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ShortestDistance_IsSoccer(input.maze, input.start, input.destination);
             return result;
         }
+
+        [HttpPost("ConvertToTitle")]
+        public string ConvertToTitle(int columnNumber)
+        {
+            var result = _leetCodeServices.ConvertToTitle(columnNumber);
+            return result;
+        }
     }
 }
 

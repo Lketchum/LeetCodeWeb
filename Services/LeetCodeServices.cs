@@ -3688,5 +3688,10 @@ namespace LeetCodeWeb.Services
 
             return -1;
         }
+
+        public string ConvertToTitle(int columnNumber)
+        {
+            return "";
+        }
     }
 }
