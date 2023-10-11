@@ -3738,5 +3738,10 @@ namespace LeetCodeWeb.Services
             }
             return distance;
         }
+
+        public bool IsStrobogrammatic(string num)
+        {
+            return true;
+        }
     }
 }

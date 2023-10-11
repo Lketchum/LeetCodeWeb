@@ -768,6 +768,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ShortestDistance(wordsDict, word1, word2);
             return result;
         }
+
+        [HttpPost("IsStrobogrammatic")]
+        public bool IsStrobogrammatic(string num)
+        {
+            var result = _leetCodeServices.IsStrobogrammatic(num);
+            return result;
+        }
     }
 }
 

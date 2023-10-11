@@ -112,5 +112,6 @@ namespace LeetCodeWeb.IServices
         public string ConvertToTitle(int columnNumber);
         public int TitleToNumber(string columnTitle);
         public int ShortestDistance(string[] wordsDict, string word1, string word2);
+        public bool IsStrobogrammatic(string num);
     }
 }
