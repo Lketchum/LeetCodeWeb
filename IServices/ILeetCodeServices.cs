@@ -111,5 +111,6 @@ namespace LeetCodeWeb.IServices
         public int ShortestDistance_IsSoccer(int[][] maze, int[] start, int[] destination);
         public string ConvertToTitle(int columnNumber);
         public int TitleToNumber(string columnTitle);
+        public int ShortestDistance(string[] wordsDict, string word1, string word2);
     }
 }

@@ -761,6 +761,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.TitleToNumber(columnTitle);
             return result;
         }
+
+        [HttpPost("ShortestDistance")]
+        public int ShortestDistance(string[] wordsDict, string word1, string word2)
+        {
+            var result = _leetCodeServices.ShortestDistance(wordsDict, word1, word2);
+            return result;
+        }
     }
 }
 

@@ -3716,5 +3716,10 @@ namespace LeetCodeWeb.Services
 
             return result;
         }
+
+        public int ShortestDistance(string[] wordsDict, string word1, string word2)
+        {
+            return 0;
+        }
     }
 }
