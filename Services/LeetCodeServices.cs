@@ -3702,5 +3702,10 @@ namespace LeetCodeWeb.Services
 
             return charStr;
         }
+
+        public int TitleToNumber(string columnTitle)
+        {
+            return 0;
+        }
     }
 }

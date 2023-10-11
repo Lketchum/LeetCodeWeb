@@ -110,5 +110,6 @@ namespace LeetCodeWeb.IServices
         public bool HasPath(int[][] maze, int[] start, int[] destination);
         public int ShortestDistance_IsSoccer(int[][] maze, int[] start, int[] destination);
         public string ConvertToTitle(int columnNumber);
+        public int TitleToNumber(string columnTitle);
     }
 }

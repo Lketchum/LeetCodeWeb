@@ -754,6 +754,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ConvertToTitle(columnNumber);
             return result;
         }
+
+        [HttpPost("TitleToNumber")]
+        public int TitleToNumber(string columnTitle)
+        {
+            var result = _leetCodeServices.TitleToNumber(columnTitle);
+            return result;
+        }
     }
 }
 
