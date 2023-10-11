@@ -3773,9 +3773,25 @@ namespace LeetCodeWeb.Services
             return true;
         }
 
-        public int MinMeetingRooms(int[][] intervals)
+        public int MinMeetingRooms(int[][] intervals) 
         {
-            return 0;
+            Array.Sort(intervals, (x, y) => x[0].CompareTo(y[0]));
+            int maxRoom = 1;
+            int roomCount = 0;
+            int sameTime = intervals[0][1];
+            foreach (var gap in intervals)
+            {
+                if (gap[0] >= sameTime)
+                {                    
+                    roomCount = 1;
+                    sameTime = gap[1];
+                }
+                else
+                    roomCount++;
+                maxRoom = Math.Max(maxRoom, roomCount);
+            }
+
+            return maxRoom;
         }
     }
 }
