@@ -3691,7 +3691,16 @@ namespace LeetCodeWeb.Services
 
         public string ConvertToTitle(int columnNumber)
         {
-            return "";
+            //从1开始，需后退一位
+            string charStr = "";
+            while (columnNumber > 0)
+            {
+                columnNumber--;
+                charStr = string.Concat((char)(columnNumber % 26 + 'A'), charStr);
+                columnNumber /= 26;
+            }
+
+            return charStr;
         }
     }
 }
