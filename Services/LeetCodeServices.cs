@@ -3741,7 +3741,22 @@ namespace LeetCodeWeb.Services
 
         public bool IsStrobogrammatic(string num)
         {
-            return true;
+            string reverseNum = "";
+            foreach (var ch in num)
+            {
+                if (ch == '2' || ch == '3' || ch == '4' || ch == '5' || ch == '7')
+                    return false;
+                else
+                {
+                    char reverseCh = ch;
+                    if (ch == '6')
+                        reverseCh = '9';
+                    else if (ch == '9')
+                        reverseCh = '6';
+                    reverseNum = string.Concat(reverseCh, reverseNum);
+                }
+            }
+            return reverseNum == num;
         }
     }
 }
