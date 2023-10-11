@@ -684,6 +684,40 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //两数之和
+        public class TwoSum
+        {
+            List<int> numList;
+
+            public TwoSum()
+            {
+                numList = new List<int>();
+            }
+
+            public void Add(int number)
+            {
+                numList.Add(number);
+            }
+
+            public bool Find(int value)
+            {
+                numList.Sort();
+                int start = 0;
+                int end = numList.Count - 1;
+                while (start < end)
+                {
+                    int tempSum = numList[start] + numList[end];
+                    if (tempSum < value)
+                        start++;
+                    else if (tempSum > value)
+                        end--;
+                    else
+                        return true;
+                }
+                return false;
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
