@@ -3705,7 +3705,16 @@ namespace LeetCodeWeb.Services
 
         public int TitleToNumber(string columnTitle)
         {
-            return 0;
+            int n = columnTitle.Length;
+            int result = 0;
+            for (int i = 0; i < n; i++)
+            {
+                char c = columnTitle[i];
+                int temp = c - 'A' + 1;
+                result = result * 26 + temp;
+            }
+
+            return result;
         }
     }
 }
