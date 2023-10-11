@@ -3719,7 +3719,24 @@ namespace LeetCodeWeb.Services
 
         public int ShortestDistance(string[] wordsDict, string word1, string word2)
         {
-            return 0;
+            int n = wordsDict.Length;
+            int distance = 40000;
+            int tempPos1 = -1;
+            int tempPos2 = -1;
+            for (int i = 0; i < n; i++)
+            {                
+                if (wordsDict[i] == word1)
+                    tempPos1 = i;
+                else if (wordsDict[i] == word2)
+                    tempPos2 = i;
+
+                if (tempPos1 != -1 && tempPos2 != -1)
+                {
+                    int tempDistance = Math.Abs(tempPos1 - tempPos2);
+                    distance = Math.Min(distance, tempDistance);
+                }
+            }
+            return distance;
         }
     }
 }
