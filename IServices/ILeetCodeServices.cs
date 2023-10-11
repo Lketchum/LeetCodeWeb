@@ -114,5 +114,6 @@ namespace LeetCodeWeb.IServices
         public int ShortestDistance(string[] wordsDict, string word1, string word2);
         public bool IsStrobogrammatic(string num);
         public bool CanAttendMeetings(int[][] intervals);
+        public int MinMeetingRooms(int[][] intervals);
     }
 }

@@ -3772,5 +3772,10 @@ namespace LeetCodeWeb.Services
             }
             return true;
         }
+
+        public int MinMeetingRooms(int[][] intervals)
+        {
+            return 0;
+        }
     }
 }

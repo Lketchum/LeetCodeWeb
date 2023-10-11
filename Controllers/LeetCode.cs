@@ -782,6 +782,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CanAttendMeetings(intervals);
             return result;
         }
+
+        [HttpPost("MinMeetingRooms")]
+        public int MinMeetingRooms(int[][] intervals)
+        {
+            var result = _leetCodeServices.MinMeetingRooms(intervals);
+            return result;
+        }
     }
 }
 
