@@ -3796,6 +3796,12 @@ namespace LeetCodeWeb.Services
 
         public bool CanPermutePalindrome(string s)
         {
+            Dictionary<char, int> charSet = new Dictionary<char, int>();
+            foreach (var ch in s)
+            {
+                if (charSet.ContainsKey(ch))
+                    charSet
+            }
             return true;
         }
     }
