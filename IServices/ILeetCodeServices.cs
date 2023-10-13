@@ -115,5 +115,6 @@ namespace LeetCodeWeb.IServices
         public bool IsStrobogrammatic(string num);
         public bool CanAttendMeetings(int[][] intervals);
         public int MinMeetingRooms(int[][] intervals);
+        public bool CanPermutePalindrome(string s);
     }
 }

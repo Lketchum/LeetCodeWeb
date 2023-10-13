@@ -3793,5 +3793,10 @@ namespace LeetCodeWeb.Services
 
             return maxRoom;
         }
+
+        public bool CanPermutePalindrome(string s)
+        {
+            return true;
+        }
     }
 }

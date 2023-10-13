@@ -789,6 +789,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MinMeetingRooms(intervals);
             return result;
         }
+
+        [HttpPost("CanPermutePalindrome")]
+        public bool CanPermutePalindrome(string s)
+        {
+            var result = _leetCodeServices.CanPermutePalindrome(s);
+            return result;
+        }
     }
 }
 
