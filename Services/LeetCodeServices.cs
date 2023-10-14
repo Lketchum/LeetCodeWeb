@@ -3800,7 +3800,17 @@ namespace LeetCodeWeb.Services
             foreach (var ch in s)
             {
                 if (charSet.ContainsKey(ch))
-                    charSet
+                    charSet[ch]++;
+                else
+                    charSet.Add(ch, 1);
+            }
+
+            int oddcCount = 0;
+            foreach (var set in charSet)
+            {
+                oddcCount = set.Value % 2 == 0 ? oddcCount : oddcCount + 1;
+                if (oddcCount > 1)
+                    return false;
             }
             return true;
         }
