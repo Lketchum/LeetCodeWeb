@@ -796,6 +796,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CanPermutePalindrome(s);
             return result;
         }
+
+        [HttpPost("ClosestValue")]
+        public int ClosestValue(TreeNode root, double target)
+        {
+            var result = _leetCodeServices.ClosestValue(root, target);
+            return result;
+        }
     }
 }
 

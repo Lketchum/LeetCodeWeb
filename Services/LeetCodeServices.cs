@@ -3814,5 +3814,10 @@ namespace LeetCodeWeb.Services
             }
             return true;
         }
+
+        public int ClosestValue(TreeNode root, double target)
+        {
+            return 0;
+        }
     }
 }

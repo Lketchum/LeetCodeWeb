@@ -116,5 +116,6 @@ namespace LeetCodeWeb.IServices
         public bool CanAttendMeetings(int[][] intervals);
         public int MinMeetingRooms(int[][] intervals);
         public bool CanPermutePalindrome(string s);
+        public int ClosestValue(TreeNode root, double target);
     }
 }
