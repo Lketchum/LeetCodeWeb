@@ -3824,7 +3824,12 @@ namespace LeetCodeWeb.Services
             {
                 TreeNode tmpNode = queueNode.Dequeue();
                 int tmpValue = tmpNode.val;
-                closestValue = Math.Abs(target - tmpValue) < Math.Abs(target - closestValue) ? tmpValue : closestValue;
+                if (Math.Abs(target - tmpValue) < Math.Abs(target - closestValue) ||
+                   (Math.Abs(target - tmpValue) == Math.Abs(target - closestValue) && tmpValue < closestValue))
+                {
+                    closestValue = tmpValue;
+                }
+
                 if (tmpNode.left != null)
                     queueNode.Enqueue(tmpNode.left);
                 if (tmpNode.right != null)
