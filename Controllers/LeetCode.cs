@@ -803,6 +803,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ClosestValue(root, target);
             return result;
         }
+
+        [HttpPost("GeneratePossibleNextMoves")]
+        public IList<string> GeneratePossibleNextMoves(string currentState)
+        {
+            var result = _leetCodeServices.GeneratePossibleNextMoves(currentState);
+            return result;
+        }
     }
 }
 

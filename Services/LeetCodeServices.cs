@@ -3838,5 +3838,10 @@ namespace LeetCodeWeb.Services
 
             return closestValue;
         }
+
+        public IList<string> GeneratePossibleNextMoves(string currentState)
+        {
+            return null;
+        }
     }
 }
