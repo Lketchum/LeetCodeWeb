@@ -3841,7 +3841,22 @@ namespace LeetCodeWeb.Services
 
         public IList<string> GeneratePossibleNextMoves(string currentState)
         {
-            return null;
+            List<string> possibleMoves = new List<string>();
+            int start = -1;
+            for (int i = 0; i < currentState.Length; i++)
+            {
+                if (currentState[i] == '+')
+                {
+                    if (i > 0 && start == i - 1)
+                    {
+                        //替换字符
+
+                    }                        
+                    start = i;
+                }                    
+            }
+
+            return possibleMoves;
         }
     }
 }
