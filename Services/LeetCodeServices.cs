@@ -3817,7 +3817,21 @@ namespace LeetCodeWeb.Services
 
         public int ClosestValue(TreeNode root, double target)
         {
-            return 0;
+            Queue<TreeNode> queueNode = new Queue<TreeNode>();
+            queueNode.Enqueue(root);
+            int closestValue = root.val;
+            while (queueNode.Count > 0)
+            {
+                TreeNode tmpNode = queueNode.Dequeue();
+                int tmpValue = tmpNode.val;
+                closestValue = Math.Abs(target - tmpValue) < Math.Abs(target - closestValue) ? tmpValue : closestValue;
+                if (tmpNode.left != null)
+                    queueNode.Enqueue(tmpNode.left);
+                if (tmpNode.right != null)
+                    queueNode.Enqueue(tmpNode.right);
+            }
+
+            return closestValue;
         }
     }
 }
