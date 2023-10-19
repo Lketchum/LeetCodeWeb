@@ -718,6 +718,21 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //日志速率限制
+        public class Logger
+        {
+
+            public Logger()
+            {
+
+            }
+
+            public bool ShouldPrintMessage(int timestamp, string message)
+            {
+                return true;
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
