@@ -3850,7 +3850,9 @@ namespace LeetCodeWeb.Services
                     if (i > 0 && start == i - 1)
                     {
                         //替换字符
-
+                        string prevString = currentState.Substring(0, i - 1);
+                        string nextString = currentState.Substring(i + 1);
+                        possibleMoves.Add(prevString + "--" + nextString);
                     }                        
                     start = i;
                 }                    
