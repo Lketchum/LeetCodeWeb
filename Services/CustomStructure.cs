@@ -721,15 +721,29 @@ namespace LeetCodeWeb.Services
         //日志速率限制
         public class Logger
         {
+            Dictionary<string, int> logDic = new Dictionary<string, int>();
 
             public Logger()
             {
-
+                logDic = new Dictionary<string, int>();
             }
 
             public bool ShouldPrintMessage(int timestamp, string message)
             {
-                return true;
+                if (logDic.ContainsKey(message))
+                {
+                    if (timestamp >= logDic[message] + 10)
+                    {
+                        logDic[message] = timestamp;
+                        return true;
+                    }
+                    return false;
+                }
+                else
+                {
+                    logDic.Add(message, timestamp);
+                    return true;
+                }
             }
         }
 
