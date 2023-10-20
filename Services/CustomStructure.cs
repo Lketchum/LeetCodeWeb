@@ -747,6 +747,25 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        public class StringIterator
+        {
+
+            public StringIterator(string compressedString)
+            {
+
+            }
+
+            public char Next()
+            {
+
+            }
+
+            public bool HasNext()
+            {
+
+            }
+        }
+
         #region 输入数据结构定义
         //双数组输入
         public class TwoArrays
