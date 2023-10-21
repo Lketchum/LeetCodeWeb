@@ -3863,7 +3863,33 @@ namespace LeetCodeWeb.Services
 
         public bool ValidWordAbbreviation(string word, string abbr)
         {
-            return true;
+            int n = word.Length;
+            int m = 0;
+            int i = 0;
+            while (i < abbr.Length)
+            {
+                int num = 0;
+                if (!char.IsDigit(abbr[i]))
+                {
+                    if (m >= n || word[m] != abbr[i])
+                        return false;
+                    m++;
+                    i++;
+                }
+                else
+                {
+                    while (i < abbr.Length && char.IsDigit(abbr[i]))
+                    {
+                        num = num * 10 + abbr[i] - '0';
+                        if (num == 0)
+                            return false;
+                        i++;
+                    }
+                    m += num;
+                }
+            }
+
+            return m == n;
         }
     }
 }
