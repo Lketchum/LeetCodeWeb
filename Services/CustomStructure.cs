@@ -747,22 +747,45 @@ namespace LeetCodeWeb.Services
             }
         }
 
+        //迭代压缩字符串
         public class StringIterator
         {
+            string res = "";
+            int ptr = 0;
 
             public StringIterator(string compressedString)
             {
+                int i = 0;
+                char prevChar = compressedString[0];
+                while (i < compressedString.Length)
+                {
+                    char ch = compressedString[i];
+                    int num = 0;
+                    while (i < compressedString.Length && char.IsDigit(ch))
+                    {
+                        num = num * 10 + ch - '0';
+                        i++;
+                    }
+                    for (int j = 0; j < num; j++)
+                        string.Concat(res, prevChar);
 
+                    if (!char.IsDigit(ch))
+                        prevChar = ch;
+                }                   
             }
 
             public char Next()
             {
-
+                if (!HasNext())
+                {
+                    return ' ';
+                }
+                return res[ptr++];
             }
 
             public bool HasNext()
             {
-
+                return ptr != res.Length;
             }
         }
 
