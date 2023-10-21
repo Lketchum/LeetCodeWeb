@@ -750,13 +750,56 @@ namespace LeetCodeWeb.Services
         //迭代压缩字符串
         public class StringIterator
         {
-            string res = "";
-            int ptr = 0;
+            #region 原始代码
+            //string res = "";
+            //int ptr = 0;
+
+            //public StringIterator(string compressedString)
+            //{
+            //    int i = 0;
+            //    char prevChar = compressedString[0];
+            //    while (i < compressedString.Length)
+            //    {
+            //        char ch = compressedString[i];
+            //        int num = 0;
+            //        while (i < compressedString.Length && char.IsDigit(ch))
+            //        {
+            //            num = num * 10 + ch - '0';
+            //            i++;
+            //        }
+            //        for (int j = 0; j < num; j++)
+            //            string.Concat(res, prevChar);
+
+            //        if (!char.IsDigit(ch))
+            //            prevChar = ch;
+            //    }                   
+            //}
+
+            //public char Next()
+            //{
+            //    if (!HasNext())
+            //    {
+            //        return ' ';
+            //    }
+            //    return res[ptr++];
+            //}
+
+            //public bool HasNext()
+            //{
+            //    return ptr != res.Length;
+            //}
+            #endregion
+
+            //修正代码
+            List<char> charSet;
+            List<int> charInt;
+            int currNum = 0;
 
             public StringIterator(string compressedString)
             {
+                charSet = new List<char>();
+                charInt = new List<int>();
                 int i = 0;
-                char prevChar = compressedString[0];
                 while (i < compressedString.Length)
                 {
                     char ch = compressedString[i];
@@ -766,26 +809,32 @@ namespace LeetCodeWeb.Services
                         num = num * 10 + ch - '0';
                         i++;
                     }
-                    for (int j = 0; j < num; j++)
-                        string.Concat(res, prevChar);
-
-                    if (!char.IsDigit(ch))
-                        prevChar = ch;
-                }                   
+                    if (char.IsDigit(ch) && num != 0)
+                        charInt.Add(num);
+                    else
+                        charSet.Add(ch);
+                }
             }
 
             public char Next()
             {
-                if (!HasNext())
+                if (HasNext() && currNum < charInt.Count)
                 {
-                    return ' ';
+                    charInt[currNum]--;
+                    char res = charSet[currNum];
+
+                    if (charInt[currNum] == 0)
+                        currNum++;
+
+                    return res;
                 }
-                return res[ptr++];
+                else
+                    return ' ';
             }
 
             public bool HasNext()
             {
-                return ptr != res.Length;
+                return currNum != charSet.Count;
             }
         }
 
