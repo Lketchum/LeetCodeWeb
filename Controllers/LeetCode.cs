@@ -810,6 +810,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.GeneratePossibleNextMoves(currentState);
             return result;
         }
+
+        [HttpPost("ValidWordAbbreviation")]
+        public bool ValidWordAbbreviation(string word, string abbr)
+        {
+            var result = _leetCodeServices.ValidWordAbbreviation(word, abbr);
+            return result;
+        }
     }
 }
 

@@ -118,5 +118,6 @@ namespace LeetCodeWeb.IServices
         public bool CanPermutePalindrome(string s);
         public int ClosestValue(TreeNode root, double target);
         public IList<string> GeneratePossibleNextMoves(string currentState);
+        public bool ValidWordAbbreviation(string word, string abbr);
     }
 }

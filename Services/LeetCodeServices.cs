@@ -3860,5 +3860,10 @@ namespace LeetCodeWeb.Services
 
             return possibleMoves;
         }
+
+        public bool ValidWordAbbreviation(string word, string abbr)
+        {
+            return true;
+        }
     }
 }
