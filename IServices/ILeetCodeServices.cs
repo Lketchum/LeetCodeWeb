@@ -119,5 +119,6 @@ namespace LeetCodeWeb.IServices
         public int ClosestValue(TreeNode root, double target);
         public IList<string> GeneratePossibleNextMoves(string currentState);
         public bool ValidWordAbbreviation(string word, string abbr);
+        public bool AreSentencesSimilar(string[] sentence1, string[] sentence2, IList<IList<string>> similarPairs);
     }
 }

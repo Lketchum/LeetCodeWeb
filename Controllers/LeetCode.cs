@@ -817,6 +817,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ValidWordAbbreviation(word, abbr);
             return result;
         }
+
+        [HttpPost("AreSentencesSimilar")]
+        public bool AreSentencesSimilar(string[] sentence1, string[] sentence2, IList<IList<string>> similarPairs)
+        {
+            var result = _leetCodeServices.AreSentencesSimilar(sentence1, sentence2, similarPairs);
+            return result;
+        }
     }
 }
 

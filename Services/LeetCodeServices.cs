@@ -3891,5 +3891,10 @@ namespace LeetCodeWeb.Services
 
             return m == n;
         }
+
+        public bool AreSentencesSimilar(string[] sentence1, string[] sentence2, IList<IList<string>> similarPairs)
+        {
+            return true;
+        }
     }
 }
