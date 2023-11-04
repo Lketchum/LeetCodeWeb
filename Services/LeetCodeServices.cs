@@ -3916,8 +3916,51 @@ namespace LeetCodeWeb.Services
 
         public int[] AnagramMappings(int[] nums1, int[] nums2)
         {
+            //原始代码
+            //int n = nums1.Length;
+            //int[] result = new int[n];
+            //int i = 0;
+            //while (i < n)
+            //{
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        if (nums2[j] != -1 && nums1[i] == nums2[j])
+            //        {
+            //            result[i] = j;
+            //            nums2[j] = -1;
+            //        }    
+            //    }
+            //}
+            //return result;
 
-            return null;
+            //优化代码
+            int n = nums1.Length;
+            int[] result = new int[n];
+            Dictionary<int, List<int>> dicNum = new Dictionary<int, List<int>>();
+            for (int i = 0; i < n; i++)
+            {
+                if (!dicNum.ContainsKey(nums2[i]))
+                {
+                    List<int> tmpList = new List<int>();
+                    tmpList.Add(i);
+                    dicNum.Add(nums2[i], tmpList);
+                }
+                else
+                {
+                    dicNum[nums2[i]].Add(i);
+                }
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (dicNum.ContainsKey(nums1[i]) && dicNum[nums1[i]].Count > 0)
+                {
+                    result[i] = dicNum[nums1[i]][0];
+                    dicNum[nums1[i]].RemoveAt(0);
+                }
+            }
+
+            return result;
         }
     }
 }
