@@ -3916,6 +3916,7 @@ namespace LeetCodeWeb.Services
 
         public int[] AnagramMappings(int[] nums1, int[] nums2)
         {
+
             return null;
         }
     }
