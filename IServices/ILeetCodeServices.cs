@@ -120,5 +120,6 @@ namespace LeetCodeWeb.IServices
         public IList<string> GeneratePossibleNextMoves(string currentState);
         public bool ValidWordAbbreviation(string word, string abbr);
         public bool AreSentencesSimilar(string[] sentence1, string[] sentence2, IList<IList<string>> similarPairs);
+        public int[] AnagramMappings(int[] nums1, int[] nums2);
     }
 }

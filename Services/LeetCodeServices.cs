@@ -3894,7 +3894,29 @@ namespace LeetCodeWeb.Services
 
         public bool AreSentencesSimilar(string[] sentence1, string[] sentence2, IList<IList<string>> similarPairs)
         {
+            int n1 = sentence1.Length;
+            int n2 = sentence2.Length;
+            if (n1 != n2)
+                return false;
+            HashSet<string> dicSet = new HashSet<string>();
+            foreach (var pair in similarPairs)
+            {
+                dicSet.Add(pair[0] + "#" + pair[1]);
+            }
+            for (int i = 0; i < n1; i++)
+            {
+                string tmp1 = sentence1[i] + "#" + sentence2[i];
+                string tmp2 = sentence2[i] + "#" + sentence1[i];
+                if (!dicSet.Contains(tmp1) && !dicSet.Contains(tmp2) && sentence1[i] != sentence2[i])
+                    return false;
+            }
+
             return true;
+        }
+
+        public int[] AnagramMappings(int[] nums1, int[] nums2)
+        {
+            return null;
         }
     }
 }

@@ -824,6 +824,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.AreSentencesSimilar(sentence1, sentence2, similarPairs);
             return result;
         }
+
+        [HttpPost("AnagramMappings")]
+        public int[] AnagramMappings(int[] nums1, int[] nums2)
+        {
+            var result = _leetCodeServices.AnagramMappings(nums1, nums2);
+            return result;
+        }
     }
 }
 
