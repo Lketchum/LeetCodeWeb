@@ -3988,7 +3988,15 @@ namespace LeetCodeWeb.Services
 
         public int FixedPoint(int[] arr)
         {
-            return 0;
+            int n = arr.Length;
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[i] == i)
+                    return i;
+                else if (arr[i] > i)
+                    return -1;
+            }
+            return -1;
         }
     }
 }
