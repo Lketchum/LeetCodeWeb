@@ -3998,5 +3998,10 @@ namespace LeetCodeWeb.Services
             }
             return -1;
         }
+
+        public int[][] IndexPairs(string text, string[] words)
+        {
+            return null;
+        }
     }
 }

@@ -845,6 +845,14 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.FixedPoint(arr);
             return result;
         }
+
+        [HttpPost("IndexPairs")]
+        public int[][] IndexPairs(string text, string[] words)
+        {
+            var result = _leetCodeServices.IndexPairs(text, words);
+            return result;
+        }
+
     }
 }
 

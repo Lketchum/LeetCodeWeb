@@ -123,5 +123,6 @@ namespace LeetCodeWeb.IServices
         public int[] AnagramMappings(int[] nums1, int[] nums2);
         public string SimilarRGB(string color);
         public int FixedPoint(int[] arr);
+        public int[][] IndexPairs(string text, string[] words);
     }
 }
