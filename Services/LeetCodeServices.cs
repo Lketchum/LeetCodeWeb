@@ -4001,7 +4001,22 @@ namespace LeetCodeWeb.Services
 
         public int[][] IndexPairs(string text, string[] words)
         {
-            return null;
+            List<int[]> pairList = new List<int[]>();
+            for (int i = 0; i < text.Length; i++)
+            {
+                foreach (var word in words)
+                {
+                    for (int j = 0; j < word.Length && i + j < text.Length; j++)
+                    {
+                        if (word[j] != text[i + j])
+                            break;
+                        if (j == word.Length - 1)
+                            pairList.Add(new int[] { i, i + j });
+                    }
+                }
+            }
+
+            return pairList.OrderBy(arr => arr[0]).ThenBy(arr => arr[1]).ToArray();
         }
     }
 }
