@@ -3965,7 +3965,25 @@ namespace LeetCodeWeb.Services
 
         public string SimilarRGB(string color)
         {
-            return "";
+            color = color.TrimStart('#');
+            string result = "#";
+            for (int i = 0; i < 6; i += 2)
+            {
+                if (color[i] == color[i + 1])
+                {
+                    result = string.Concat(result, color[i], color[i + 1]);
+                    continue;
+                }
+                int temp1 = Convert.ToInt32(color[i].ToString(), 16);
+                int temp2 = Convert.ToInt32(color[i + 1].ToString(), 16);
+                if (Math.Abs(temp1 - temp2) < 8)
+                    result = string.Concat(result, color[i], color[i]);
+                else if (temp1 == 15)
+                    result = string.Concat(result, (temp1 - 1).ToString("x"), (temp1 - 1).ToString("x"));
+                else
+                    result = string.Concat(result, (temp1 + 1).ToString("x"), (temp1 + 1).ToString("x"));
+            }
+            return result;
         }
     }
 }
