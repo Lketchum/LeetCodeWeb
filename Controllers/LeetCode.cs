@@ -831,6 +831,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.AnagramMappings(nums1, nums2);
             return result;
         }
+
+        [HttpPost("SimilarRGB")]
+        public string SimilarRGB(string color)
+        {
+            var result = _leetCodeServices.SimilarRGB(color);
+            return result;
+        }
     }
 }
 

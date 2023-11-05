@@ -3962,5 +3962,10 @@ namespace LeetCodeWeb.Services
 
             return result;
         }
+
+        public string SimilarRGB(string color)
+        {
+            return "";
+        }
     }
 }
