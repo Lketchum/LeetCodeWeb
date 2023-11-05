@@ -3976,14 +3976,19 @@ namespace LeetCodeWeb.Services
                 }
                 int temp1 = Convert.ToInt32(color[i].ToString(), 16);
                 int temp2 = Convert.ToInt32(color[i + 1].ToString(), 16);
-                if (Math.Abs(temp1 - temp2) < 8)
+                if (Math.Abs(temp1 - temp2) <= 8)
                     result = string.Concat(result, color[i], color[i]);
-                else if (temp1 == 15)
+                else if (temp1 == 15 || temp1 > temp2)
                     result = string.Concat(result, (temp1 - 1).ToString("x"), (temp1 - 1).ToString("x"));
                 else
                     result = string.Concat(result, (temp1 + 1).ToString("x"), (temp1 + 1).ToString("x"));
             }
             return result;
+        }
+
+        public int FixedPoint(int[] arr)
+        {
+            return 0;
         }
     }
 }

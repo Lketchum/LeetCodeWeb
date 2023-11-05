@@ -838,6 +838,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.SimilarRGB(color);
             return result;
         }
+
+        [HttpPost("FixedPoint")]
+        public int FixedPoint(int[] arr)
+        {
+            var result = _leetCodeServices.FixedPoint(arr);
+            return result;
+        }
     }
 }
 
