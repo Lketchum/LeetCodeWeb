@@ -4032,7 +4032,7 @@ namespace LeetCodeWeb.Services
                 minValue /= 10;
             }
             result += minValue;
-            return result;
+            return result % 2 == 0 ? 1 : 0;
         }
     }
 }
