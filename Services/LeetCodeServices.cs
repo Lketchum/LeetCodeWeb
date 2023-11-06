@@ -4021,7 +4021,18 @@ namespace LeetCodeWeb.Services
 
         public int SumOfDigits(int[] nums)
         {
-            return 0;
+            int minValue = int.MaxValue;
+            int result = 0;
+            foreach (var num in nums)
+                minValue = Math.Min(minValue, num);
+
+            while (minValue > 9)
+            {
+                result += minValue % 10;
+                minValue /= 10;
+            }
+            result += minValue;
+            return result;
         }
     }
 }
