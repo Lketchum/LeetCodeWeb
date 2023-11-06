@@ -4037,6 +4037,8 @@ namespace LeetCodeWeb.Services
 
         public int[][] HighFive(int[][] items)
         {
+            List<int[]> avgFive = new List<int[]>();
+            var orderItems = items.OrderBy(item => item[0]).ThenByDescending(item => item[1]);
             return null;
         }
     }
