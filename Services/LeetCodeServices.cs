@@ -4018,5 +4018,10 @@ namespace LeetCodeWeb.Services
 
             return pairList.OrderBy(arr => arr[0]).ThenBy(arr => arr[1]).ToArray();
         }
+
+        public int SumOfDigits(int[] nums)
+        {
+            return 0;
+        }
     }
 }

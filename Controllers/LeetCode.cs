@@ -853,6 +853,12 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
+        [HttpPost("SumOfDigits")]
+        public int SumOfDigits(int[] nums)
+        {
+            var result = _leetCodeServices.SumOfDigits(nums);
+            return result;
+        }
     }
 }
 

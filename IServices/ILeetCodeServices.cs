@@ -124,5 +124,6 @@ namespace LeetCodeWeb.IServices
         public string SimilarRGB(string color);
         public int FixedPoint(int[] arr);
         public int[][] IndexPairs(string text, string[] words);
+        public int SumOfDigits(int[] nums);
     }
 }
