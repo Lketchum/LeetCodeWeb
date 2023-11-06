@@ -4034,5 +4034,10 @@ namespace LeetCodeWeb.Services
             result += minValue;
             return result % 2 == 0 ? 1 : 0;
         }
+
+        public int[][] HighFive(int[][] items)
+        {
+            return null;
+        }
     }
 }

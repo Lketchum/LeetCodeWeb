@@ -859,6 +859,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.SumOfDigits(nums);
             return result;
         }
+
+        [HttpPost("HighFive")]
+        public int[][] HighFive(int[][] items)
+        {
+            var result = _leetCodeServices.HighFive(items);
+            return result;
+        }
     }
 }
 
