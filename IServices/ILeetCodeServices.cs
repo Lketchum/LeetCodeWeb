@@ -129,5 +129,6 @@ namespace LeetCodeWeb.IServices
         public int TwoSumLessThanK(int[] nums, int k);
         public int NumberOfDays(int year, int month);
         public string RemoveVowels(string s);
+        public int LargestUniqueNumber(int[] nums);
     }
 }

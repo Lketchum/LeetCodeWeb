@@ -4107,5 +4107,10 @@ namespace LeetCodeWeb.Services
             }
             return s;
         }
+
+        public int LargestUniqueNumber(int[] nums)
+        {
+            return 0;
+        }
     }
 }

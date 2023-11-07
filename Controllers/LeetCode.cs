@@ -887,6 +887,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.RemoveVowels(s);
             return result;
         }
+
+        [HttpPost("LargestUniqueNumber")]
+        public int LargestUniqueNumber(int[] nums)
+        {
+            var result = _leetCodeServices.LargestUniqueNumber(nums);
+            return result;
+        }
     }
 }
 
