@@ -866,6 +866,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.HighFive(items);
             return result;
         }
+
+        [HttpPost("TwoSumLessThanK")]
+        public int TwoSumLessThanK(int[] nums, int k)
+        {
+            var result = _leetCodeServices.TwoSumLessThanK(nums, k);
+            return result;
+        }
     }
 }
 

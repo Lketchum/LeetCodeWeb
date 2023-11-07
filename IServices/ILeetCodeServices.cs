@@ -126,5 +126,6 @@ namespace LeetCodeWeb.IServices
         public int[][] IndexPairs(string text, string[] words);
         public int SumOfDigits(int[] nums);
         public int[][] HighFive(int[][] items);
+        public int TwoSumLessThanK(int[] nums, int k);
     }
 }

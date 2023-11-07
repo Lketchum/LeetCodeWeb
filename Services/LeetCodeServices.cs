@@ -4062,5 +4062,10 @@ namespace LeetCodeWeb.Services
 
             return avgFive.ToArray();
         }
+
+        public int TwoSumLessThanK(int[] nums, int k)
+        {
+            return 0;
+        }
     }
 }
