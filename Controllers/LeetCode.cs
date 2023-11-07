@@ -819,9 +819,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("AreSentencesSimilar")]
-        public bool AreSentencesSimilar(string[] sentence1, string[] sentence2, IList<IList<string>> similarPairs)
+        public bool AreSentencesSimilar(Input_AreSentencesSimilar input)
         {
-            var result = _leetCodeServices.AreSentencesSimilar(sentence1, sentence2, similarPairs);
+            var result = _leetCodeServices.AreSentencesSimilar(input.sentence1, input.sentence2, input.similarPairs);
             return result;
         }
 

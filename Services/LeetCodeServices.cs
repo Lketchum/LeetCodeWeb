@@ -11,6 +11,7 @@ using System.Collections.Specialized;
 using System.Data.Common;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.AccessControl;
 using System.Text;
@@ -4037,9 +4038,29 @@ namespace LeetCodeWeb.Services
 
         public int[][] HighFive(int[][] items)
         {
+            int id = 0;
+            int count = 0;
+            int tempSum = 0;
             List<int[]> avgFive = new List<int[]>();
-            var orderItems = items.OrderBy(item => item[0]).ThenByDescending(item => item[1]);
-            return null;
+            var orderItems = items.OrderBy(item => item[0]).ThenByDescending(item => item[1]).ToArray();
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (id != items[i][0])
+                {
+                    id = items[i][0];
+                    tempSum = 0;
+                    count = 0;
+                }
+                if (count < 5)
+                {
+                    tempSum += items[i][1];
+                    count++;
+                    if (count == 5)
+                        avgFive.Add(new int[] { id, tempSum / 5 });
+                }
+            }
+
+            return avgFive.ToArray();
         }
     }
 }

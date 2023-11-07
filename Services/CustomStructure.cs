@@ -904,6 +904,13 @@ namespace LeetCodeWeb.Services
             public int[] start { get; set; }
             public int[] destination { get; set; }
         }
+
+        public class Input_AreSentencesSimilar
+        {
+            public string[] sentence1 { get; set; }
+            public string[] sentence2 { get; set; }
+            public IList<IList<string>> similarPairs { get; set; }
+        }
         #endregion
     }
 }
