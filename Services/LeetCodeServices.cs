@@ -4143,7 +4143,18 @@ namespace LeetCodeWeb.Services
 
         public bool IsArmstrong(int n)
         {
-            return false;
+            int a = n.ToString().Length;
+            int num = n;
+            int result = 0;
+            while (num > 9)
+            {
+                int temp = num % 10;
+                num = num / 10;
+                result = result + (int)Math.Pow(temp, a);
+            }
+            result = result + (int)Math.Pow(num, a);
+
+            return result == n;
         }
     }
 }
