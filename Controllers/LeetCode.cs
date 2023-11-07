@@ -873,6 +873,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.TwoSumLessThanK(nums, k);
             return result;
         }
+
+        [HttpPost("NumberOfDays")]
+        public int NumberOfDays(int year, int month)
+        {
+            var result = _leetCodeServices.NumberOfDays(year, month);
+            return result;
+        }
     }
 }
 

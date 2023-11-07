@@ -4086,5 +4086,10 @@ namespace LeetCodeWeb.Services
 
             return maxSum == 0 ? -1 : maxSum;
         }
+
+        public int NumberOfDays(int year, int month)
+        {
+            return 0;
+        }
     }
 }
