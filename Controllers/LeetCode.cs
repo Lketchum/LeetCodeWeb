@@ -923,6 +923,12 @@ namespace LeetCodeWeb.Controllers
             return result;
         }
 
+        [HttpPost("CountLetters")]
+        public int CountLetters(string s)
+        {
+            var result = _leetCodeServices.CountLetters(s);
+            return result;
+        }
     }
 }
 

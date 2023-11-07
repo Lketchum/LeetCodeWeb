@@ -134,5 +134,6 @@ namespace LeetCodeWeb.IServices
         public bool IsMajorityElement(int[] nums, int target);
         public int CalculateTime(string keyboard, string word);
         public int DietPlanPerformance(int[] calories, int k, int lower, int upper);
+        public int CountLetters(string s);
     }
 }

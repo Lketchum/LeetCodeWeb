@@ -4221,5 +4221,10 @@ namespace LeetCodeWeb.Services
 
             return result;
         }
+
+        public int CountLetters(string s)
+        {
+            return 0;
+        }
     }
 }
