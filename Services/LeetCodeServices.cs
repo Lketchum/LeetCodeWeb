@@ -4175,7 +4175,31 @@ namespace LeetCodeWeb.Services
 
         public int CalculateTime(string keyboard, string word)
         {
-            return 0;
+            #region 原始字典方法
+            //Dictionary<char, int> keyDic = new Dictionary<char, int>();
+            //for (int i = 0; i < 26; i++)
+            //    keyDic.Add(keyboard[i], i);
+            //int before = 0;
+            //int count = 0;
+            //for (int i = 0; i < word.Length; i++)
+            //{
+            //    count += Math.Abs(keyDic[word[i]] - before);
+            //    before = keyDic[word[i]];
+            //}
+
+            //return count;
+            #endregion
+
+            //优化方法
+            int before = 0;
+            int count = 0;
+            for (int i = 0; i < word.Length; i++)
+            {
+                count += Math.Abs(keyboard.IndexOf(word[i]) - before);
+                before = keyboard.IndexOf(word[i]);
+            }
+
+            return count;
         }
     }
 }
