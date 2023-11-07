@@ -4172,5 +4172,10 @@ namespace LeetCodeWeb.Services
             }
             return false;
         }
+
+        public int CalculateTime(string keyboard, string word)
+        {
+            return 0;
+        }
     }
 }

@@ -132,5 +132,6 @@ namespace LeetCodeWeb.IServices
         public int LargestUniqueNumber(int[] nums);
         public bool IsArmstrong(int n);
         public bool IsMajorityElement(int[] nums, int target);
+        public int CalculateTime(string keyboard, string word);
     }
 }

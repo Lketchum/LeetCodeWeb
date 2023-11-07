@@ -908,6 +908,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsMajorityElement(nums, target);
             return result;
         }
+
+        [HttpPost("CalculateTime")]
+        public int CalculateTime(string keyboard, string word)
+        {
+            var result = _leetCodeServices.CalculateTime(keyboard, word);
+            return result;
+        }
     }
 }
 
