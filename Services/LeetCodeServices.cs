@@ -4043,17 +4043,17 @@ namespace LeetCodeWeb.Services
             int tempSum = 0;
             List<int[]> avgFive = new List<int[]>();
             var orderItems = items.OrderBy(item => item[0]).ThenByDescending(item => item[1]).ToArray();
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < orderItems.Length; i++)
             {
-                if (id != items[i][0])
+                if (id != orderItems[i][0])
                 {
-                    id = items[i][0];
+                    id = orderItems[i][0];
                     tempSum = 0;
                     count = 0;
                 }
                 if (count < 5)
                 {
-                    tempSum += items[i][1];
+                    tempSum += orderItems[i][1];
                     count++;
                     if (count == 5)
                         avgFive.Add(new int[] { id, tempSum / 5 });
