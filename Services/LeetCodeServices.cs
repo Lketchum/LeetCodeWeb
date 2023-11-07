@@ -4204,7 +4204,22 @@ namespace LeetCodeWeb.Services
 
         public int DietPlanPerformance(int[] calories, int k, int lower, int upper)
         {
-            return 0;
+            int tempSum = 0;
+            int result = 0;
+            for (int i = 0; i < k; i++)
+                tempSum+= calories[i];
+            for (int i = k; i <= calories.Length; i++)
+            {                
+                if (tempSum > upper)
+                    result++;
+                else if (tempSum < lower)
+                    result--;
+
+                if (i < calories.Length) // 避免数组越界
+                    tempSum = tempSum + calories[i] - calories[i - k];
+            }
+
+            return result;
         }
     }
 }
