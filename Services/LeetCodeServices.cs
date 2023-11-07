@@ -4065,7 +4065,26 @@ namespace LeetCodeWeb.Services
 
         public int TwoSumLessThanK(int[] nums, int k)
         {
-            return 0;
+            Array.Sort(nums);
+            int n = nums.Length;
+            int maxSum = 0;
+            int start = 0;
+            int end = n - 1;
+            while (start < end)
+            {
+                int tempSum = nums[start] + nums[end];
+                if (tempSum < k)
+                {
+                    maxSum = Math.Max(maxSum, tempSum);
+                    start++;
+                }
+                else
+                {
+                    end--;
+                }
+            }
+
+            return maxSum == 0 ? -1 : maxSum;
         }
     }
 }
