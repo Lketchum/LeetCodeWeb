@@ -4097,5 +4097,10 @@ namespace LeetCodeWeb.Services
 
             return daysOfMonth[month - 1];
         }
+
+        public string RemoveVowels(string s)
+        {
+            return "";
+        }
     }
 }

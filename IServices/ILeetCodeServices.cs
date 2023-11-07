@@ -128,5 +128,6 @@ namespace LeetCodeWeb.IServices
         public int[][] HighFive(int[][] items);
         public int TwoSumLessThanK(int[] nums, int k);
         public int NumberOfDays(int year, int month);
+        public string RemoveVowels(string s);
     }
 }

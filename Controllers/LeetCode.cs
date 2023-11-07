@@ -880,6 +880,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.NumberOfDays(year, month);
             return result;
         }
+
+        [HttpPost("RemoveVowels")]
+        public string RemoveVowels(string s)
+        {
+            var result = _leetCodeServices.RemoveVowels(s);
+            return result;
+        }
     }
 }
 
