@@ -846,6 +846,12 @@ namespace LeetCodeWeb.Services
             public int?[] array2 { get; set; }
         }
 
+        public class TwoArrays_NotEmpty
+        {
+            public int[] array1 { get; set; }
+            public int[] array2 { get; set; }
+        }
+
         public class ThreeArrays
         {
             public int?[] array1 { get; set; }

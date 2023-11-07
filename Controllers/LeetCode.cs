@@ -826,9 +826,9 @@ namespace LeetCodeWeb.Controllers
         }
 
         [HttpPost("AnagramMappings")]
-        public int[] AnagramMappings(int[] nums1, int[] nums2)
+        public int[] AnagramMappings(TwoArrays_NotEmpty input)
         {
-            var result = _leetCodeServices.AnagramMappings(nums1, nums2);
+            var result = _leetCodeServices.AnagramMappings(input.array1, input.array2);
             return result;
         }
 
