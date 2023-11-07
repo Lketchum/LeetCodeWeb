@@ -4100,7 +4100,12 @@ namespace LeetCodeWeb.Services
 
         public string RemoveVowels(string s)
         {
-            return "";
+            string removeChar = "aoieu";
+            foreach (char ch in removeChar)
+            {
+                s = s.Replace(ch.ToString(), "");
+            }
+            return s;
         }
     }
 }
