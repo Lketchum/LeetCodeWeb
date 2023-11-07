@@ -4201,5 +4201,10 @@ namespace LeetCodeWeb.Services
 
             return count;
         }
+
+        public int DietPlanPerformance(int[] calories, int k, int lower, int upper)
+        {
+            return 0;
+        }
     }
 }

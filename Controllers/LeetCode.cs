@@ -915,6 +915,14 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CalculateTime(keyboard, word);
             return result;
         }
+
+        [HttpPost("DietPlanPerformance")]
+        public int DietPlanPerformance(int[] calories, int k, int lower, int upper)
+        {
+            var result = _leetCodeServices.DietPlanPerformance(calories, k, lower, upper);
+            return result;
+        }
+
     }
 }
 
