@@ -130,5 +130,6 @@ namespace LeetCodeWeb.IServices
         public int NumberOfDays(int year, int month);
         public string RemoveVowels(string s);
         public int LargestUniqueNumber(int[] nums);
+        public bool IsArmstrong(int n);
     }
 }

@@ -894,6 +894,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.LargestUniqueNumber(nums);
             return result;
         }
+
+        [HttpPost("IsArmstrong")]
+        public bool IsArmstrong(int n)
+        {
+            var result = _leetCodeServices.IsArmstrong(n);
+            return result;
+        }
     }
 }
 

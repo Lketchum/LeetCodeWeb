@@ -4140,5 +4140,10 @@ namespace LeetCodeWeb.Services
             }
             return result;
         }
+
+        public bool IsArmstrong(int n)
+        {
+            return false;
+        }
     }
 }
