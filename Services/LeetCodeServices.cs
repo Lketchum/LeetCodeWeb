@@ -4159,6 +4159,17 @@ namespace LeetCodeWeb.Services
 
         public bool IsMajorityElement(int[] nums, int target)
         {
+            int n = nums.Length;
+            int count = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (nums[i] == target)
+                {
+                    count++;
+                    if (count > n / 2)
+                        return true;
+                }                    
+            }
             return false;
         }
     }
