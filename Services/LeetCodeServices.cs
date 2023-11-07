@@ -4156,5 +4156,10 @@ namespace LeetCodeWeb.Services
 
             return result == n;
         }
+
+        public bool IsMajorityElement(int[] nums, int target)
+        {
+            return false;
+        }
     }
 }

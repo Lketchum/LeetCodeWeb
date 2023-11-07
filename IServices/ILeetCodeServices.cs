@@ -131,5 +131,6 @@ namespace LeetCodeWeb.IServices
         public string RemoveVowels(string s);
         public int LargestUniqueNumber(int[] nums);
         public bool IsArmstrong(int n);
+        public bool IsMajorityElement(int[] nums, int target);
     }
 }

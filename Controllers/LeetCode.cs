@@ -901,6 +901,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.IsArmstrong(n);
             return result;
         }
+
+        [HttpPost("IsMajorityElement")]
+        public bool IsMajorityElement(int[] nums, int target)
+        {
+            var result = _leetCodeServices.IsMajorityElement(nums, target);
+            return result;
+        }
     }
 }
 
