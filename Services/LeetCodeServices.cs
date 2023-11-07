@@ -4110,7 +4110,35 @@ namespace LeetCodeWeb.Services
 
         public int LargestUniqueNumber(int[] nums)
         {
-            return 0;
+            //字典方法的时间复杂度更低
+            if (nums.Length == 1)
+                return nums[0];
+
+            Array.Sort(nums);
+            int before = -1;
+            int after = -1;
+            int result = -1;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (i == 0)
+                {
+                    after = nums[i + 1];
+                    result = nums[i] == after ? -1 : nums[i];
+                }
+                else if (i == nums.Length - 1)
+                {
+                    before = nums[i - 1];
+                    result = nums[i] == before ? result : nums[i];
+                }
+                else
+                {
+                    before = nums[i - 1];
+                    after = nums[i + 1];
+                    if (nums[i] != before && nums[i] != after)
+                        result = nums[i];
+                }
+            }
+            return result;
         }
     }
 }
