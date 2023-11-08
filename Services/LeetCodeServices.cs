@@ -4291,7 +4291,26 @@ namespace LeetCodeWeb.Services
 
         public int MissingNumber(int[] arr)
         {
-            return 0;
+            int n = arr.Length;
+            int diff;
+            int diffStart = arr[1] - arr[0];
+            int diffEnd = arr[n - 1] - arr[n - 2];
+            if (diffStart == 0 && diffEnd == 0)
+                return arr[0];
+            if (Math.Abs(diffStart) < Math.Abs(diffEnd))
+                diff = diffStart;
+            else
+                diff = diffEnd;
+
+            for (int i = 1; i < n; i++)
+            {
+                if (arr[i] == arr[i - 1] + diff)
+                    continue;
+                else
+                    return arr[i - 1] + diff;
+            }
+
+            return -1;
         }
     }
 }
