@@ -936,6 +936,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MaxNumberOfApples(weight);
             return result;
         }
+
+        [HttpPost("ArraysIntersection")]
+        public IList<int> ArraysIntersection(ThreeArrays_NotEmpty input)
+        {
+            var result = _leetCodeServices.ArraysIntersection(input.array1, input.array2, input.array3);
+            return result;
+        }
     }
 }
 

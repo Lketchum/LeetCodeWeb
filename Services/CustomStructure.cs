@@ -859,6 +859,13 @@ namespace LeetCodeWeb.Services
             public int?[] array3 { get; set; }
         }
 
+        public class ThreeArrays_NotEmpty
+        {
+            public int[] array1 { get; set; }
+            public int[] array2 { get; set; }
+            public int[] array3 { get; set; }
+        }
+
         public class Arrays_CalcEquation
         {
             public IList<IList<string>> array1 { get; set; }

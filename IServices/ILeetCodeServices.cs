@@ -136,5 +136,6 @@ namespace LeetCodeWeb.IServices
         public int DietPlanPerformance(int[] calories, int k, int lower, int upper);
         public int CountLetters(string s);
         public int MaxNumberOfApples(int[] weight);
+        public IList<int> ArraysIntersection(int[] arr1, int[] arr2, int[] arr3);
     }
 }
