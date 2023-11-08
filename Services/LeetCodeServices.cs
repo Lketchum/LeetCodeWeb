@@ -4288,5 +4288,10 @@ namespace LeetCodeWeb.Services
 
             return sameNum;
         }
+
+        public int MissingNumber(int[] arr)
+        {
+            return 0;
+        }
     }
 }

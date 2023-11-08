@@ -943,6 +943,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ArraysIntersection(input.array1, input.array2, input.array3);
             return result;
         }
+
+        [HttpPost("MissingNumber")]
+        public int MissingNumber(int[] arr)
+        {
+            var result = _leetCodeServices.MissingNumber(arr);
+            return result;
+        }
     }
 }
 

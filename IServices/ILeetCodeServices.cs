@@ -137,5 +137,6 @@ namespace LeetCodeWeb.IServices
         public int CountLetters(string s);
         public int MaxNumberOfApples(int[] weight);
         public IList<int> ArraysIntersection(int[] arr1, int[] arr2, int[] arr3);
+        public int MissingNumber(int[] arr);
     }
 }
