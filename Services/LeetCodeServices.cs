@@ -4315,7 +4315,35 @@ namespace LeetCodeWeb.Services
 
         public IList<int> TransformArray(int[] arr)
         {
-            return null;
+            int n = arr.Length;
+            if (n < 3)
+                return arr;
+            bool isChanged = true;
+            int[] newArr = new int[n];
+            while (isChanged == true)
+            {
+                isChanged = false;
+                newArr = new int[n];
+                for (int i = 0; i < n; i++)
+                {
+                    if (i == 0 || i == n - 1)
+                        newArr[i] = arr[i];
+                    else if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1])
+                    {
+                        isChanged = true;
+                        newArr[i] = arr[i] - 1;
+                    }
+                    else if (arr[i] < arr[i - 1] && arr[i] < arr[i + 1])
+                    {
+                        isChanged = true;
+                        newArr[i] = arr[i] + 1;
+                    }
+                    else
+                        newArr[i] = arr[i];
+                }
+            }
+
+            return newArr.ToList();
         }
     }
 }
