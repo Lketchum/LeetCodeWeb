@@ -4242,5 +4242,10 @@ namespace LeetCodeWeb.Services
 
             return allCount;
         }
+
+        public int MaxNumberOfApples(int[] weight)
+        {
+            return 0;
+        }
     }
 }

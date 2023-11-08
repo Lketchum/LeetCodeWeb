@@ -135,5 +135,6 @@ namespace LeetCodeWeb.IServices
         public int CalculateTime(string keyboard, string word);
         public int DietPlanPerformance(int[] calories, int k, int lower, int upper);
         public int CountLetters(string s);
+        public int MaxNumberOfApples(int[] weight);
     }
 }

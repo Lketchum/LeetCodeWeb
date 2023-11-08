@@ -929,6 +929,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.CountLetters(s);
             return result;
         }
+
+        [HttpPost("MaxNumberOfApples")]
+        public int MaxNumberOfApples(int[] weight)
+        {
+            var result = _leetCodeServices.MaxNumberOfApples(weight);
+            return result;
+        }
     }
 }
 
