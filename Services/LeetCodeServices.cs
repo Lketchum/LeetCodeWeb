@@ -13,6 +13,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -4262,7 +4263,30 @@ namespace LeetCodeWeb.Services
 
         public IList<int> ArraysIntersection(int[] arr1, int[] arr2, int[] arr3)
         {
-            return null;
+            IList<int> sameNum = new List<int>();
+            int pos1 = 0, pos2 = 0, pos3 = 0;
+            while (pos1 < arr1.Length && pos2 < arr2.Length && pos3 < arr3.Length)
+            {
+                int smallNum = Math.Min(Math.Min(arr1[pos1], arr2[pos2]), arr3[pos3]);
+                if (arr1[pos1] == arr2[pos2] && arr2[pos2] == arr3[pos3])
+                {
+                    sameNum.Add(arr1[pos1]);
+                    pos1++;
+                    pos2++;
+                    pos3++;
+                }
+                else
+                {
+                    if (smallNum == arr1[pos1])
+                        pos1++;
+                    else if (smallNum == arr2[pos2])
+                        pos2++;
+                    else
+                        pos3++;
+                }
+            }
+
+            return sameNum;
         }
     }
 }
