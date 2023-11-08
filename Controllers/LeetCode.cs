@@ -957,6 +957,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.TransformArray(arr);
             return result;
         }
+
+        [HttpPost("ToHexspeak")]
+        public string ToHexspeak(string num)
+        {
+            var result = _leetCodeServices.ToHexspeak(num);
+            return result;
+        }
     }
 }
 

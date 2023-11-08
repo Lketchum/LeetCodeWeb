@@ -4341,9 +4341,15 @@ namespace LeetCodeWeb.Services
                     else
                         newArr[i] = arr[i];
                 }
+                arr = newArr;
             }
 
             return newArr.ToList();
+        }
+
+        public string ToHexspeak(string num)
+        {
+            return "";
         }
     }
 }

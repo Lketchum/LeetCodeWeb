@@ -139,5 +139,6 @@ namespace LeetCodeWeb.IServices
         public IList<int> ArraysIntersection(int[] arr1, int[] arr2, int[] arr3);
         public int MissingNumber(int[] arr);
         public IList<int> TransformArray(int[] arr);
+        public string ToHexspeak(string num);
     }
 }
