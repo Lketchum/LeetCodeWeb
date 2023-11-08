@@ -4349,7 +4349,21 @@ namespace LeetCodeWeb.Services
 
         public string ToHexspeak(string num)
         {
-            return "";
+            long digitNum = Convert.ToInt64(num);
+            string hexNum = Convert.ToString(digitNum, 16).ToUpper();
+            string returnNum = "";
+            for (int i = 0; i < hexNum.Length; i++)
+            {
+                if (hexNum[i] >= '2' && hexNum[i] <= '9')
+                    return "ERROR";
+                else if (hexNum[i] == '0')
+                    returnNum = string.Concat(returnNum, 'O');
+                else if (hexNum[i] == '1')
+                    returnNum = string.Concat(returnNum, 'I');
+                else
+                    returnNum = string.Concat(returnNum, hexNum[i]);
+            }
+            return returnNum;
         }
     }
 }
