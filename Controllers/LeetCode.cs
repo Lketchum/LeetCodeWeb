@@ -950,6 +950,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.MissingNumber(arr);
             return result;
         }
+
+        [HttpPost("TransformArray")]
+        public IList<int> TransformArray(int[] arr)
+        {
+            var result = _leetCodeServices.TransformArray(arr);
+            return result;
+        }
     }
 }
 

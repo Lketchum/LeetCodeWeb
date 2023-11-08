@@ -4312,5 +4312,10 @@ namespace LeetCodeWeb.Services
 
             return -1;
         }
+
+        public IList<int> TransformArray(int[] arr)
+        {
+            return null;
+        }
     }
 }
