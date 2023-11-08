@@ -4224,7 +4224,23 @@ namespace LeetCodeWeb.Services
 
         public int CountLetters(string s)
         {
-            return 0;
+            int allCount = 0;
+            int charCount = 0;
+            char tmpChar = '#';
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (tmpChar != s[i])
+                {
+                    allCount += (int)(0.5 * (1 + charCount) * charCount);
+                    tmpChar = s[i];
+                    charCount = 1;
+                }
+                else
+                    charCount++;
+            }
+            allCount += (int)(0.5 * (1 + charCount) * charCount);
+
+            return allCount;
         }
     }
 }
