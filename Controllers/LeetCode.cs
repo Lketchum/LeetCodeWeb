@@ -964,6 +964,15 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.ToHexspeak(num);
             return result;
         }
+
+        [HttpPost("UpsideDownBinaryTree")]
+        public int?[] UpsideDownBinaryTree(int?[] arr)
+        {
+            TreeNode root = _leetCodeServices.ArrayToBinaryTree(arr);
+            var resultNode = _leetCodeServices.UpsideDownBinaryTree(root);
+            var result = _leetCodeServices.TreeToArray(resultNode);
+            return result;
+        }
     }
 }
 

@@ -140,5 +140,6 @@ namespace LeetCodeWeb.IServices
         public int MissingNumber(int[] arr);
         public IList<int> TransformArray(int[] arr);
         public string ToHexspeak(string num);
+        public TreeNode UpsideDownBinaryTree(TreeNode root);
     }
 }

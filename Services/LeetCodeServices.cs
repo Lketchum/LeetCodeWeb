@@ -4365,5 +4365,10 @@ namespace LeetCodeWeb.Services
             }
             return returnNum;
         }
+
+        public TreeNode UpsideDownBinaryTree(TreeNode root)
+        {
+            return null;
+        }
     }
 }
