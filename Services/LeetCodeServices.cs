@@ -4245,7 +4245,19 @@ namespace LeetCodeWeb.Services
 
         public int MaxNumberOfApples(int[] weight)
         {
-            return 0;
+            Array.Sort(weight);
+            int maxCount = 0;
+            int weightCount = 0;
+            for (int i = 0; i < weight.Length; i++)
+            {
+                weightCount += weight[i];
+                if (weightCount <= 5000)
+                    maxCount++;
+                else
+                    return maxCount;
+            }
+
+            return maxCount;
         }
     }
 }
