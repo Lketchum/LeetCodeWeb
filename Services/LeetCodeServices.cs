@@ -4368,7 +4368,21 @@ namespace LeetCodeWeb.Services
 
         public TreeNode UpsideDownBinaryTree(TreeNode root)
         {
-            return null;
+            //题目中已假设不存在右节点
+            TreeNode newNode = null;
+            TreeNode tmpNode = null;
+            TreeNode tmpRight = null;
+            while (root != null)
+            {
+                newNode = new TreeNode(root.val);                
+                newNode.left = tmpRight;
+                newNode.right = tmpNode;
+                tmpNode = newNode;
+                tmpRight = root.right;
+                root = root.left;
+            }           
+
+            return newNode;
         }
     }
 }
