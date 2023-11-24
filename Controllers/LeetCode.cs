@@ -973,6 +973,13 @@ namespace LeetCodeWeb.Controllers
             var result = _leetCodeServices.TreeToArray(resultNode);
             return result;
         }
+
+        [HttpPost("Divide")]
+        public int Divide(int a, int b)
+        {
+            var result = _leetCodeServices.Divide(a, b);
+            return result;
+        }
     }
 }
 

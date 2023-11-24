@@ -4384,5 +4384,10 @@ namespace LeetCodeWeb.Services
 
             return newNode;
         }
+
+        public int Divide(int a, int b)
+        {
+            return 0;
+        }
     }
 }
